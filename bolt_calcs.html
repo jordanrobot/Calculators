@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Bolt Calculator</title>
+
+	<meta content="width=device-width, minimum-scale=1, maximum-scale=1" name="viewport">
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript">
+		$(document).bind("mobileinit", function () {
+    		$.mobile.ajaxEnabled = false;
+		});
+	</script>
+	<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+
+ 	<script src="http://www.scenic-shop.com/mint/?js" type="text/javascript"></script>
+
+</head>
+<body>
+
+<!--   	###################
+		#####   PAGE  #####
+		################### 	-->
+
+<div data-role="page" id="imperial_bolt">
+
+     <script>
+//    	$(document).on('pageinit', '#imperial_bolt', function (event, ui) {
+//    	     $('#navigation_links').load('navpanel.html', function (){
+//    	     	$('#navigation_links').listview("refresh");
+//			});
+//    	 });
+
+		$(document).on('pageinit', $.mobile.activePage, function () {
+		     $("div:jqmData(role='panel')").load('navpanel.html', function (){
+				$("div:jqmData(role='collapsible')").collapsible();
+				$("ul:jqmData(role='listview')").listview();
+			});
+		 });
+
+    </script>
+	<script type="text/javascript" src="script/mdj.math.library.js"></script>
+	<script type="text/javascript" src="script/bolt_formulas.js"></script>
+
+
+<!--	#####   Panel   #####		-->
+
+	<div data-role="panel" id="navpanel" data-display="reveal" data-position="left">
+		<ul data-role="listview" id="navigation_links"  data-theme="f">
+		</ul>
+	</div>
+
+
+<!--	#####   Header   #####		-->
+
+	<div data-role="header" class="header" data-position="fixed">
+		<a href="#navpanel" data-role="button" data-icon="bars" data-iconpos="notext">Navigation</a>
+		<h1>Bolt Calculator</h1>
+	</div>
+
+
+<!--	#####   CONTENT   #####		-->
+
+<div role="main" class="ui-content">
+	
+	<fieldset data-role="controlgroup" data-type="horizontal" id="size_group">
+		<label for="size_group" class="select">Bolt Size:</label>
+		<select name="bolt_size" id="bolt_size" class="user_values" value=".375-16">
+			<option value="0">#0</option>
+			<option value="1">#1</option>
+			<option value="2">#2</option>
+			<option value="3">#3</option>
+			<option value="4">#4</option>
+			<option value="5">#5</option>
+			<option value="6">#6</option>
+			<option value="8">#8</option>
+			<option value="10">#10</option>
+			<option value="12">#12</option>
+			<option value=".25-20">1/4"-20</option>
+			<option value=".25-28">1/4"-28</option>
+			<option value=".3125-18">5/16"-18</option>
+			<option value=".3125-24">5/16"-24</option>
+			<option value=".375-16">3/8"-16</option>
+			<option value=".375-20">3/8"-20</option>
+		</select>
+	
+		<select name="bolt_size" id="bolt_size" class="user_values" value="grade_5_sm">
+			<option value="grade_1">Grade 1 (1/4" thru 1.5")</option>
+			<option value="grade_2">Grade 2</option>
+			<option value="grade_5_sm">Grade 5 (1/4" thru 1")</option>
+			<option value="grade_5_lg">Grade 5 (over 1" thru 1.5")</option>
+			<option value="grade_5.1">Grade 5.1</option>
+			<option value="grade_8">Grade 8</option>
+			<option value="grade_A449">A449 Type 1 (Over 0.5" thru 3")</option>
+			<option value="grade_A325_sm">A325 (0.5" thru 1")</option>
+			<option value="grade_A325_lg">A325 (over 1" to 1.5")</option>
+		</select>
+	</fieldset>
+
+	<div data-type="fieldcontain">
+		<fieldset data-role="controlgroup" data-type="horizontal" > 
+			<legend>Choose a thread pitch and class:</legend>
+			<input type="radio" name="radio_tpi" id="radio_UNC" value="radio_UNC" checked="checked" />
+			<label for="radio_UNC">UNC</label>
+		
+			<input type="radio" name="radio_tpi" id="radio_UNF" value="radio_UNF"/>
+			<label for="radio_UNF">UNF</label>
+		
+			<input type="radio" name="radio_tpi" id="radio_UNEF" value="radio_UNEF"/>
+			<label for="radio_UNEF">UNEF</label>
+		
+			<input type="radio" name="class_radio" id="class_2a" value="class_2a" checked="checked" />
+			<label for="class_2a">2A</label>
+		
+			<input type="radio" name="class_radio" id="class_3a" value="class_3a" />
+			<label for="class_3a">3A</label>
+		</feildset>
+		</div>
+		
+		<div data-role="collapsible-set" data-theme="a">
+	
+			<div data-role="collapsible" data-collapsed="true" data-theme="b">
+				<h3>Fits:</h3>
+
+
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<label for="bolt_tap">Tap Predrill Diam (in):</label>
+						<input class="calculated_values" id="bolt_tap" name="bolt_tap" readonly />
+					</div>
+					<div class="ui-block-b">
+						<label for="bolt_tap_id">Tap Predrill Bit:</label>
+						<input class="calculated_values" id="bolt_tap_id" name="bolt_tap_id" readonly />
+					</div>
+				</div>
+
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+						<label for="bolt_fit_free">Free Fit Diam (in):</label>
+						<input class="calculated_values" id="bolt_free_fit" name="bolt_free_fit" readonly />
+					</div>
+					<div class="ui-block-b">
+						<label for="bolt_fit_free_id">Free Fit Bit:</label>
+						<input class="calculated_values" id="bolt_free_fit_id" name="bolt_free_fit_id" readonly />
+					</div>
+				</div>
+
+				<div class="ui-grid-a">
+					<div class="ui-block-a">	
+						<label for="bolt_fit_close">Close Fit Diam (in):</label>
+						<input class="calculated_values" id="bolt_close_fit" name="bolt_close_fit" readonly />
+					</div>
+					<div class="ui-block-b">
+						<label for="bolt_fit_close_id">Close Fit Bit:</label>
+						<input class="calculated_values" id="bolt_close_fit_id" name="bolt_close_fit_id" readonly />
+					</div>
+				</div>
+	
+			</div>
+			
+			<div data-role="collapsible" data-collapsed="true" data-theme="b">
+				<h3>Strength:</h3>
+	
+				<label for="bolt_yield">Yield Strength (lbs):</label>
+				<input class="calculated_values" id="bolt_yield" name="bolt_yield" readonly />
+	        	
+				<label for="bolt_tensile">Tensile strength (lbs):</label>
+				<input class="calculated_values" id="bolt_tensile" name="bolt_tensile" readonly />
+	        	
+				<label for="bolt_shear_thread">Shear strength at Threads (lbs):</label>
+				<input class="calculated_values" id="bolt_shear_thread" name="bolt_shear_thread" readonly />
+	        	
+				<label for="bolt_shear_shank">Shear strength at Shank (lbs):</label>
+				<input class="calculated_values" id="bolt_shear_shank" name="bolt_shear_shank" readonly />
+	
+			</div>
+	
+			<div data-role="collapsible" data-collapsed="true" data-theme="b">
+				<h3>Force and Torque:</h3>
+					                	
+				<label for="bolt_max_clamp">Max Clamping Force (lbs):</label>
+				<input class="calculated_values" id="bolt_max_clamp" name="bolt_max_clamp" readonly />
+	        	
+				<label for="bolt_preload">Preload Percentage (%):</label>
+				<input class="user_values" type="number" data-clear-btn="true" id="bolt_preload" max=100 value=70 min=1 name="bolt_preload" />
+	
+				<label for="bolt_torque">Approx. Torque (%):</label>
+				<input class="calculated_values"id="bolt_torque" name="bolt_torque" readonly />
+			</div>
+		</div>
+
+	</div>	 <!-- Content -->
+
+
+<!--	#####   FOOTER   #####		-->
+
+	<div data-role="footer" style="footer" class="footer" data-position="fixed">
+		<div data-role="navbar"  data-theme="b">
+			<ul>
+				<li><a href="#imperial_bolt" class="ui-btn-active ui-state-persist">Imperial</a></li>
+				<li><a href="#metric_bolt">Metric</a></li>
+			</ul>
+		</div> <!-- Navbar -->
+	</div>	 <!-- Footer -->
+
+<!--	<script>$('.user_values').change(function(){();});</script>-->
+	
+</div>	 <!-- Page -->
+
+
+
+<!--   	###################
+		#####   PAGE  #####
+		################### 	-->
+
+<div data-role="page" id="metric_bolt">
+
+     <script>
+    	$(document).on('pageinit', '#metric_bolt', function (event, ui) {
+    	     $('#navigation_links2').load('navpanel.html', function (){
+    	     	$('#navigation_links2').listview("refresh");
+			});
+    	 });
+    </script>
+<!--	<script>$('#metric_bolt').live('pageinit', function(){;});</script>-->
+	
+
+
+<!--	#####   Panel   #####		-->
+
+	<div data-role="panel" id="navpanel2" data-display="reveal" data-position="left">
+		<ul data-role="listview" id="navigation_links2"  data-theme="f">
+		</ul>
+	</div> <!-- Panel -->
+
+
+<!--	#####   Header   #####		-->
+
+	<div data-role="header" class="header" data-position="fixed">
+		<a href="#navpanel2" data-role="button" data-icon="bars" data-iconpos="notext">Navigation</a>
+		<h1>Bolt Calculator</h1>
+	</div>
+
+<!--	#####   Content   #####		-->
+
+<div data-role="content" style="content" class="content">
+	</div>
+
+<!--	#####   FOOTER   #####		-->
+
+	<div data-role="footer" data-position="fixed" data-theme="b">
+				<div data-role="navbar"  data-theme="b">
+			<ul>
+				<li><a href="#imperial_bolt">Imperial</a></li>
+				<li><a href="#metric_bolt" class="ui-btn-active ui-state-persist">Metric</a></li>
+			</ul>
+		</div> <!-- Navbar -->
+	</div>
+
+	
+</div>	 <!-- Page -->
+
+
+</body>
+</html>

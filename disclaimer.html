@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Scenic-Shop Calculators</title>
+
+	<link rel="shortcut icon" type="image/png" href="../favicon.png" />
+	<link rel="apple-touch-icon-precomposed" href="../apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../apple-touch-icon-120x120.png">
+
+	<meta content="width=device-width, minimum-scale=1, maximum-scale=1" name="viewport">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script  type="text/javascript" src="script/mdj.math.library.js"></script>
+
+
+	<script type="text/javascript">
+		$(document).bind("mobileinit", function () {
+			$.mobile.ajaxEnabled = false;
+		});
+	</script>
+
+	<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+ 	<script src="http://www.scenic-shop.com/mint/?js" type="text/javascript"></script>
+
+</head>
+<body>
+
+
+<!--   	##############################
+		#####   DISCLAIMER PAGE  #####
+		############################## 	-->
+
+<div data-role="page" id="disclaimer">
+
+	<script>
+		LoadNavPanel("#disclaimer");
+	</script>
+
+
+<!--	#####   PANEL   #####		-->
+
+	<div data-role="panel" id="navpanel" class="navpanel" data-display="reveal" data-position="left">
+		<ul data-role="listview" id="navigation_links"  data-theme="f">
+		</ul>
+	</div> <!-- Panel -->
+
+
+<!--	#####   HEADER   #####		-->
+
+    <div data-role="header" data-position="fixed" data-theme="b">
+	<a href="#navpanel" data-role="button" data-icon="bars" data-iconpos="notext">Navigation</a>
+		<h1>Disclaimer</h1>
+	<a href="index.html" data-rel="back" data-role="button" class="ui-btn-">Confirm</a>
+    </div>
+
+
+<!--	#####   CONTENT   #####		-->
+
+    <div data-role="content">
+
+		These calculators are still a work in progress.  They may not give accurate results; verify calculations by an alternate method.  Please use your own judgement when applying them, and if you are working outside of your comfort zone, please consult a professional to aide you. -- That said, I'll follow with a general liability disclaimer...
+ </p>
+Restriction of Liability
+</p>
+The owners, operators, and hosts of Scenic-Shop.com (herein Scenic-shop.com) makes no claims, promises or guarantees about the accuracy, completeness, or adequacy of the contents of this website and expressly disclaims liability for errors and omissions in the contents of this website. No warranty of any kind, implied, expressed or statutory, including but not limited to the warranties of non-infringement of third party rights, title, merchantability, fitness for a particular purpose and freedom from computer virus, is given with respect to the contents of this website or its hyperlinks to other Internet resources.
+</p>
+Scenic-shop.com shall not assume liablility for any use, accuracy, suitability for purpose, and/or application of the information, routines, and formulas contained in this websites.
+</p>
+By using this website, you agree that the exclusions and limitations of liability set out in this website disclaimer are reasonable.  
+</p>
+If you do not think they are reasonable, you must not use this website.
+
+
+		<a href="index.html" data-rel="back" data-role="button">Confirm</a>
+
+    </div>
+
+<!--	#####   FOOTER   #####		-->
+
+    <div data-role="footer" data-position="fixed" data-theme="b">
+    </div>
+
+</div><!-- Page -->
+
+</body>
+</html>

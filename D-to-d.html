@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>D:d Ratios</title>
+
+	<link rel="shortcut icon" type="image/png" href="../favicon.png" />
+	<link rel="apple-touch-icon-precomposed" href="../apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../apple-touch-icon-120x120.png">
+	<meta content="width=device-width, minimum-scale=1, maximum-scale=1" name="viewport">
+
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+	<script type="text/javascript" src="script/mdj.math.library.js"></script>
+	<script type="text/javascript" src="script/D-to-d.js"></script>
+
+	<script type="text/javascript">$(document).bind("mobileinit", function () {$.mobile.ajaxEnabled = false;});</script>
+	<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+ 	<script src="http://www.scenic-shop.com/mint/?js" type="text/javascript"></script>
+
+</head>
+<body>
+
+
+<!--   	##########################
+		#####   D to d PAGE  #####
+		########################## 	-->
+
+<div data-role="page" id="Dd_page">
+
+    <script>
+		LoadNavPanel("#Dd_page");
+
+		$(document).on('pageshow', "#Dd_page", function(){calculateDd();});
+		$(document).on('change', "#variable", function(){changeVariable();});
+		$(document).on('change', ".user_values, .calculated_values", function(){calculateDd();});
+
+		$(".calculated_values").prop("readonly",true);
+	</script>
+
+
+<!--	#####   PANEL   #####		-->
+
+	<div data-role="panel" id="navpanel" class="navpanel" data-display="reveal" data-position="left">
+		<ul data-role="listview" id="navigation_links"  data-theme="d">
+		</ul>
+	</div> <!-- Panel -->
+
+
+<!--	#####   HEADER   #####		-->
+
+	<div data-role="header" data-position="fixed" data-theme="b">
+		<a href="#navpanel" data-role="button" data-icon="bars" data-iconpos="notext">Navigation</a>
+		<h1>D:d</h1>
+	</div><!-- /header -->
+
+	
+<!--	#####   CONTENT   #####		-->
+
+	<div role="main" class="ui-content">
+	
+		
+
+			<div class="ui-field-contain">
+				<label for="variable">Calculate for:</label>
+				<select name="variable" id="variable" data-mini="true">
+					<option value="pulley">Tread Diameter</option>
+					<option value="Dd_ratio">D:d Ratio</option>
+				</select> 
+		 	</div> <!--   fieldcontain   -->
+
+			<label for="cable_d">Cable D (in):</label>
+			<input class="user_values" type="number" data-clear-btn="true" name="cable_d" id="cable_d" value="0.25" step="0.0625" min="0" />
+
+		<div class="ui-grid-b">
+
+			<div class="ui-block-a">
+				<label for="Dd_ratio">D:d Ratio:</label>
+				<input class="user_values" type="number" data-clear-btn="true" name="Dd_ratio" id="Dd_ratio" value="30" step="1" min="0"/>
+			</div>
+
+			<div class="ui-block-b">
+				<label for="pulley_d">Tread D (in):</label>
+				<input class="calculated_values" type="number" data-clear-btn="true" name="pulley_d" id="pulley_d" min="0" readonly>
+			</div>
+			<div class="ui-block-c"
+				<label for="pitch_d">Pitch D (in):</label>
+				<input class="calculated_values" name="pitch_d" id="pitch_d" readonly/>
+			</div>	
+		</div>		
+
+			<label for="strength">Reduced Strength (%):</label>
+			<input class="user_values" type="number" id="strength" readlonly />
+
+	</div><!-- /content -->
+
+
+<!--	#####   Footer   #####		-->
+
+	<div data-role="footer" data-position="fixed" data-theme="b">
+		<div data-role="controlgroup" data-type="horizontal" align="center">
+			<a href="formulas/mdwiki.html#!D-to-d.md" data-role="button" id="formula" data-icon="gear">Formulas</a>
+			<a href="#diagram" data-role="button" id="D-to-d_diagram" data-icon="info">Diagram</a>
+			<a href="disclaimer.html" data-role="button" data-rel="dialog">Disclaimer</a>
+		</div>
+	</div>  <!-- Footer -->
+
+</div> <!--  Page -->
+
+
+<!--   	######################
+		#####   DIAGRAM  #####
+		###################### 	-->
+
+<div data-role="page" id="diagram" data-dialog="true">
+	<div data-role="header" data-position="fixed" data-theme="b">
+		<h1>Pulley Diagram</h1>
+	</div><!-- /header -->
+    
+    <div data-role="content">
+		<h1> <img class="centered" src="image/pulleys.jpg" alt="Diagram" /> </h1>
+    </div>
+
+</div><!-- Page -->
+
+</body>
+</html>

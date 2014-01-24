@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Unit Converter</title>
+
+	<link rel="shortcut icon" type="image/png" href="../favicon.png" />
+	<link rel="apple-touch-icon-precomposed" href="../apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../apple-touch-icon-120x120.png">
+	<meta content="width=device-width, minimum-scale=1, maximum-scale=1" name="viewport">
+
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="script/mdj.math.library.js"></script>
+	<script type="text/javascript" src="http://www.scenic-shop.com/Calculators/script/unit_calculators.js"></script>
+
+	<script type="text/javascript">$(document).bind("mobileinit", function () {$.mobile.ajaxEnabled = false;});</script>
+	<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+ 	<script src="http://www.scenic-shop.com/mint/?js" type="text/javascript"></script>
+
+</head>
+<body>
+
+<!--   	###################
+		#####   PAGE  #####
+		################### 	-->
+
+<div data-role="page" id="geometric_page">
+
+
+	<script>
+		LoadNavPanel("#geometric_page");
+    </script>
+
+
+	<div data-role="panel" id="navpanel" class="navpanel" data-display="reveal" data-position="left">
+
+	</div> <!-- Panel -->
+
+	<div data-role="header" data-position="fixed" data-theme="b">
+		<a href="#navpanel" data-role="button" data-icon="bars" data-iconpos="notext">Navigation</a>
+		<h1>Unit Converter</h1>
+	</div><!-- /header -->
+	
+ 	<div role="main" class="ui-content">
+		<div data-role="collapsible-set">
+
+<!-- #######################################################-->
+<!-- ###################   Length   ########################-->
+<!-- #######################################################-->
+			
+			<div data-role="collapsible" data-theme="b">
+				<h3>Length</h3>
+				<div data-role="fieldcontain">
+					
+					<label for="millimeter">Millimeter:</label>
+					<input class="length" type="number" min=0  name="millimeter" id="millimeter" />
+
+					<label for="centimeter">centimeter:</label>
+					<input class="length" type="number" min=0  name="centimeter" id="centimeter" />
+					
+					<label for="meter">Meter:</label>
+					<input class="length" type="number" min=0  name="meter" id="meter" />
+					
+					<label for="kilometer">Kilometer:</label>
+					<input class="length" type="number" min=0  name="kilometer" id="kilometer" />
+
+					<label for="inch">Inch:</label>
+					<input class="length" type="number" min=0  name="inch" id="inch" />
+					
+					<label for="foot">Foot:</label>
+					<input class="length" type="number" min=0  name="foot" id="foot" />
+					
+					<label for="yard">Yard:</label>
+					<input class="length" type="number" min=0  name="yard" id="yard" />
+
+					<label for="fathom">Fathom:</label>
+					<input class="length" type="number" min=0  name="fathom" id="fathom" />
+
+					<label for="mile">Mile:</label>
+					<input class="length" type="number" min=0  name="mile" id="mile" />
+					
+					<label for="league">League</label>
+					<input class="length" type="number" min=0  name="league" id="league" />
+				</div><!-- /fieldcontain -->
+			</div> <!-- Collapsible -->
+
+<!-- #####################################################-->
+<!-- ###################   Area   ########################-->
+<!-- #####################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Area</h3>
+					<div data-role="fieldcontain">
+						
+						<label for="meter_2">Meter<sup>2</sup>:</label>
+						<input class="area" type="number" min=0  name="meter_2" id="meter_2" maxlength="8"/>
+
+						<label for="kmeter_2">Kilometer<sup>2</sup>:</label>
+						<input class="area" type="number" min=0  name="kmeter_2" id="kmeter_2" maxlength="8"/>
+
+						<label for="inch_2">Inch<sup>2</sup>:</label>
+						<input class="area" type="number" min=0  name="inch_2" id="inch_2" maxlength="8"/>
+
+						<label for="foot_2">Foot<sup>2</sup>:</label>
+						<input class="area" type="number" min=0  name="foot_2" id="foot_2" maxlength="8"/>
+						
+						<label for="yard_2">Yard<sup>2</sup>:</label>
+						<input class="area" type="number" min=0  name="yard_2" id="yard_2" />
+						
+						<label for="mile_2">Mile<sup>2</sup>:</label>
+						<input class="area" type="number" min=0  name="mile_2" id="mile_2" />
+						
+						<label for="acre">Acre:</label>
+						<input class="area" type="number" min=0  name="acre" id="acre" />
+						
+						<label for="hectare">Hectare:</label>
+						<input class="area" type="number" min=0  name="hectare" id="hectare" />
+					</div><!-- /fieldcontain -->
+				</div> <!-- Collaspible -->
+
+<!-- #######################################################-->
+<!-- ###################   Volume   ########################-->
+<!-- #######################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Volume</h3>
+				<div data-role="fieldcontain">
+
+					<label for="millimeter_3">Millimeter<sup>3</sup>:</label>
+					<input class="volume" type="number" min=0  name="millimeter_3" id="millimeter_3" />
+
+					<label for="meter_3">Meter<sup>3</sup>:</label>
+					<input class="volume" type="number" min=0  name="meter_3" id="meter_3" />
+					
+					<label for="inch_3">Inch<sup>3</sup>:</label>
+					<input class="volume" type="number" min=0  name="inch_3" id="inch_3" />
+
+					<label for="foot_3">Foot<sup>3</sup>:</label>
+					<input class="volume" type="number" min=0  name="foot_3" id="foot_3" />
+					
+					<label for="yard_3">Yard<sup>3</sup>:</label>
+					<input class="volume" type="number" min=0  name="yard_3" id="yard_3" />
+					
+					<label for="fluid_oz">Fluid Ounce:</label>
+					<input class="volume" type="number" min=0  name="fluid_oz" id="fluid_oz" />
+
+					<label for="teaspoon">Teaspoon:</label>
+					<input class="volume" type="number" min=0  name="teaspoon" id="teaspoon" />
+
+					<label for="tablespoon">Tablespoon:</label>
+					<input class="volume" type="number" min=0  name="tablespoon" id="tablespoon" />
+
+					<label for="cup">Cup:</label>
+					<input class="volume" type="number" min=0  name="cup" id="cup" />
+					
+					<label for="quart">Quart:</label>
+					<input class="volume" type="number" min=0  name="quart" id="quart" />
+					
+					<label for="liq_quart">Liquid Quart:</label>
+					<input class="volume" type="number" min=0  name="liq_quart" id="liq_quart" />
+
+					<label for="pint">Pint:</label>
+					<input class="volume" type="number" min=0  name="pint" id="pint" />
+
+					<label for="liquid_pint">Liquid Pint:</label>
+					<input class="volume" type="number" min=0  name="liquid_pint" id="liquid_pint" />
+					
+					<label for="gallon">Gallon:</label>
+					<input class="volume" type="number" min=0  name="gallon" id="gallon" />
+					
+					<label for="liter">Liter:</label>
+					<input class="volume" type="number" min=0  name="liter" id="liter" />
+
+					<label for="m_liter">Liter:</label>
+					<input class="volume" type="number" min=0  name="m_liter" id="m_liter" />
+
+
+				</div><!-- /fieldcontain -->
+			</div> <!-- Collapsible -->
+
+
+<!-- ######################################################-->
+<!-- ###################   Angle   ########################-->
+<!-- ######################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Angle</h3>
+				<div data-role="fieldcontain">
+
+					<label for="degree">Degree:</label>
+					<input class="angle" type="number" min=0 name="degree" id="degree" />
+
+					<label for="arc_min">Arc Minute:</label>
+					<input class="angle" type="number" min=0 name="arc_min" id="arc_min" />
+
+					<label for="arc_sec">Arc Second:</label>
+					<input class="angle" type="number" min=0 name="arc_sec" id="arc_sec" />
+
+					<label for="radian">Radian:</label>
+					<input class="angle" type="number" min=0 name="radian" id="radian" />
+
+					<label for="milliradian">Millirad:</label>
+					<input class="angle" type="number" min=0 name="milliradian" id="milliradian" />
+
+					<label for="grade">Grad:</label>
+					<input class="angle" type="number" min=0 name="grade" id="grade" />
+
+					<label for="revolution">Rev:</label>
+					<input class="angle" type="number" min=0 name="revolution" id="revolution" />
+
+					<label for="quadrant">Quadrant:</label>
+					<input class="angle" type="number" min=0 name="quadrant" id="quadrant" />
+
+					<label for="arc_hour">Arc Hour:</label>
+					<input class="angle" type="number" min=0 name="arc_hour" id="arc_hour" />
+
+				</div><!-- /fieldcontain -->
+			</div> <!-- Collapsible -->
+						
+
+		<script>$('.length').on('change', function(){var id = $(this).attr('id');convertLength(id);});</script>
+		<script>$('.area').on('change', function(){var id = $(this).attr('id');convertArea(id);});</script>
+		<script>$('.volume').on('change', function(){var id = $(this).attr('id');convertVolume(id);});</script>
+		<script>$('.angle').on('change', function(){var id = $(this).attr('id');convertAngle(id);});</script>
+
+		</div> <!-- Collaspible Set -->
+	</div><!-- /content -->
+
+	<div data-role="footer" data-position="fixed" id="myfooter" data-theme="b">
+
+		<div data-role="navbar" data-theme="b">
+			<ul>
+				<li><a href="#geometric_page" class="ui-btn-active ui-state-persist">Geometric</a></li>
+				<li><a href="#kinetics_page">Kinetics</a></li>
+				<li><a href="#kinematics_page">Kinematics</a></li>
+				<li><a href="#electric_page">Electric</a></li>
+			</ul>
+		</div> <!-- Navbar -->
+
+	</div><!-- /footer --></div>
+
+</div> <!--  Page  -->
+
+<!-- #########################################################-->
+<!-- ###################   Kinetics   ########################-->
+<!-- #########################################################-->
+
+<div data-role="page" id="kinetics_page">
+
+	<div data-role="panel" class="navpanel" id="navpanel" data-display="reveal" data-position="left">
+	</div> <!-- Panel -->
+
+    <script>
+		LoadNavPanel("#kinetics_page");
+    </script>
+
+	<div data-role="header" data-position="fixed" data-theme="b">
+		<a href="#navpanel" data-role="button" data-icon="bars" data-iconpos="notext">Navigation</a>
+		<h1>Unit Converter</h1>
+	</div><!-- /header -->
+	
+ 	<div role="main" class="ui-content">
+		<div data-role="collapsible-set" data-theme="a">
+
+
+
+<!-- #####################################################-->
+<!-- ###################   Mass   ########################-->
+<!-- #####################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Mass</h3>
+				<div data-role="fieldcontain">
+
+					<label for="milligram">Milligram:</label>
+					<input class="mass" type="number" name="milligram" id="milligram" />
+
+					<label for="gram">Gram:</label>
+					<input class="mass" type="number" name="gram" id="gram" />
+
+					<label for="k_gram">Kilogram:</label>
+					<input class="mass" type="number" name="k_gram" id="k_gram" />
+
+					<label for="metric_ton">Metric Ton:</label>
+					<input class="mass" type="number" name="metric_ton" id="metric_ton" />
+
+					<label for="ounce">Ounce:</label>
+					<input class="mass" type="number" name="ounce" id="ounce" />
+
+					<label for="lbs">Pound:</label>
+					<input class="mass" type="number" name="lbs" id="lbs" />
+
+					<label for="kip_mass">Kip:</label>
+					<input class="mass" type="number" name="kip_mass" id="kip_mass" />
+
+					<label for="slug">Slug:</label>
+					<input class="mass" type="number" name="slug" id="slug" />
+
+					<label for="short_ton">Short Ton:</label>
+					<input class="mass" type="number" name="short_ton" id="short_ton" />
+
+					<label for="long_ton">Long Ton:</label>
+					<input class="mass" type="number" name="long_ton" id="long_ton" />
+
+					<label for="carat">Carat:</label>
+					<input class="mass" type="number" name="carat" id="carat" />
+
+
+				</div><!-- /fieldcontain -->
+			</div> <!-- Collapsible -->
+
+<!-- ########################################################-->
+<!-- ###################   Density   ########################-->
+<!-- ########################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Density</h3>
+				<div data-role="fieldcontain">
+
+					<label for="g_cm_3_den">g/cm<sup>3</sup>:</label>
+					<input class="density" type="number" min=0 name="g_cm_3_den" id="g_cm_3_den" />
+					
+					<label for="g_m_3_den">g/m<sup>3</sup>:</label>
+					<input class="density" type="number" min=0 name="g_m_3_den" id="g_m_3_den" />
+					
+					<label for="g_l_den">g/l:</label>
+					<input class="density" type="number" min=0 name="g_l_den" id="g_l_den" />
+					
+					<label for="kg_m_3_den">kg/m<sup>3</sup>:</label>
+					<input class="density" type="number" min=0 name="kg_m_3_den" id="kg_m_3_den" />
+					
+					<label for="kg_l_den">kg/l:</label>
+					<input class="density" type="number" min=0 name="kg_l_den" id="kg_l_den" />
+
+					<label for="oz_ft_3_den">oz/ft<sup>3</sup>:</label>
+					<input class="density" type="number" min=0 name="oz_ft_3_den" id="oz_ft_3_den" />
+					
+					<label for="oz_in_3_den">oz/in<sup>3</sup>:</label>
+					<input class="density" type="number" min=0 name="oz_in_3_den" id="oz_in_3_den" />
+					
+					<label for="lbm_ft_3_den">lbm/ft<sup>3</sup>:</label>
+					<input class="density" type="number" min=0 name="lbm_ft_3_den" id="lbm_ft_3_den" />
+					
+					<label for="lbm_in_3_den">lbm/in<sup>3</sup>:</label>
+					<input class="density" type="number" min=0 name="lbm_in_3_den" id="lbm_in_3_den" />
+					
+					<label for="lbm_yd_3_den">lbm/yd<sup>3</sup>:</label>
+					<input class="density" type="number" min=0 name="lbm_yd_3_den" id="lbm_yd_3_den" />
+					
+					<label for="lbm_gal_uk_den">lbm/gal (UK):</label>
+					<input class="density" type="number" min=0 name="lbm_gal_uk_den" id="lbm_gal_uk_den" />
+					
+					<label for="lbm_gal_us_den">lbm/gal (US):</label>
+					<input class="density" type="number" min=0 name="lbm_gal_us_den" id="lbm_gal_us_den" />
+					
+					<label for="slug_ft_3_den">slug/ft<sup>3</sup>:</label>
+					<input class="density" type="number" min=0 name="slug_ft_3_den" id="slug_ft_3_den" />
+					
+					<label for="slug_in_3_den">slug/in<sup>3</sup>:</label>
+					<input class="density" type="number" min=0 name="slug_in_3_den" id="slug_in_3_den" />
+					
+					<label for="slug_yd_3_den">slug/yd<sup>3</sup>:</label>
+					<input class="density" type="number" min=0 name="slug_yd_3_den" id="slug_yd_3_den" />
+					
+					<label for="specific_gravity_den">Specific Gravity:</label>
+					<input class="density" type="number" min=0 name="specific_gravity_den" id="specific_gravity_den" />					
+					
+				</div><!-- /fieldcontain -->
+			</div> <!-- Collapsible -->
+
+
+<!-- ######################################################-->
+<!-- ###################   Force   ########################-->
+<!-- ######################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Force</h3>
+				<div data-role="fieldcontain">
+
+					<label for="ozf">OunceF:</label>
+					<input class="force" type="number" min=0  name="ozf" id="ozf" />
+					
+					<label for="lbsf">LbsF:</label>
+					<input class="force" type="number" min=0  name="lbsf" id="lbsf" />
+					
+					<label for="dyne">Dyne:</label>
+					<input class="force" type="number" min=0  name="dyne" id="dyne" />
+					
+					<label for="kipF">Kip:</label>
+					<input class="force" type="number" min=0  name="kipF" id="kipF" />
+					
+					<label for="tonF">Ton Force:</label>
+					<input class="force" type="number" min=0  name="tonF" id="tonF" />
+					
+					<label for="newtonF">Newton:</label>
+					<input class="force" type="number" min=0  name="newtonF" id="newtonF" />
+					
+					<label for="kilogramF">KgF:</label>
+					<input class="force" type="number" min=0  name="kilogramF" id="kilogramF" />
+
+				</div><!-- /fieldcontain -->
+			</div> <!-- Collapsible -->
+
+<!-- #########################################################-->
+<!-- ###################   Pressure   ########################-->
+<!-- #########################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Pressure</h3>
+				<div data-role="fieldcontain">
+
+					<label for="psi">PSI:</label>
+					<input class="pressure" type="number" min=0  name="psi" id="psi" />
+
+					<label for="ksi">KSI:</label>
+					<input class="pressure" type="number" min=0  name="ksi" id="ksi" />
+
+					<label for="pascal">Pascal:</label>
+					<input class="pressure" type="number" min=0  name="pascal" id="pascal" />
+
+					<label for="k_pascal">KPa:</label>
+					<input class="pressure" type="number" min=0  name="k_pascal" id="k_pascal" />
+					
+					<label for="m_pascal">MPa:</label>
+					<input class="pressure" type="number" min=0  name="m_pascal" id="m_pascal" />
+					
+					<label for="g_pascal">GPa:</label>
+					<input class="pressure" type="number" min=0  name="g_pascal" id="g_pascal" />
+					
+					<label for="kg_per_mm">Kg/mm<sup>2</sup>:</label>
+					<input class="pressure" type="number" min=0  name="kg_per_mm" id="kg_per_mm" />
+					
+					<label for="kg_per_cm">Kg/cm<sup>2</sup>:</label>
+					<input class="pressure" type="number" min=0  name="kg_per_cm" id="kg_per_cm" />
+					
+					<label for="kg_per_m">Kg/m<sup>2</sup>:</label>
+					<input class="pressure" type="number" min=0  name="kg_per_m" id="kg_per_m" />
+										
+					<label for="atmosphere">Atmosphere:</label>
+					<input class="pressure" type="number" min=0  name="atmosphere" id="atmosphere" />
+					
+					<label for="millibar">Millibar:</label>
+					<input class="pressure" type="number" min=0  name="millibar" id="millibar" />
+					
+					<label for="bar">Bar:</label>
+					<input class="pressure" type="number" min=0  name="bar" id="bar" />
+
+				</div><!-- /fieldcontain -->
+			</div> <!-- Collapsible -->
+			
+
+<!-- #######################################################-->
+<!-- ###################   Torque   ########################-->
+<!-- #######################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Torque</h3>
+				<div data-role="fieldcontain">
+
+					<label for="ozf_in">ozf-in:</label>
+					<input class="torque" type="number" min=0  name="ozf_in" id="ozf_in" />
+
+					<label for="lbf_in">lbf-in:</label>
+					<input class="torque" type="number" min=0  name="lbf_in" id="lbf_in" />
+
+					<label for="lbf_ft">lbf-ft:</label>
+					<input class="torque" type="number" min=0  name="lbf_ft" id="lbf_ft" />
+
+					<label for="n_m">N-m:</label>
+					<input class="torque" type="number" min=0  name="n_m" id="n_m" />
+
+					<label for="n_cm">N-cm:</label>
+					<input class="torque" type="number" min=0  name="n_cm" id="n_cm" />
+
+					<label for="mn_m">mN-m:</label>
+					<input class="torque" type="number" min=0  name="mn_m" id="mn_m" />
+
+					<label for="kgf_m">kgf-m:</label>
+					<input class="torque" type="number" min=0  name="kgf_m" id="kgf_m" />
+
+					<label for="gf_cm">gf-cm:</label>
+					<input class="torque" type="number" min=0  name="gf_cm" id="gf_cm" />
+
+					<label for="dyn_cm">dyn-cm:</label>
+					<input class="torque" type="number" min=0  name="dyn_cm" id="dyn_cm" />
+
+				</div><!-- /fieldcontain -->
+			</div> <!-- Collapsible -->
+
+
+<!-- #######################################################-->
+<!-- ###################   POWER   ########################-->
+<!-- #######################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Power</h3>
+				<div data-role="fieldcontain">
+
+					<label for="hp_p">HP (550 ft.lbf/s):</label>
+					<input class="power" type="number" min=0 name="hp_p" id="hp_p" />
+
+					<label for="hp_p_electric">HP (electric):</label>
+					<input class="power" type="number" min=0 name="hp_p_electric" id="hp_p_electric" />
+
+					<label for="kw_p">Kilowatt:</label>
+					<input class="power" type="number" min=0 name="kw_p" id="kw_p" />
+					
+					<label for="watt_p">Watt:</label>
+					<input class="power" type="number" min=0 name="watt_p" id="watt_p" />
+					
+					<label for="kg_f_m_s_p">kgf-m/s:</label>
+					<input class="power" type="number" min=0 name="kg_f_m_s_p" id="kg_f_m_s_p" />
+					
+					<label for="ft_lbf_h_p">ft-lbf/h:</label>
+					<input class="power" type="number" min=0 name="ft_lbf_h_p" id="ft_lbf_h_p" />
+
+					<label for="ft_lbf_m_p">ft-lbf/m:</label>
+					<input class="power" type="number" min=0 name="ft_lbf_m_p" id="ft_lbf_m_p" />
+					
+					<label for="ft_lbf_s_p">ft-lbf/s:</label>
+					<input class="power" type="number" min=0 name="ft_lbf_s_p" id="ft_lbf_s_p" />
+					
+					<label for="dyn_cm_s_p">dyn-cm/s:</label>
+					<input class="power" type="number" min=0 name="dyn_cm_s_p" id="dyn_cm_s_p" />
+					
+					
+				</div><!-- /fieldcontain -->
+			</div> <!-- Collapsible -->
+
+
+<!-- #######################################################-->
+<!-- ###################   Energy   ########################-->
+<!-- #######################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Energy</h3>
+				<div data-role="fieldcontain">
+
+					<label for="hp_h_e">HP-hour:</label>
+					<input class="energy" type="number" min=0 name="hp_h_e" id="hp_h_e" />
+					
+					<label for="J_e">Joule:</label>
+					<input class="energy" type="number" min=0 name="J_e" id="J_e" />
+					
+					<label for="kJ_e">Kilojoule:</label>
+					<input class="energy" type="number" min=0 name="kJ_e" id="kJ_e" />
+					
+					<label for="watt_hour_e">Watt Hour:</label>
+					<input class="energy" type="number" min=0 name="watt_hour_e" id="watt_hour_e" />
+					
+					<label for="k_watt_hour_e">Kilowatt Hour:</label>
+					<input class="energy" type="number" min=0 name="k_watt_hour_e" id="k_watt_hour_e" />
+					
+					<label for="newton_meter_e">N-m:</label>
+					<input class="energy" type="number" min=0 name="newton_meter_e" id="newton_meter_e" />
+										
+					<label for="in_lpf_e">in-lbf:</label>
+					<input class="energy" type="number" min=0 name="in_lpf_e" id="in_lpf_e" />
+
+					<label for="ft_lbf_e">ft-lbf:</label>
+					<input class="energy" type="number" min=0 name="ft_lbf_e" id="ft_lbf_e" />
+					
+					<label for="CV_e">Coulomb Volt:</label>
+					<input class="energy" type="number" min=0 name="CV_e" id="CV_e" />
+					
+					<label for="electron_volt_e">Electron Volt (eV):</label>
+					<input class="energy" type="number" min=0 name="electron_volt_e" id="electron_volt_e" />
+					
+					<label for="ton_tnt_equiv">Ton TNT Equiv.:</label>
+					<input class="energy" type="number" min=0 name="ton_tnt_equiv" id="ton_tnt_equiv" />
+					
+					<label for="cal_mean_e">Calorie<sub>mean</sub>:</label>
+					<input class="energy" type="number" min=0 name="cal_mean_e" id="cal_mean_e" />
+					
+					<label for="kcal_e">Kilocalorie:</label>
+					<input class="energy" type="number" min=0 name="kcal_e" id="kcal_e" />
+					
+				</div><!-- /fieldcontain -->
+			</div> <!-- Collapsible -->
+
+
+		<script>$('.mass').on('change', function(){var id = $(this).attr('id');convertMass(id);});</script>
+		<script>$('.density').on('change', function(){var id = $(this).attr('id');convertDensity(id);});</script>
+		<script>$('.force').on('change', function(){var id = $(this).attr('id');convertForce(id);});</script>
+		<script>$('.pressure').on('change', function(){var id = $(this).attr('id');convertPressure(id);});</script>
+		<script>$('.torque').on('change', function(){var id = $(this).attr('id');convertTorque(id);});</script>
+		<script>$('.power').on('change', function(){var id = $(this).attr('id');convertPower(id);});</script>
+		<script>$('.energy').on('change', function(){var id = $(this).attr('id');convertEnergy(id);});</script>
+
+		</div> <!-- Collapsible Set -->
+	</div><!-- /content -->
+
+	<div data-role="footer" data-position="fixed" data-id="myfooter" data-theme="b">	
+		<div data-role="navbar"  data-theme="b">
+			<ul>
+				<li><a href="#geometric_page">Geometric</a></li>
+				<li><a href="#kinetics_page" class="ui-btn-active ui-state-persist">Kinetics</a></li>
+				<li><a href="#kinematics_page">Kinematics</a></li>
+				<li><a href="#electric_page">Electric</a></li>
+			</ul>
+		</div> <!-- Navbar -->
+
+	</div><!-- /footer --></div>
+
+</div> <!--  Page  -->
+
+<!-- ###########################################################-->
+<!-- ###################   Kinematics   ########################-->
+<!-- ###########################################################-->
+
+<div data-role="page" id="kinematics_page">
+
+	<div data-role="panel" class="navpanel" id="navpanel" data-display="reveal" data-position="left">
+	</div> <!-- Panel -->
+
+    <script>
+		LoadNavPanel("#kinematics_page");
+    </script>
+
+	<div data-role="header"  data-id="foo3" data-position="fixed" data-theme="b">
+		<a href="#navpanel" data-role="button" data-icon="bars" data-iconpos="notext">Navigation</a>
+		<h1>Unit Converter</h1>
+	</div><!-- /header -->
+	
+ 	<div role="main" class="ui-content">
+		<div data-role="collapsible-set" data-theme="a">
+
+
+
+<!-- #####################################################-->
+<!-- ###################   Time   ########################-->
+<!-- #####################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Time</h3>
+				<div data-role="fieldcontain">
+
+					<label for="nanosecond">Nanosecond:</label>
+					<input class="time" type="number" min=0 name="nanosecond" id="nanosecond" />
+					
+					<label for="microsecond">Microsecond:</label>
+					<input class="time" type="number" min=0 name="microsecond" id="microsecond" />
+
+					<label for="millisecond">Millisecond:</label>
+					<input class="time" type="number" min=0 name="millisecond" id="millisecond" />
+					
+					<label for="second">Second:</label>
+					<input class="time" type="number" min=0 name="second" id="second" />
+					
+					<label for="minute">Minute:</label>
+					<input class="time" type="number" min=0 name="minute" id="minute" />
+					
+					<label for="hour">Hour:</label>
+					<input class="time" type="number" min=0 name="hour" id="hour" />
+
+					<label for="day">Day:</label>
+					<input class="time" type="number" min=0 name="day" id="day" />
+					
+					<label for="week">Week:</label>
+					<input class="time" type="number" min=0 name="week" id="week" />
+
+					<label for="month">Month (30 day):</label>
+					<input class="time" type="number" min=0 name="month" id="month" />
+
+				</div><!-- /fieldcontain -->
+			</div> <!-- Collapsible -->
+
+
+<!-- ################################################################-->
+<!-- ###################   Linear Velocity   ########################-->
+<!-- ################################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Linear Velocity</h3>
+				<div data-role="fieldcontain">
+
+					<label for="in_s_vel">in/s:</label>
+					<input class="lin_velocity" type="number" min=0 name="in_s_vel" id="in_s_vel" />
+					
+					<label for="ft_s_vel">ft/s:</label>
+					<input class="lin_velocity" type="number" min=0 name="ft_s_vel" id="ft_s_vel" />
+					
+					<label for="ft_h_vel">ft/h:</label>
+					<input class="lin_velocity" type="number" min=0 name="ft_h_vel" id="ft_h_vel" />
+
+					<label for="mm_sec_vel">mm/s:</label>
+					<input class="lin_velocity" type="number" min=0 name="mm_sec_vel" id="mm_sec_vel" />
+					
+					<label for="cm_sec_vel">cm/s:</label>
+					<input class="lin_velocity" type="number" min=0 name="cm_sec_vel" id="cm_sec_vel" />
+					
+					<label for="m_sec_vel">m/s:</label>
+					<input class="lin_velocity" type="number" min=0 name="m_sec_vel" id="m_sec_vel" />
+
+					<label for="mm_min_vel">mm/min:</label>
+					<input class="lin_velocity" type="number" min=0 name="mm_min_vel" id="mm_min_vel" />
+
+					<label for="cm_min_vel">cm/min:</label>
+					<input class="lin_velocity" type="number" min=0 name="cm_min_vel" id="cm_min_vel" />
+					
+					<label for="m_min_vel">m/min:</label>
+					<input class="lin_velocity" type="number" min=0 name="m_min_vel" id="m_min_vel" />
+
+					<label for="km_h_vel">km/h:</label>
+					<input class="lin_velocity" type="number" min=0 name="km_h_vel" id="km_h_vel" />
+
+					<label for="mile_h_vel">mile/h:</label>
+					<input class="lin_velocity" type="number" min=0 name="mile_h_vel" id="mile_h_vel" />
+
+					<label for="mile_min_vel">mile/min:</label>
+					<input class="lin_velocity" type="number" min=0 name="mile_min_vel" id="mile_min_vel" />
+					
+					<label for="knot">Knot:</label>
+					<input class="lin_velocity" type="number" min=0 name="knot" id="knot" />
+
+				</div><!-- /fieldcontain -->
+			</div> <!-- Collapsible -->
+
+<!-- #################################################################-->
+<!-- ###################   Angular Velocity   ########################-->
+<!-- #################################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Angular Velocity</h3>
+				<div data-role="fieldcontain">
+
+					<label for="deg_min">degree/min:</label>
+					<input class="ang_velocity" type="number" min=0 name="deg_min" id="deg_min" />
+					
+					<label for="deg_s">degree/s:</label>
+					<input class="ang_velocity" type="number" min=0 name="deg_s" id="deg_s" />
+					
+					<label for="rad_min">rad/min:</label>
+					<input class="ang_velocity" type="number" min=0 name="rad_min" id="rad_min" />
+					
+					<label for="rad_s">rad/s:</label>
+					<input class="ang_velocity" type="number" min=0 name="rad_s" id="rad_s" />
+					
+					<label for="rev_min">rev/min:</label>
+					<input class="ang_velocity" type="number" min=0 name="rev_min" id="rev_min" />
+					
+					<label for="rev_s">rev/s:</label>
+					<input class="ang_velocity" type="number" min=0 name="rev_s" id="rev_s" />
+
+				</div><!-- /fieldcontain -->
+			</div> <!-- Collapsible -->
+						
+<!-- ####################################################################-->
+<!-- ###################   Linear Acceleration   ########################-->
+<!-- ####################################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Linear Acceleration</h3>
+				<div data-role="fieldcontain">
+
+					<label for="celo">Celo (ft/s<sup>2</sup>):</label>
+					<input class="lin_acceleration" type="number" min=0 name="celo" id="celo" />
+					
+					<label for="cm_s_2_accel">cm/s<sup>2</sup>:</label>
+					<input class="lin_acceleration" type="number" min=0 name="cm_s_2_accel" id="cm_s_2_accel" />
+					
+					<label for="ft_s_2_accel">ft/s<sup>2</sup>:</label>
+					<input class="lin_acceleration" type="number" min=0 name="ft_s_2_accel" id="ft_s_2_accel" />
+					
+					<label for="g_accel">g:</label>
+					<input class="lin_acceleration" type="number" min=0 name="g_accel" id="g_accel" />
+					
+					<label for="in_s_2_accel">in/s<sup>2</sup>:</label>
+					<input class="lin_acceleration" type="number" min=0 name="in_s_2_accel" id="in_s_2_accel" />
+					
+					<label for="km_hr_s_accen">km/h-s:</label>
+					<input class="lin_acceleration" type="number" min=0 name="km_hr_s_accen" id="km_hr_s_accen" />
+					
+					<label for="leo_accel">leo:</label>
+					<input class="lin_acceleration" type="number" min=0 name="leo_accel" id="leo_accel" />
+					
+					<label for="m_s_2_accel">m/s<sup>2</sup>:</label>
+					<input class="lin_acceleration" type="number" min=0 name="m_s_2_accel" id="m_s_2_accel" />
+					
+					<label for="mph_s_accel">mph/s:</label>
+					<input class="lin_acceleration" type="number" min=0 name="mph_s_accel" id="mph_s_accel" />
+					
+					<label for="normal_accel">Normal (g<sub>n</sub>):</label>
+					<input class="lin_acceleration" type="number" min=0 name="normal_accel" id="normal_accel" />
+
+				</div><!-- /fieldcontain -->
+			</div> <!-- Collapsible -->
+
+<!-- #####################################################################-->
+<!-- ###################   Angular Acceleration   ########################-->
+<!-- #####################################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Angular Acceleration</h3>
+				<div data-role="fieldcontain">
+
+					<label for="deg_s_2_accel">degree/s<sup>2</sup>:</label>
+					<input class="ang_acceleration" type="number" min=0 name="deg_s_2_accel" id="deg_s_2_accel" />
+
+					<label for="rad_s_2_accel">rad/s<sup>2</sup>:</label>
+					<input class="ang_acceleration" type="number" min=0 name="rad_s_2_accel" id="rad_s_2_accel" />
+
+					<label for="rev_min_sec_accel">rpm/s:</label>
+					<input class="ang_acceleration" type="number" min=0 name="rev_min_sec_accel" id="rev_min_sec_accel" />
+
+					<label for="rev_min_2_accel">rpm/min:</label>
+					<input class="ang_acceleration" type="number" min=0 name="rev_min_2_accel" id="rev_min_2_accel" />
+					
+					<label for="rev_s_2_accel">rev/s<sup>2</sup>:</label>
+					<input class="ang_acceleration" type="number" min=0 name="rev_s_2_accel" id="rev_s_2_accel" />
+
+				</div><!-- /fieldcontain -->
+			</div> <!-- Collapsible -->
+	
+		
+
+		<script>$('.time').on('change', function(){var id = $(this).attr('id');convertTime(id);});</script>
+		<script>$('.lin_velocity').on('change', function(){var id = $(this).attr('id');convertLin_Velocity(id);});</script>
+		<script>$('.ang_velocity').on('change', function(){var id = $(this).attr('id');convertAng_Velocity(id);});</script>
+		<script>$('.lin_acceleration').on('change', function(){var id = $(this).attr('id');convertLin_Acceleration(id);});</script>
+		<script>$('.ang_acceleration').on('change', function(){var id = $(this).attr('id');convertAng_Acceleration(id);});</script>
+
+		</div> <!-- Collaspible Set -->
+	</div><!-- /content -->
+
+	<div data-role="footer" data-position="fixed" data-id="myfooter" data-theme="b">	
+		<div data-role="navbar" data-theme="b">
+			<ul>
+				<li><a href="#geometric_page">Geometric</a></li>
+				<li><a href="#kinetics_page">Kinetics</a></li>
+				<li><a href="#kinematics_page" class="ui-btn-active ui-state-persist">Kinematics</a></li>
+				<li><a href="#electric_page">Electric</a></li>
+			</ul>
+		</div> <!-- Navbar -->
+
+	</div><!-- /footer --></div>
+
+</div> <!--  Page  -->
+
+
+
+<!-- #########################################################-->
+<!-- ###################   Electric   ########################-->
+<!-- #########################################################-->
+
+<div data-role="page" id="electric_page">
+
+	<div data-role="panel" class="navpanel" id="navpanel" data-display="reveal" data-position="left">
+	</div> <!-- Panel -->
+
+    <script>
+		LoadNavPanel("#electric_page");
+    </script>
+
+	<div data-role="header" data-position="fixed" data-theme="b">
+		<a href="#navpanel" data-role="button" data-icon="bars" data-iconpos="notext">Navigation</a>
+		<h1>Unit Converter</h1>
+	</div><!-- /header -->
+	
+ 	<div role="main" class="ui-content">
+		<div data-role="collapsible-set" data-theme="a">
+
+
+
+<!-- ################################################################-->
+<!-- ###################   Electric Charge   ########################-->
+<!-- ################################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Charge</h3>
+
+					<label for="ampere_hour">ampere-hour, Ah:</label>
+					<input class="el_charge" type="number" min=0 name="ampere_hour" id="ampere_hour" />
+
+					<label for="coulomb">coulomb, C:</label>
+					<input class="el_charge" type="number" min=0 name="coulomb" id="coulomb" />
+
+					<label for="abcoulomb">abcoulomb (emu), aC:</label>
+					<input class="el_charge" type="number" min=0 name="abcoulomb" id="abcoulomb" />
+
+					<label for="au_charge">a.u. of charge, a.u. (e):</label>
+					<input class="el_charge" type="number" min=0 name="au_charge" id="au_charge" />
+
+					<label for="electronic_charge">Electronic charge:</label>
+					<input class="el_charge" type="number" min=0 name="electronic_charge" id="electronic_charge" />
+
+			</div> <!-- Collapsible -->
+
+		<script>$('.el_charge').on('change', function(){var id = $(this).attr('id');convertEl_Charge(id);});</script>
+
+
+<!-- ####################################################################-->
+<!-- ###################    Electric Potential   ########################-->
+<!-- ####################################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Potential</h3>
+
+					<label for="au_electric_potential">a.u. of electric potential:</label>
+					<input class="el_potential" type="number" min=0 name="au_electric_potential" id="au_electric_potential" />
+
+					<label for="volt">volt, V:</label>
+					<input class="el_potential" type="number" min=0 name="volt" id="volt" />
+
+					<label for="abvolt">abvolt, aV:</label>
+					<input class="el_potential" type="number" min=0 name="abvolt" id="abvolt" />
+
+					<label for="statvolt">statvolt, statV:</label>
+					<input class="el_potential" type="number" min=0 name="statvolt" id="statvolt" />
+
+					<label for="volt_international">volt (int. mean), V:</label>
+					<input class="el_potential" type="number" min=0 name="volt_international" id="volt_international" />
+
+					<label for="volt_US">volt (int., US), V:</label>
+					<input class="el_potential" type="number" min=0 name="volt_US" id="volt_US" />
+
+					<label for="J_per_C">joule per coulomb, J/C:</label>
+					<input class="el_potential" type="number" min=0 name="J_per_C" id="J_per_C" />
+
+			</div> <!-- Collapsible -->
+	
+		<script>$('.el_potential').on('change', function(){var id = $(this).attr('id');convertEl_Potential(id);});</script>
+
+<!-- ################################################################-->
+<!-- ###################   Electric Current   ########################-->
+<!-- ################################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Current</h3>
+
+					<label for="au_electric_current">a.u. of electric current:</label>
+					<input class="el_current" type="number" min=0 name="au_electric_current" id="au_electric_current" />
+
+					<label for="abampere">abampere, aA, Bi:</label>
+					<input class="el_current" type="number" min=0 name="abampere" id="abampere" />
+
+					<label for="ampere">ampere, A:</label>
+					<input class="el_current" type="number" min=0 name="ampere" id="ampere" />
+
+					<label for="C_per_second">coulomb per second, C/s:</label>
+					<input class="el_current" type="number" min=0 name="C_per_second" id="C_per_second" />
+
+					<label for="edison">edison:</label>
+					<input class="el_current" type="number" min=0 name="edison" id="edison" />
+
+					<label for="statampere">statampere, statA:</label>
+					<input class="el_current" type="number" min=0 name="statampere" id="statampere" />
+
+
+			</div> <!-- Collapsible -->
+		
+		<script>$('.el_current').on('change', function(){var id = $(this).attr('id');convertEl_Current(id);});</script>
+
+
+<!-- ####################################################################-->
+<!-- ###################    Electric Resistance   ########################-->
+<!-- ####################################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Electric Resistance</h3>
+
+					<label for="ohm">ohm, &Omega;:</label>
+					<input class="el_resistance" type="number" min=0 name="ohm" id="ohm" />
+
+					<label for="abohm">abohm, a&Omega;:</label>
+					<input class="el_resistance" type="number" min=0 name="abohm" id="abohm" />
+
+					<label for="microohm">microohm, &mu;&Omega;:</label>
+					<input class="el_resistance" type="number" min=0 name="microohm" id="microohm" />
+
+					<label for="megohm">megohm, M&Omega;:</label>
+					<input class="el_resistance" type="number" min=0 name="megohm" id="megohm" />
+
+					<label for="statohm">statohm, stat&Omega;:</label>
+					<input class="el_resistance" type="number" min=0 name="statohm" id="statohm" />
+
+			</div> <!-- Collapsible -->
+
+		<script>$('.el_resistance').on('change', function(){var id = $(this).attr('id');convertEl_Resistance(id);});</script>
+
+
+<!-- ############################################################-->
+<!-- ###################   Conductance   ########################-->
+<!-- ############################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Conductance</h3>
+
+					<label for="abmho">abmho (emu of conductance), ab&#x2127;<sup>-1</sup>:</label>
+					<input class="el_conductance" type="number" min=0 name="abmho" id="abmho" />
+
+					<label for="gemmho">gemmho:</label>
+					<input class="el_conductance" type="number" min=0 name="gemmho" id="gemmho" />
+
+					<label for="mho">mho, &#x2127;:</label>
+					<input class="el_conductance" type="number" min=0 name="mho" id="mho" />
+
+					<label for="statmho">statmho, stat&#x2127;:</label>
+					<input class="el_conductance" type="number" min=0 name="statmho" id="statmho" />
+
+					<label for="ampere_per_volt">Ampere/volt, A/V:</label>
+					<input class="el_conductance" type="number" min=0 name="ampere_per_volt" id="ampere_per_volt" />
+
+					<label for="siemens">siemens, S:</label>
+					<input class="el_conductance" type="number" min=0 name="siemens" id="siemens" />
+
+			</div> <!-- Collapsible -->
+
+		<script>$('.el_conductance').on('change', function(){var id = $(this).attr('id');convertEl_Conductance(id);});</script>
+
+<!-- ################################################################-->
+<!-- ###################    Inductance   ########################-->
+<!-- ################################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Inductance</h3>
+
+					<label for="abhenry">abhenry (emu of inductance), aH:</label>
+					<input class="el_inductance" type="number" min=0 name="abhenry" id="abhenry" />
+
+					<label for="henry">henry, H:</label>
+					<input class="el_inductance" type="number" min=0 name="henry" id="henry" />
+
+					<label for="stathenry">stathenry, statH:</label>
+					<input class="el_inductance" type="number" min=0 name="stathenry" id="stathenry" />
+
+					<label for="j_per_A2">joule per sq. ampere, J/A<sup>2</sup>:</label>
+					<input class="el_inductance" type="number" min=0 name="j_per_A2" id="j_per_A2" />
+
+					<label for="Nm_per_A2">newton meter per sq. ampere, J/A<sup>2</sup>:</label>
+					<input class="el_inductance" type="number" min=0 name="Nm_per_A2" id="Nm_per_A2" />
+
+					<label for="Vs_per_A">volt second per ampere, Vs/A:</label>
+					<input class="el_inductance" type="number" min=0 name="Vs_per_A" id="Vs_per_A" />
+
+			</div> <!-- Collapsible -->
+
+		<script>$('.el_inductance').on('change', function(){var id = $(this).attr('id');convertEl_Inductance(id);});</script>
+
+<!-- ############################################################-->
+<!-- ###################   Capacitance   ########################-->
+<!-- ############################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Capacitance</h3>
+
+					<label for="farad">farad, F:</label>
+					<input class="el_capacitance" type="number" min=0 name="farad" id="farad" />
+
+					<label for="abfarad">abfarad, aF:</label>
+					<input class="el_capacitance" type="number" min=0 name="abfarad" id="abfarad" />
+
+					<label for="statfarad">statfarad, statF:</label>
+					<input class="el_capacitance" type="number" min=0 name="statfarad" id="statfarad" />
+
+					<label for="jar">jar:</label>
+					<input class="el_capacitance" type="number" min=0 name="jar" id="jar" />
+
+					<label for="A_s_per_V">ampere second per volt A-s/V:</label>
+					<input class="el_capacitance" type="number" min=0 name="A_s_per_V" id="A_s_per_V" />
+
+					<label for="C_per_V">coulomb per volt, C/V:</label>
+					<input class="el_capacitance" type="number" min=0 name="C_per_V" id="C_per_V" />
+
+			</div> <!-- Collapsible -->
+
+		<script>$('.el_capacitance').on('change', function(){var id = $(this).attr('id');convertEl_Capacitance(id);});</script>
+
+<!-- ###############################################################-->
+<!-- ###################   Charge Density   ########################-->
+<!-- ###############################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Charge Density</h3>
+
+					<label for="au_charge_density">a.u. of charge density, a.u. (e):</label>
+					<input class="el_charge_density" type="number" min=0 name="au_charge_density" id="au_charge_density" />
+
+					<label for="coulomb_ft_3">coulomb per cubic ft., C/ft<sup>3</sup>:</label>
+					<input class="el_charge_density" type="number" min=0 name="coulomb_ft_3" id="coulomb_ft_3" />
+
+					<label for="coulomb_in_3">coulomb per cubic in., C/in<sup>3</sup>:</label>
+					<input class="el_charge_density" type="number" min=0 name="coulomb_in_3" id="coulomb_in_3" />
+
+					<label for="coulomb_m_3">coulomb per cubic meter, C/m<sup>3</sup>:</label>
+					<input class="el_charge_density" type="number" min=0 name="coulomb_m_3" id="coulomb_m_3" />
+
+					<label for="coulomb_mm_3">coulomb per cubic mm., C/mm<sup>3</sup>:</label>
+					<input class="el_charge_density" type="number" min=0 name="coulomb_mm_3" id="coulomb_mm_3" />
+
+			</div> <!-- Collapsible -->
+
+		<script>$('.el_charge_density').on('change', function(){var id = $(this).attr('id');convertEl_Charge_Density(id);});</script>
+
+
+<!-- ################################################################-->
+<!-- ###################    Current Density   ########################-->
+<!-- ################################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Current Density</h3>
+
+					<label for="abampere_cm_2">abampere per sq cm., aA/cm<sup>2</sup>:</label>
+					<input class="el_current_density" type="number" min=0 name="abampere_cm_2" id="abampere_cm_2" />
+
+					<label for="ampere_m_2">ampere per sq m., A/cm<sup>2</sup>:</label>
+					<input class="el_current_density" type="number" min=0 name="ampere_m_2" id="ampere_m_2" />
+
+					<label for="ampere_cm_2">ampere per sq cm., A/cm<sup>2</sup>:</label>
+					<input class="el_current_density" type="number" min=0 name="ampere_cm_2" id="ampere_cm_2" />
+
+					<label for="ampere_dm_2">ampere per sq dm., A/dm<sup>2</sup>:</label>
+					<input class="el_current_density" type="number" min=0 name="ampere_dm_2" id="ampere_dm_2" />
+
+					<label for="ampere_ft_2">ampere per sq ft., A/ft<sup>2</sup>:</label>
+					<input class="el_current_density" type="number" min=0 name="ampere_ft_2" id="ampere_ft_2" />
+
+					<label for="ampere_in_2">ampere per sq in., A/in<sup>2</sup>:</label>
+					<input class="el_current_density" type="number" min=0 name="ampere_in_2" id="ampere_in_2" />
+
+					<label for="mampere_cm_2">milliampere per sq cm., mA/cm<sup>2</sup>:</label>
+					<input class="el_current_density" type="number" min=0 name="mampere_cm_2" id="mampere_cm_2" />
+
+					<label for="C_per_sm_2">coulomb per second per sq. meter:</label>
+					<input class="el_current_density" type="number" min=0 name="C_per_sm_2" id="C_per_sm_2" />
+
+			</div> <!-- Collapsible -->
+
+		<script>$('.el_current_density').on('change', function(){var id = $(this).attr('id');convertEl_Current_Density(id);});</script>
+
+
+<!-- ####################################################################-->
+<!-- ###################    Electric Resistivity   ########################-->
+<!-- ####################################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Electric Resistivity</h3>
+
+					<label for="ohm_cm">ohm-centimeter:</label>
+					<input class="el_resistivity" type="number" min=0 name="ohm_cm" id="ohm_cm" />
+
+					<label for="ohm_ft">ohm-foot:</label>
+					<input class="el_resistivity" type="number" min=0 name="ohm_ft" id="ohm_ft" />
+
+					<label for="ohm_in">ohm-inch:</label>
+					<input class="el_resistivity" type="number" min=0 name="ohm_in" id="ohm_in" />
+
+					<label for="ohm_m">ohm-meter:</label>
+					<input class="el_resistivity" type="number" min=0 name="ohm_m" id="ohm_m" />
+
+			</div> <!-- Collapsible -->
+
+		<script>$('.el_resistivity').on('change', function(){var id = $(this).attr('id');convertEl_Resistivity(id);});</script>
+
+<!-- ###############################################################-->
+<!-- ###################   Electric Field Strength  ########################-->
+<!-- ###############################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Electric Field Strength</h3>
+
+					<label for="au_field_strength">a.u. of electric field strength, a.u.:</label>
+					<input class="el_field_strength" type="number" min=0 name="au_field_strength" id="au_field_strength" />
+
+					<label for="n_per_coulomb">newton per coulomb, N/C:</label>
+					<input class="el_field_strength" type="number" min=0 name="n_per_coulomb" id="n_per_coulomb" />
+
+					<label for="v_per_ft">Volt per foot, V/ft:</label>
+					<input class="el_field_strength" type="number" min=0 name="v_per_ft" id="v_per_ft" />
+
+					<label for="v_per_m">Volt per meter, V/m:</label>
+					<input class="el_field_strength" type="number" min=0 name="v_per_m" id="v_per_m" />
+
+
+					<label for="v_per_mil">Volt per mil, V/mil:</label>
+					<input class="el_field_strength" type="number" min=0 name="v_per_mil" id="v_per_mil" />
+
+			</div> <!-- Collapsible -->
+
+		<script>$('.el_field_strength').on('change', function(){var id = $(this).attr('id');convertEl_field_strength(id);});</script>
+
+		</div> <!-- Collaspible Set -->
+	</div><!-- /content -->
+
+	<div data-role="footer" data-position="fixed" data-theme="b">	
+		<div data-role="navbar"  data-theme="b">
+			<ul>
+				<li><a href="#geometric_page">Geometric</a></li>
+				<li><a href="#kinetics_page">Kinetics</a></li>
+				<li><a href="#kinematics_page">Kinematics</a></li>
+				<li><a href="#electric_page" class="ui-btn-active ui-state-persist">Electric</a></li>
+			</ul>
+		</div> <!-- Navbar -->
+
+	</div><!-- /footer --></div>
+
+</div> <!--  Page  -->
+
+</body>
+</html>

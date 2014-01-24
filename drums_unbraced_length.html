@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Drums: Max Unbraced Length</title>
+
+	<link rel="shortcut icon" type="image/png" href="../favicon.png" />
+	<link rel="apple-touch-icon-precomposed" href="../apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../apple-touch-icon-120x120.png">
+	<meta content="width=device-width, minimum-scale=1, maximum-scale=1" name="viewport">
+
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+	<script type="text/javascript" src="script/mdj.math.library.js"></script>
+	<script type="text/javascript" src="script/drums.js"></script>
+	<script type="text/javascript">
+		$(document).bind("mobileinit", function () {
+			$.mobile.ajaxEnabled = false;
+		});
+	</script>
+	<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+
+ 	<script src="http://www.scenic-shop.com/mint/?js" type="text/javascript"></script>
+
+</head>
+<body>
+
+
+<!--	###########################
+		#####   Length Page   #####
+		###########################		-->
+
+<div data-role="page" id="length_page">
+
+
+	<script>
+		LoadNavPanel("#length_page");
+		$(document).on('pageinit', '#length_page', function() {getMaxDrumLength()});
+		$("#length_page").on('change', '.user_values', function() {getMaxDrumLength()});
+		$(".calculated_values").prop("readonly",true);
+	</script>
+
+
+<!--	#####   PANEL   #####		-->
+
+	<div data-role="panel" id="navpanel" class="navpanel" data-display="reveal" data-position="left">
+		<ul data-role="listview" id="navigation_links"  data-theme="d">
+		</ul>
+	</div> <!-- /panel -->
+
+
+<!--	#####   HEADER   #####		-->
+
+	<div data-role="header" data-position="fixed" data-theme="b">
+		<a href="#navpanel" data-role="button" data-icon="bars" data-iconpos="notext">Navigation</a>
+		<h1>Max Unbraced Drum Length</h1>
+	</div><!-- /header -->
+
+
+<!--	#####   CONTENT   #####		-->
+	
+ 	<div role="main" class="ui-content">
+
+		<label for="len_poisson">Poisson's Ratio:</label>
+		<input class="user_values" type="number" data-clear-btn="true" name="len_poisson" id="len_poisson" value="0.29" min="0" />
+
+		<label for="len_e">E (psi):</label>
+		<input class="user_values" type="number" data-clear-btn="true" name="len_e" id="len_e" value="29000000" min="0" />
+
+		<label for="len_thick">Drum Thickness (in):</label>
+		<input class="user_values" type="number" data-clear-btn="true" name="len_thick" id="len_thick" value="0.2085" min="0" />
+
+		<label for="len_id">Drum ID (in):</label>
+		<input class="user_values" type="number" data-clear-btn="true" name="len_id" id="len_id" value="10.02" min="0" />
+
+		<label for="len_ds">Design Factor:</label>
+		<input class="user_values" type="number" data-clear-btn="true" name="len_ds" id="len_ds" value="8" min="0" />
+
+		<label for="len_f">Tension (lbf):</label>
+		<input class="user_values" type="number" data-clear-btn="true" name="len_f" id="len_f" value="525" min="0" />
+
+		<label for="len_cable">Cable D (in):</label>
+		<input class="user_values" type="number" data-clear-btn="true" name="len_cable" id="len_cable" value="0.1825" min="0" />
+
+		<label for="len_length">Max Length (in):</label>
+		<input class="calculated_values" type="number" name="len_length" id="len_length" readonly />
+
+	</div><!-- /content -->
+
+
+<!--	#####   Footer   #####		-->
+
+	<div data-role="footer" data-position="fixed" data-theme="b">
+		<div data-role="controlgroup" data-type="horizontal" align="center">
+			<a href="formulas/mdwiki.html#!drums_unbraced_length.md" data-role="button" id="formula" data-icon="gear">Formulas</a>
+			<a href="#diagram" data-role="button" id="unbraced_diagram" data-icon="info">Diagram</a>
+			<a href="disclaimer.html" data-role="button" data-rel="dialog">Disclaimer</a>
+		</div>
+	</div>  <!-- Footer -->
+
+</div>   <!-- Page -->
+
+<!--	#####   DIAGRAM   #####		-->
+
+<div data-role="page" id="diagram" data-dialog="true">
+	<div data-role="header" data-position="fixed" data-theme="b">
+		<h1>Drum Diagram</h1>
+	</div><!-- /header -->
+    
+    <div data-role="content">
+		<h1> <img class="centered" src="image/drum_unbraced_length.jpg" alt="Diagram" /> </h1>
+    </div>
+  
+</div><!-- Page -->
+
+</body>
+</html>

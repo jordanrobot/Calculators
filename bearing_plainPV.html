@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+			
+<title>Plain Bearing: PV Calculator</title>
+
+	<link rel="shortcut icon" type="image/png" href="../favicon.png" />
+	<link rel="apple-touch-icon-precomposed" href="../apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../apple-touch-icon-120x120.png">
+
+	<meta content="width=device-width, minimum-scale=1, maximum-scale=1" name="viewport">
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script  type="text/javascript" src="script/mdj.math.library.js"></script>
+	<script  type="text/javascript" src="script/bearing_plainPV.js"></script>
+
+	<script type="text/javascript">
+		$(document).bind("mobileinit", function () {
+    		$.mobile.ajaxEnabled = false;
+		});
+	</script>
+
+	<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+ 	<script src="http://www.scenic-shop.com/mint/?js" type="text/javascript"></script>
+
+</head>
+<body>
+
+
+<!--   	############################
+		#####   RADIAL  PAGE   #####
+		############################ 	-->
+
+<div data-role="page" id="plainPV_page">
+
+	<script>
+		LoadNavPanel("#plainPV_page");	
+		$(document).on('pageshow', '#plainPV_page', function(){
+			$("#sid, #sod, #sid_label, #sod_label").hide('fast');
+			$("#width, #width_label, #diameter, #diameter_label").show('fast');
+			calculatePV();});
+
+		$(document).on('change', '#load, #rpm, #width, #diameter, #p_actual, #v_actual, #pv_actual, #sid, #sod', function(){calculatePV();});
+
+		$(document).on('change','#calcKind', function(){changeKind();});
+		$(document).on('change','#material', function(){changeMaterial();});
+		$(document).on('change','#p_max, #v_max, #pv_max', function(){changeMaterial();});
+
+		$(".calculated_values").prop("readonly",true);
+	</script>
+
+
+<!--	#####   PANEL   #####		-->
+
+	<div data-role="panel" id="navpanel" class="navpanel" data-display="reveal" data-position="left">
+		<ul data-role="listview" id="navigation_links"  data-theme="f">
+		</ul>
+	</div> <!-- Panel -->
+
+
+<!--	#####   HEADER   #####		-->
+
+	<div data-role="header" data-position="fixed" data-theme="b">
+	<a href="#navpanel" data-role="button" data-icon="bars" data-iconpos="notext">Navigation</a>
+		<h1>Plain Bearing: PV</h1>
+	</div><!-- /header -->
+
+
+<!--	#####   CONTENT   #####		-->
+
+	<div role="main" class="ui-content">
+
+		<div class="ui-field-contain">
+			<label for="calcKind">Bearing Application:</label>
+			<select name="calcKind" id="calcKind" data-mini="true">
+				<option value="radial">Radial</option>
+				<option value="thrust">Thrust</option>
+			</select> 
+		 </div> <!--   fieldcontain   -->
+
+
+		<label for="load">Load (lbf):</label>
+		<input class="user_values" type="number" name="load" id="load" value="500" maxlength="7" min="0" />
+
+		<label for="rpm">RPM:</label>
+		<input class="user_values" type="number" name="rpm" id="rpm" value="250" maxlength="10" min="0" />
+
+		<label for="diameter" id="diameter_label">Shaft Dia (in):</label>
+		<input class="user_values" type="number" name="diameter" id="diameter" value="1" maxlength="7" min="0" />
+
+		<label for="width" id="width_label">Bearing Width (in):</label>
+		<input class="user_values" type="number" name="width" id="width" value="1" maxlength="6" min="0" />
+
+		<label for="sid" id="sid_label">Surface ID (in):</label>
+		<input class="user_values" type="number" name="sid" id="sid" value="1" maxlength="7" min="0"/>
+
+		<label for="sod" id="sod_label">Surface OD (in):</label>
+		<input class="user_values" type="number" name="sod" id="sod" value="1.25" maxlength="7" min="0"/>
+
+
+<!--	<div data-role="controlgroup" data-type="horizontal">	-->
+
+	<div data-role="fieldcontain">
+		<label for="material">Bearing Material:</label>
+		<select name="material" id="material" data-mini="true">
+			<option value="custom">Custom</option>
+			<option value="bronze_null" disabled>Bronzes:</option>
+			<option value="sae841">SAE 841 Olite</option>
+			<option value="sae841graphite">SAE 841 (graphite)</option>
+			<option value="sae660">SAE 660</option>
+			<option value="sae863">SAE 863</option>
+			<option value="plastic_null" disabled>Plastics</option>
+			<option value="nylon">Nylon</option>
+			<option value="nylongMDS1">Nylon (MDS #1)</option>
+			<option value="uhmw">UHMW</option>
+			<option value="acetal">Acetal</option>
+			<option value="ptfe">PTFE</option>
+			<option value="ptfeglass">PTFE (glass filled)</option>
+			<option value="rulon641">Rulon 641</option>
+			<option value="rulonJ">Rulon J</option>
+			<option value="rulonLR">Rulon LR</option>
+			<option value="peek1">PEEK (blend 1)</option>
+			<option value="peek2">PEEK (blend 2)</option>
+			<option value="vespel">Vespetel</option>
+			<option value="babbit_null" disabled>Babbits</option>
+			<option value="sae14">SAE 14</option>
+		</select> 
+	 </div> <!--   fieldcontain   -->
+
+<!-- </div>	-->
+
+
+<div class="ui-grid-b">
+	<div class="ui-block-a">
+	</div>
+
+	<div class="ui-block-b">
+		<label>Actual</label>
+	</div>
+
+	<div class="ui-block-c">
+		<label>Allowable</label>
+	</div>
+</div>
+
+
+<div class="ui-grid-b">
+	<div class="ui-block-a">
+		<label for="p_max">P (psi):</label>
+	</div>
+
+	<div class="ui-block-b">
+		<input class="calculated_values" type="number" name="p_actual" id="p_actual" min="0" readonly />
+	</div>
+
+	<div class="ui-block-c">
+		<input class="user_values" type="number" name="p_max" id="p_max" value="2000" maxlength="7" min="0" />
+	</div>
+</div>
+
+
+<div class="ui-grid-b">
+	<div class="ui-block-a">
+		<label for="p_max">V (sfm):</label>
+	</div>
+
+	<div class="ui-block-b">
+		<input class="calculated_values" type="number" name="v_actual" id="v_actual" min="0" readonly />
+	</div>
+
+	<div class="ui-block-c">
+		<input class="user_values" type="number" name="v_max" id="v_max" value="1200" maxlength="15" min="0" />
+	</div>
+</div>
+
+<div class="ui-grid-b">
+	<div class="ui-block-a">
+		<label for="p_max">PV (psi sfm):</label>
+	</div>
+
+	<div class="ui-block-b">
+		<input class="calculated_values" type="number"name="pv_actual" id="pv_actual" min="0" />
+	</div>
+
+	<div class="ui-block-c">
+		<input class="user_values" type="number" name="pv_max" id="pv_max" value="50000" maxlength="12" min="0" />
+	</div>
+
+</div>
+
+			<label for="toggles">Test for Actual &le; Max values:</label>
+			<div data-role="fieldcontain" id="toggles" class="ui-grid-b">
+				<div class="ui-block-a">
+					<label for="p_capacity">P:</label>
+					<select name="p_capacity" id="p_capacity" data-role="slider" data-mini="true" readonly>
+						<option value="fail">Fail</option>
+						<option value="pass">Pass</option>
+					</select>
+				</div>
+				<div class="ui-block-b">
+					<label for="v_capacity">V:</label>
+					<select name="v_capacity" id="v_capacity" data-role="slider" data-mini="true" readonly>
+						<option value="fail">Fail</option>
+						<option value="pass">Pass</option>
+					</select>
+				</div>
+				<div class="ui-block-c">
+					<label for="pv_capacity">PV:</label>
+					<select name="pv_capacity" id="pv_capacity" data-role="slider" data-mini="true" readonly>
+						<option value="fail">Fail</option>
+						<option value="pass">Pass</option>
+					</select>
+				</div>
+			</div>
+
+		
+	</div> <!--  Content -->
+
+
+<!--	#####   FOOTER   #####		-->
+
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<div data-role="controlgroup" data-type="horizontal" align="center">
+				<a href="formulas/mdwiki.html#!bearing_plainPV.md" data-role="button" id="formula" data-icon="gear">Formulas</a>
+				<a href="#diagram" data-role="button" id="PV_diagram" data-icon="info">Diagram</a>
+				<a href="disclaimer.html" data-role="button" data-rel="dialog">Disclaimer</a>
+			</div>
+		</div>  <!-- Page -->
+
+	</div> <!-- Page -->
+
+<!--	#####   DIAGRAM   #####		-->
+
+<div data-role="page" id="diagram" data-dialog="true">
+	<div data-role="header" data-position="fixed" data-theme="b">
+		<h1>Plain PV Diagram</h1>
+	</div><!-- /header -->
+    
+    <div data-role="content">
+		Radial: <img class="centered" src="image/Bearing_plainPV.jpg" alt="Diagram" />
+		Thrust: <img class="centered" src="image/Bearing_plainPV_thrust.jpg" alt="Diagram" />
+
+    </div>
+  
+</div> <!-- Page -->
+	
+</body>
+</html>

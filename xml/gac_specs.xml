@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<document>
+
+	<gac_type id="3/32-7x19">
+		<gac_diam>0.09375</gac_diam>
+		<gac_uts>1000</gac_uts>
+		<gac_lbs_ft>0.0175</gac_lbs_ft>
+	</gac_type>
+
+	<gac_type id="1/8-7x19">
+		<gac_diam>0.125</gac_diam>
+		<gac_uts>2000</gac_uts>
+		<gac_lbs_ft>0.029</gac_lbs_ft>
+	</gac_type>
+
+	<gac_type id="5/32-7x19">
+		<gac_diam>0.15625</gac_diam>
+		<gac_uts>2800</gac_uts>
+		<gac_lbs_ft>0.045</gac_lbs_ft>
+	</gac_type>
+
+	<gac_type id="3/16-7x19">
+		<gac_diam>0.1875</gac_diam>
+		<gac_uts>4200</gac_uts>
+		<gac_lbs_ft>0.065</gac_lbs_ft>
+	</gac_type>
+
+	<gac_type id="7/32-7x19">
+		<gac_diam>0.21875</gac_diam>
+		<gac_uts>5600</gac_uts>
+		<gac_lbs_ft>0.086</gac_lbs_ft>
+	</gac_type>
+
+	<gac_type id="1/4-7x19">
+		<gac_diam>0.25</gac_diam>
+		<gac_uts>7000</gac_uts>
+		<gac_lbs_ft>0.11</gac_lbs_ft>
+	</gac_type>
+
+	<gac_type id="5/16-7x19">
+		<gac_diam>0.3125</gac_diam>
+		<gac_uts>9800</gac_uts>
+		<gac_lbs_ft>0.173</gac_lbs_ft>
+	</gac_type>
+
+	<gac_type id="3/8-7x19">
+		<gac_diam>0.375</gac_diam>
+		<gac_uts>14400</gac_uts>
+		<gac_lbs_ft>0.243</gac_lbs_ft>
+	</gac_type>
+
+	<gac_type id="1/16-7x7">
+		<gac_diam>0.0625</gac_diam>
+		<gac_uts>480</gac_uts>
+		<gac_lbs_ft>0.0075</gac_lbs_ft>
+	</gac_type>
+
+	<gac_type id="3/32-7x7">
+		<gac_diam>0.09375</gac_diam>
+		<gac_uts>920</gac_uts>
+		<gac_lbs_ft>0.016</gac_lbs_ft>
+	</gac_type>
+
+	<gac_type id="1/8-7x7">
+		<gac_diam>0.125</gac_diam>
+		<gac_uts>1700</gac_uts>
+		<gac_lbs_ft>0.0285</gac_lbs_ft>
+	</gac_type>
+
+	<gac_type id="5/32-7x7">
+		<gac_diam>0.15625</gac_diam>
+		<gac_uts>2600</gac_uts>
+		<gac_lbs_ft>0.043</gac_lbs_ft>
+	</gac_type>
+
+	<gac_type id="3/16-7x7">
+		<gac_diam>0.1875</gac_diam>
+		<gac_uts>3700</gac_uts>
+		<gac_lbs_ft>0.062</gac_lbs_ft>
+	</gac_type>
+
+	<gac_type id="7/32-7x7">
+		<gac_diam>0.21875</gac_diam>
+		<gac_uts>4800</gac_uts>
+		<gac_lbs_ft>0.086</gac_lbs_ft>
+	</gac_type>
+
+	<gac_type id="1/4-7x7">
+		<gac_diam>0.25</gac_diam>
+		<gac_uts>6100</gac_uts>
+		<gac_lbs_ft>0.106</gac_lbs_ft>
+	</gac_type>
+
+</document>

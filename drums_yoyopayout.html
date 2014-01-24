@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Drums: Yoyo Payout</title>
+
+	<link rel="shortcut icon" type="image/png" href="../favicon.png" />
+	<link rel="apple-touch-icon-precomposed" href="../apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../apple-touch-icon-120x120.png">
+	<meta content="width=device-width, minimum-scale=1, maximum-scale=1" name="viewport">
+
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+	<script type="text/javascript" src="script/mdj.math.library.js"></script>
+	<script type="text/javascript" src="script/drums.js"></script>
+	<script type="text/javascript">
+		$(document).bind("mobileinit", function () {
+			$.mobile.ajaxEnabled = false;
+		});
+	</script>
+	<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+
+ 	<script src="http://www.scenic-shop.com/mint/?js" type="text/javascript"></script>
+
+</head>
+<body>
+
+<!--	################################
+		#####   YoYo Payout Page   #####
+		################################		-->
+
+<div data-role="page" id="yoyopayout_page">
+
+	<script>
+		LoadNavPanel("#yoyopayout_page");
+		$(document).on('pageinit', '#yoyopayout_page', function() {getYoyoPayout()});
+		$("#yoyopayout_page").on('change', '.user_values', function() {getYoyoPayout()});
+		$(".calculated_values").prop("readonly",true);
+
+	</script>
+
+
+<!--	#####   PANEL   #####		-->
+
+	<div data-role="panel" id="navpanel"  class="navpanel" data-display="reveal" data-position="left">
+		<ul data-role="listview" id="navigation_links"  data-theme="d">
+		</ul>
+	</div> <!-- /panel -->
+
+
+<!--	#####   HEADER   #####		-->
+
+	<div data-role="header" data-position="fixed" data-theme="b">
+		<a href="#navpanel" data-role="button" data-icon="bars" data-iconpos="notext">Navigation</a>
+		<h1>Yoyo Drum Payout</h1>
+	</div><!-- /header -->
+
+
+<!--	#####   CONTENT   #####		-->
+
+ 	<div role="main" class="ui-content">
+
+ 		<div data-role="fieldcontain">
+			<label for="yo_spd">Tread &Oslash; (in):</label>
+			<input class="user_values" type="number" data-clear-btn="true" name="yo_spd" id="yo_spd" value="4.5" min="0" />
+
+			<label for="yo_od">Drum OD (in):</label>
+			<input class="user_values" type="number" data-clear-btn="true" name="yo_od" id="yo_od" value="11" min="0" />
+
+			<label for="yo_cable">Cable &Oslash; (in):</label>
+			<input class="user_values" type="number" data-clear-btn="true" name="yo_cable" id="yo_cable" value="0.1825" min="0" />
+
+			<label for="yo_i_wraps">Inner Wraps:</label>
+			<input class="user_values" type="number" data-clear-btn="true" name="yo_i_wraps" id="yo_i_wraps" value="3" min="0" />
+
+			<label for="yo_o_wraps">Outer Wraps:</label>
+			<input class="user_values" type="number" data-clear-btn="true" name="yo_o_wraps" id="yo_o_wraps" value="0.5" min="0" />
+
+			<label for="yo_u_wraps">Usable Wraps:</label>
+			<input class="calculated_values" type="number" name="yo_u_wraps" id="yo_u_wraps" min="0" readonly />
+
+			<label for="yo_payout">Payout (ft):</label>
+			<input class="calculated_values" type="number" name="yo_payout" id="yo_payout" readonly />
+		</div><!-- /fieldcontain -->
+
+	</div><!-- /content -->
+
+
+<!--	#####   FOOTER   #####		-->
+
+	<div data-role="footer" data-position="fixed" data-theme="b">
+		<div data-role="controlgroup" data-type="horizontal" align="center">
+			<a href="formulas/mdwiki.html#!drums_yoyopayout.md" data-role="button" id="button_formulas" data-icon="gear">Formulas</a>
+			<a href="#diagram" data-role="button" id="btn_diagram" data-icon="info">Diagram</a>
+			<a href="disclaimer.html" data-role="button" data-rel="dialog">Disclaimer</a>
+		</div>
+	</div>  <!-- Footer -->
+
+</div> <!--  /page -->
+
+
+<!--	#####   DIAGRAM   #####		-->
+
+<div data-role="page" id="diagram" data-dialog="true">
+	<div data-role="header" data-position="fixed" data-theme="b">
+		<h1>Drum Diagram</h1>
+	</div><!-- /header -->
+    
+    <div data-role="content">
+		<h1> <img class="centered" src="image/drum_yoyo_payout.jpg" alt="Diagram" /> </h1>
+    </div>
+  
+</div><!-- Page -->
+
+
+</body>
+</html>

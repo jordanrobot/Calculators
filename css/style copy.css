@@ -1,0 +1,74 @@
+<style type="text/css">
+
+	.content {
+		padding-bottom: 52px;
+		padding-top: 52px;
+		float: left;
+		width: 60%;
+	}
+
+	.centered {
+		display:block;
+		margin-left: auto;
+    	margin-right: auto;
+	}
+
+	.input_slider
+	{
+		text-align:center;
+		background-color: #a9d89e;
+		margin-bottom: 0.25em;
+		padding-right: 1em;
+	}
+	
+	.user_values
+	{
+		text-align:center;
+		background-color: #c8f1c3;
+		margin-bottom: 0.25em;
+		padding-right: 1em;
+	}
+
+	.calculated_values
+	{
+		text-align:center;
+		background-color: #fcccd5;		
+		margin-bottom: 0.25em;
+		padding-right: 1em;
+	}
+	input.big_calculated_values
+	{
+		text-align:center;
+		background-color: #d8adb0;
+		font-size: 2em;
+
+	}
+	input.button
+	{
+		margin-left: 12em;
+	}
+
+	.label
+	{
+		display: inline-block;
+		width: 600px;
+	}
+
+	.forceinline{  /* Prevent fieldcontain from doing a BLOCK thing */
+ 	   display:inline !important;
+	}
+
+@media all and (max-width: 650px) and (min-width: 250px) {
+	.content {
+		width: 90%;
+		min-width: 250px;
+	}
+}
+@media all and (max-width: 2000px) and (min-width: 651px) {
+	.content {
+		width: 600px;
+	}
+}
+
+
+</style>

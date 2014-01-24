@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+			
+<title>Motion</title>
+
+	<link rel="shortcut icon" type="image/png" href="../favicon.png" />
+	<link rel="apple-touch-icon-precomposed" href="../apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../apple-touch-icon-120x120.png">
+
+	<meta content="width=device-width, minimum-scale=1, maximum-scale=1" name="viewport">
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script  type="text/javascript" src="script/mdj.math.library.js"></script>
+	<script  type="text/javascript" src="script/motion_formulas.js"></script>
+
+	<script type="text/javascript">$(document).bind("mobileinit", function () {$.mobile.ajaxEnabled = false;});</script>
+	<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+ 	<script src="http://www.scenic-shop.com/mint/?js" type="text/javascript"></script>
+
+</head>
+<body>
+
+
+<!--   	############################
+		#####   MOTION  PAGE   #####
+		############################ 	-->
+
+<div data-role="page" id="motion_page" data-theme="a">
+
+	<script>
+
+		LoadNavPanel("#motion_page");
+		$(document).on('pageinit', '#motion_page', function() {init()});	
+		$(document).on('change', '#accel, #decel, #speed, #distance', function(){init();});
+		$(document).on('change', '#time', function(){change_time();});
+		$(document).on('change', '#weight, #rolling, #friction, #moveKind', function(){calc_forces();});
+		$(document).on('change', '#system_eff, #hp_required, #kw_required', function(){calc_hp();});
+		$(document).on('change', '#dist_a, #dist_d', function(){change_accel_distance();});
+
+	</script>
+
+
+<!--	#####   PANEL   #####		-->
+
+	<div data-role="panel" id="navpanel" class="navpanel" data-display="reveal" data-position="left">
+		<ul data-role="listview" id="navigation_links"  data-theme="b">
+		</ul>
+	</div> <!-- Panel -->
+
+
+<!--	#####   HEADER   #####		-->
+
+	<div data-role="header" data-position="fixed" data-theme="b">
+	<a href="#navpanel" data-role="button" data-icon="bars" data-iconpos="notext">Navigation</a>
+		<h1>Motion Calculator</h1>
+	</div><!-- /header -->
+
+
+<!--	#####   CONTENT   #####		-->
+
+	<div role="main" class="ui-content">
+
+			<label for="distance">Total Distance (ft):</label>
+			<input class="user_values" type="number" data-clear-btn="true" name="distance" id="distance" value="25" maxlength="8" min="0"/>
+
+			<label for="time">Total Time (sec):</label>
+			<input class="user_values" type="number" data-clear-btn="true" name="time" id="time" maxlength="4" min="0" />
+
+			<label for="speed">Top Speed (ft/s):</label>
+			<input class="user_values" type="number" data-clear-btn="true" name="speed" id="speed" value="4" maxlength="2" min="0" />
+
+<div class="ui-grid-a">
+	<div class="ui-block-a">
+		<label for="dist_a">Accel Distance (ft):</label>
+		<input class="user_values" type="number" name="dist_a" id="dist_a" min="0" data-clear-btn="true"/>
+
+		<label for="dist_d">Decel. Distance (ft):</label>
+		<input class="user_values" type="number" name="dist_d" id="dist_d" min="0" data-clear-btn="true"/>
+	</div>
+
+	<div class="ui-block-b">
+		<label for="accel">Accel. (ft/s*s):</label>
+		<input class="user_values" type="number"  id="accel" name="accel" min="0" value="4" data-clear-btn="true"/>
+
+		<label for="decel">Decel. (ft/s*s):</label>
+		<input class="user_values" type="number"  id="decel" name="decel" min="0" value="4" data-clear-btn="true"/>
+
+	</div>
+</div>
+
+		<div data-role="collapsible" data-collapsed="true" data-theme="b">
+			<h3>Forces</h3>
+
+			<div data-role="controlgroup">
+
+				<select name="moveKind" id="moveKind" data-mini="true">
+					<option value="Calculate_null" disabled>Move Type:</option>
+					<option value="horiz">Horizontal &amp; CWA</option>
+					<option value="lift">Lift on Accel. (Dead Haul)</option>
+					<option value="lower">Lower on Accel. (Dead Haul)</option>
+					</select>
+			</div>
+
+			<label for="weight">Moving Weight (lbf):</label>
+			<input class="user_values" type="number" data-clear-btn="true" name="weight" id="weight" value="500" maxlength="8" min="0"/>
+
+			<label for="forceAccel">Accel. Force (lbf):</label>
+			<input class="calculated_values" type="number"  id="forceAccel" name="forceAccel" readonly/>
+
+			<label for="forceDecel">Decel. Force (lbf):</label>
+			<input class="calculated_values" type="number"  id="forceDecel" name="forceDecel" readonly/>
+
+			<label for="friction">Friction Coeff. &mu;:</label>
+			<input class="user_values" type="number" name="friction" id="friction" value="0.0" step="0.01" maxlength="4" min="0" />
+
+		</div> <!-- collapsible -->
+
+
+		<div data-role="collapsible" data-collapsed="true" data-theme="b">
+			<h3>Power</h3>
+
+			<label for="system_eff">System Efficiency (%):</label>
+			<input class="user_values" type="number" name="system_eff" id="system_eff" value="85" min="1" max="100"/>
+
+			<label for="hp_required">Required Power (hp):</label>
+			<input class="calculated_values" type="number"  id="hp_required" name="hp_required" readonly/>
+
+			<label for="kw_required">Required Power (kW):</label>
+			<input class="calculated_values" type="number"  id="kw_required" name="kw_required" readonly/>
+
+		</div> <!-- collapsible -->
+		
+	</div> <!--  Content -->
+
+
+<!--	#####   Footer   #####		-->
+
+	<div data-role="footer" data-position="fixed" data-theme="b">
+		<div data-role="controlgroup" data-type="horizontal" align="center">
+			<a href="formulas/mdwiki.html#!motions.md" data-role="button" id="formula" data-icon="gear" disabled style=color:#b2b2b2;>Formulas</a>
+			<a href="#diagram" data-role="button" id="motion_diagram" data-rel="dialog" data-icon="info" disabled style=color:#b2b2b2;>Diagram</a>
+			<a href="disclaimer.html" data-role="button" data-rel="dialog">Disclaimer</a>
+		</div>
+	</div>  <!-- Footer -->
+
+</div> <!-- Page -->
+
+
+<!--	#####   DIAGRAM   #####		-->
+
+<div data-role="page" id="diagram">
+	<div data-role="header" data-position="fixed" data-theme="b">
+		<h1>Motion Diagram</h1>
+	</div><!-- /header -->
+    
+    <div data-role="content">
+		<h1> <img class="centered" src="image/motions.jpg" alt="Diagram" /> </h1>
+    </div>
+
+  </div> <!-- Page -->
+	
+</body>
+</html>

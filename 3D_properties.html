@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>3D Geometric Properties</title>
+
+	<meta content="width=device-width, minimum-scale=1, maximum-scale=1" name="viewport">
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript">
+		$(document).bind("mobileinit", function () {
+    		$.mobile.ajaxEnabled = false;
+		});
+	</script>
+	<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+
+ 	<script src="http://www.scenic-shop.com/mint/?js" type="text/javascript"></script>
+
+</head>
+<body>
+
+<div data-role="page" id="3d_props">
+
+    <script>
+		LoadNavPanel("#3d_props");
+    </script>
+	<script type="text/javascript" src="script/3D_props.js"></script>
+	<script type="text/javascript" src="script/mdj.math.library.js"></script>
+
+	<div data-role="panel" id="navpanel" data-display="reveal" data-position="left">
+		<ul data-role="listview" id="navigation_links"  data-theme="f">
+		</ul>
+	</div> <!-- Panel -->
+
+
+	<div data-role="header" data-position="fixed" data-theme="b">
+		<a href="#navpanel" data-role="button" data-icon="bars" data-iconpos="notext">Navigation</a>
+		<h1>3D Material Properties</h1>
+	</div><!-- /header -->
+	
+ 	<div role="main" class="ui-content">
+		<div data-role="collapsible-set">
+
+
+<!-- #####################################################-->
+<!-- ###################   Cube   ########################-->
+<!-- #####################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Cube</h3>
+				<div data-role="fieldcontain">
+					<label for="cube_side">Side Length (unit):</label>
+					<input class="user_values" type="number" data-clear-btn="true" name="cube_side" id="cube_side"/>
+					
+					<label for="cube_volume">Volume (unit<sup>3</sup>):</label>
+					<input class="calculated_values" name="cube_volume" id="cube_volume" />
+					
+					<label for="cube_area">Surface Area (unit<sup>2</sup>):</label>
+					<input class="calculated_values" name="cube_area" id="cube_area" />
+				</div><!-- /fieldcontain -->
+			</div> <!-- Collasible -->
+	<script>$('#cube_side').live('change', function(){getCube();});</script>
+
+<!-- ####################################################-->
+<!-- ###################   Box   ########################-->
+<!-- ####################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Box</h3>
+					<div data-role="fieldcontain">
+						
+						<label for="box_height">Height:</label>
+						<input class="user_values" type="number" data-clear-btn="true" name="box_height" id="box_height"/>
+
+						<label for="box_width">Width:</label>
+						<input class="user_values" type="number" data-clear-btn="true" name="box_width" id="box_width"/>
+
+						<label for="box_depth">Depth:</label>
+						<input class="user_values" type="number" data-clear-btn="true" name="box_depth" id="box_depth"/>
+						
+						<label for="box_volume">Volume (unit<sup>3</sup>):</label>
+						<input class="calculated_values" name="box_volume" id="box_volume" />
+						
+						<label for="box_area">Surface Area (unit<sup>2</sup>):</label>
+						<input class="calculated_values" name="box_area" id="box_area" />
+						
+					</div><!-- /fieldcontain -->
+				</div> <!-- Collasible -->
+<script>$("#box_height,#box_width,#box_depth").live('change', function(){getBox();});</script>
+
+
+<!-- #######################################################-->
+<!-- ###################   Shpere   ########################-->
+<!-- #######################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Sphere</h3>
+				<div data-role="fieldcontain">
+					<label for="sphere_radius">Diameter:</label>
+					<input class="user_values" type="number" data-clear-btn="true" name="sphere_radius" id="sphere_radius"/>
+					
+					<label for="sphere_volume">Volume (unit<sup>3</sup>):</label>
+					<input class="calculated_values" name="sphere_volume" id="sphere_volume" />
+					
+					<label for="sphere_area">Surface Area (unit<sup>2</sup>):</label>
+					<input class="calculated_values" name="sphere_area" id="sphere_area" />
+				</div><!-- /fieldcontain -->
+			</div> <!-- Collasible -->
+<script>$("#sphere_radius").live('change', function(){getSphere();});</script>
+
+
+<!-- #######################################################-->
+<!-- ###################   Cylinder   ########################-->
+<!-- #######################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Cylinder</h3>
+				<div data-role="fieldcontain">
+					<label for="cyl_radius">Radius:</label>
+					<input class="user_values" type="number" data-clear-btn="true" name="cyl_radius" id="cyl_radius"/>
+
+					<label for="cyl_height">Height:</label>
+					<input class="user_values" type="number" data-clear-btn="true" name="cyl_height" id="cyl_height"/>
+					
+					<label for="cyl_volume">Volume (unit<sup>3</sup>):</label>
+					<input class="calculated_values" name="cyl_volume" id="cyl_volume" />
+					
+					<label for="cyl_area">Surface Area (unit<sup>2</sup>):</label>
+					<input class="calculated_values" name="cyl_area" id="cyl_area" />
+				</div><!-- /fieldcontain -->
+			</div> <!-- Collasible -->
+<script>$("#cyl_radius,#cyl_height").live('change', function(){getCylinder();});</script>
+
+<!-- ##################################################################-->
+<!-- ###################   Cone: Right Angle   ########################-->
+<!-- ##################################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Cone: Right Angle</h3>
+				<div data-role="fieldcontain">
+					<label for="cone_radius">Base Radius:</label>
+					<input class="user_values" type="number" data-clear-btn="true" name="cone_radius" id="cone_radius"/>
+
+					<label for="cone_height">Height:</label>
+					<input class="user_values" type="number" data-clear-btn="true" name="cone_height" id="cone_height"/>
+					
+					<label for="cone_volume">Volume (unit<sup>3</sup>):</label>
+					<input class="calculated_values" name="cone_volume" id="cone_volume" />
+					
+					<label for="cone_area">Surface Area (unit<sup>2</sup>):</label>
+					<input class="calculated_values" name="cone_area" id="cone_area" />
+				</div><!-- /fieldcontain -->
+			</div> <!-- Collasible -->
+<script>$("#cone_radius,#cone_height").live('change', function(){getCone();});</script>
+
+
+<!-- ################################################################-->
+<!-- ###################   Pyramid: Square   ########################-->
+<!-- ################################################################-->
+
+			<div data-role="collapsible" data-theme="b">
+				<h3>Pyramid: Square</h3>
+				<div data-role="fieldcontain">
+					<label for="pyr_width">Base width:</label>
+					<input class="user_values" type="number" data-clear-btn="true" name="pyr_width" id="pyr_width"/>
+
+					<label for="pyr_height">Height:</label>
+					<input class="user_values" type="number" data-clear-btn="true" name="pyr_height" id="pyr_height"/>
+					
+					<label for="pyr_volume">Volume (unit<sup>3</sup>):</label>
+					<input class="calculated_values" name="pyr_volume" id="pyr_volume" />
+					
+					<label for="pyr_area">Surface Area (unit<sup>2</sup>):</label>
+					<input class="calculated_values" name="pyr_area" id="pyr_area" />
+				</div><!-- /fieldcontain -->
+			</div> <!-- Collasible -->
+			<script>$("#pyr_width,#pyr_length,#pyr_height").live('change', function(){getPyramid();});</script>
+			
+	</div> <!-- Collapsible-Set -->
+	</div><!-- /content -->
+
+	<div data-role="footer" data-position="fixed" data-theme="b">
+		<h4></h4>
+	</div><!-- /footer --></div>
+<div> <!-- Page  -->
+
+</body>
+</html>

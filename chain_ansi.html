@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>ANSI Chain Calculators</title>
+
+	<link rel="shortcut icon" type="image/png" href="../favicon.png" />
+	<link rel="apple-touch-icon-precomposed" href="../apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../apple-touch-icon-120x120.png">
+	<meta content="width=device-width, minimum-scale=1, maximum-scale=1" name="viewport">
+
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+	<script type="text/javascript" src="script/mdj.math.library.js"></script>
+	<script type="text/javascript" src="script/chain_ansi.js"></script> 
+	<script type="text/javascript">
+		$(document).bind("mobileinit", function () {
+    		$.mobile.ajaxEnabled = false;
+		});
+	</script>
+	<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+
+ 	<script src="http://www.scenic-shop.com/mint/?js" type="text/javascript"></script>
+
+</head>
+<body>
+
+<!--   	#########################
+		#####   CHAIN PAGE  #####
+		######################### 	-->
+
+	<div data-role="page" id="imperial_chain">
+
+	    <script>
+			LoadNavPanel("#imperial_chain");
+			$(document).on('pageinit', '#imperial_chain', function () {getXml();});
+			$(".calculated_values").prop("readonly",true);
+		</script>
+		
+
+<!--	#####   Panel   #####		-->
+
+	<div data-role="panel" id="navpanel"  class="navpanel" data-display="reveal" data-position="left">
+		<ul data-role="listview" id="navigation_links" data-theme="b">
+		</ul>
+	</div> <!-- Panel -->
+
+
+<!--	#####   Header   #####		-->
+
+	<div data-role="header" data-position="fixed" data-theme="b">
+		<a href="#navpanel" data-role="button" data-icon="bars" data-iconpos="notext">Navigation</a>
+			<h1>ANSI Chain Calcs</h1>
+	</div>	 <!-- header -->
+
+
+<!--	#####   Content   #####		-->
+
+	<div role="main" class="ui-content">
+
+<div data-role="controlgroup" data-type="horizontal">
+					<label class="label" for="chain_size" class="select">ANSI Chain Size:</label>
+					<select name="chain_size" id="chain_size">
+						<option value="null" disabled>Chain Size:</option>
+						<option value="25">ANSI 25</option>
+						<option value="30">ANSI 30</option>
+						<option value="41">ANSI 41</option>
+						<option value="40">ANSI 40</option>
+						<option value="50">ANSI 50</option>
+						<option value="60">ANSI 60</option>
+						<option value="80">ANSI 80</option>					
+						<option value="100">ANSI 100</option>
+						<option value="120">ANSI 120</option>
+						<option value="140">ANSI 140</option>
+						<option value="160">ANSI 160</option>
+						<option value="180">ANSI 180</option>
+						<option value="200">ANSI 200</option>
+						<option value="240">ANSI 240</option>
+					</select>
+					<script>$("#chain_size").change(function(){getXml();}); </script>
+	
+					<label class="label" for="chain_strands" class="select">Chain Strands:</label>
+					<select name="chain_strands" id="chain_strands">
+						<option value="null" disabled>Chain Strands:</option>
+						<option value="-1">1</option>
+						<option value="-2">2</option>
+						<option value="-3">3</option>
+						<option value="-4">4</option>
+						<option value="-5">5</option>
+						<option value="-6">6</option>
+					</select>
+					<script>$("#chain_strands").change( function(){getXml();});</script>
+	</div>
+
+				<div data-role="collapsible-set" data-theme="a">
+					<div data-role="collapsible" data-collapsed="false" data-theme="b">
+						<h3>Properties:</h3>
+	
+						<form id = "chainPropertiesForm">
+	
+						<label class="label" for="chain_tensile">Average Tensile Strength (lbf):</label>
+						<input class="calculated_values" id="chain_tensile" name="chain_tensile" readonly />
+	
+						<label class="label" for="chain_working">Max Working Load (lbf, 1:10 factor):</label>
+						<input class="calculated_values" id="chain_working" name="chain_working" readonly />
+	
+						<label class="label" for="chain_pitch_length">Pitch Length (in):</label>
+						<input class="calculated_values" id="chain_pitch_length" name="chain_pitch_length" readonly />
+	
+						<label class="label" for="chain_roller_diam">Roller Diam. (in)</label>
+						<input class="calculated_values" id="chain_roller_diam" name="chain_roller_diam" readonly />
+	
+						<label class="label" for="chain_riveted_width">Riveted Width (in):</label>
+						<input class="calculated_values" id="chain_riveted_width" name="chain_riveted_width" readonly />
+	
+						<label class="label" for="chain_cottered_width">Cottered Width (in):</label>
+						<input class="calculated_values" id="chain_cottered_width" name="chain_cottered_width" readonly />
+	
+						</form>
+	
+					</div> <!-- collapsible -->
+	
+					<div data-role="collapsible" data-collapsed="true" data-theme="b">
+						<h3>Length and Elongation:</h3>
+	
+						<form id = "chainLengthForm">							
+
+					<div class="ui-grid-a">
+						<div class="ui-block-a">
+							<label class="label" for="chain_pitches">Chain Length (pitches):</label>
+							<input class="user_values" type="number" data-clear-btn="true" id="chain_pitches" name="chain_pitches" 					maxlength="5" min="1" />
+							<script>$("#chain_pitches").change( function(){getChainLength("#chain_pitches","#chain_length");}); </script>
+						</div>
+					
+						<div class="ui-block-b">
+							<label class="label" for="chain_length">Chain Length (in):</label>
+							<input class="user_values" type="number" data-clear-btn="true" id="chain_length" name="chain_length" maxlength=					"5" min="0" />
+							<script>$("#chain_length").change( function(){getPitchLength("#chain_pitches","#chain_length");}); </script>
+						</div>
+					</div>
+
+
+
+
+
+	
+						<label class="label" for="chain_tension">Chain Tension (lbf):</label>
+						<input class="user_values" type="number" data-clear-btn="true" id="chain_tension" name="chain_tension" value="100" min="0" />
+						<script>$("#chain_tension").change( function(){getElongation();}); </script>
+	
+						<label class="label" for="chain_elongation">Chain Elongation (in):</label>
+						<input class="calculated_values" id="chain_elongation" name="chain_elongation" readonly />					
+	
+						<label class="label" for="chain_weight">Chain weight (lbs):</label>
+						<input class="calculated_values" id="chain_weight" name="chain_weight" readonly />					
+	
+						</form>
+	
+					</div> <!-- collapsible -->
+	
+						<div data-role="collapsible" data-collapsed="true" data-theme="b">
+						<h3>Center to Center Calculation:</h3>
+	
+						<label class="label" for="sprocket_1">Large Sprocket # (no. teeth):</label>
+						<input class="user_values" type="number" data-clear-btn="true" id="sprocket_1" name="sprocket_1" value="32" maxlength="5" min="9" onkeydown="if (event.keyCode == 13) Calculate_circ()" />  		
+						<script>$("#sprocket_1").change( function(){sprocket();}); </script>
+	
+						<label class="label" for="sprocket_2">Small Sprocket # (no. teeth):</label>
+						<input class="user_values" type="number" data-clear-btn="true" id="sprocket_2" name="sprocket_2" value="22" maxlength="5" min="9" onkeydown="if (event.keyCode == 13) Calculate_circ()" />
+						<script>$("#sprocket_2").change( function(){sprocket();}); </script>
+	
+						<label class="label" for="center_dist">Center Distance (in):</label>
+						<input class="user_values" type="number" data-clear-btn="true" id="center_dist" name="center_dist" value="24" min="0" />
+						<script>$("#center_dist").change( function(){getChainLengthFrom_ctc();}); </script>
+	
+					<div class="ui-grid-a">
+						<div class="ui-block-a">
+							<label class="label" for="chain_pitches_ctc">Chain Length (pitches):</label>
+							<input class="user_values" type="number" data-clear-btn="true" id="chain_pitches_ctc" name="chain_pitches_ctc" min="0" />
+							<script>$("#chain_pitches_ctc").change( function(){getChainLength_ctc();}); </script>
+						</div>
+					
+						<div class="ui-block-b">
+							<label class="label" for="chain_length_ctc">Chain Length (in):</label>
+							<input class="user_values" type="number" data-clear-btn="true" id="chain_length_ctc" name="chain_length_ctc" min="0" />
+							<script>$("#chain_length_ctc").change( function(){getPitchLength_ctc();}); </script>	
+						</div>
+					</div>
+	
+					</div> <!-- collapsible -->
+	
+					<div data-role="collapsible" data-collapsed="true" data-theme="b">
+						<h3>Sprocket Properties:</h3>
+	
+						<label class="label" for="sprocket_tooth">Number of Teeth:</label>
+						<input class="user_values" type="number" data-clear-btn="true" id="sprocket_tooth" name="sprocket_tooth" value="20" min="9" />
+						<script>$("#sprocket_tooth").change( function(){getSprocketProps();}); </script>				
+	
+						<label class="label" for="sprocket_pd">Pitch Diameter (in):</label>
+						<input class="calculated_values" id="sprocket_pd" name="sprocket_pd" readonly />
+
+						<label class="label" for="sprocket_od">Outside Diameter (in):</label>
+						<input class="calculated_values" id="sprocket_od" name="sprocket_od" readonly />
+	
+						<label class="label" for="sprocket_width">Tooth Width (in):</label>
+						<input class="calculated_values" id="sprocket_width" name="sprocket_width" readonly />
+					</div> <!-- collapsible -->
+	
+				</div> <!-- collapsible set -->
+
+	</div>	 <!-- Content -->
+
+
+<!--	#####   Footer   #####		-->
+
+	<div data-role="footer" data-position="fixed" data-theme="b">
+		<div data-role="controlgroup" data-type="horizontal" align="center">
+			<a href="formulas/mdwiki.html#!chain_ansi.md" data-role="button" id="formula" data-icon="gear">Formulas</a>
+			<a href="#diagram" data-role="button" id="bearing_diagram" data-rel="dialog" data-icon="info" disabled style=color:#b2b2b2;>Diagram</a>
+			<a href="disclaimer.html" data-role="button" data-rel="dialog">Disclaimer</a>
+		</div>
+	</div>  <!-- Footer -->
+
+
+</div>	 <!-- Page -->
+
+
+</body>
+</html>
