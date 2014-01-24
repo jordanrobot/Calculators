@@ -40,7 +40,7 @@
 
 		$(document).on('change', "#hold, #friction, #wraps, #calcKind, #load", function(){calculateHold();});
 		$(document).on('change', "#calcKind", function(){
-			changeKind();
+			changeKind(this.value);
 			calculateHold();
 		});
 

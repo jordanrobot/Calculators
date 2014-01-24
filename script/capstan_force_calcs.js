@@ -17,16 +17,14 @@ function calculateHold() {
 
 }
 
-function changeKind() {
-	
-	calcKind = $("#calcKind").val();
+function changeKind(value) {
 
-	if (calcKind == "hold") {
+	if (value == "hold") {
 		setRed("#hold");
 		setGreen("#load");
 	};
 
-	if (calcKind == "load") {
+	if (value == "load") {
 		setGreen("#hold");
 		setRed("#load"); 
 	};
