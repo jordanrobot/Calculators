@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
 	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script  type="text/javascript" src="script/mdj.math.library.js"></script>
-	<script  type="text/javascript" src="script/radbearing_formulas.js"></script>
+	<script  type="text/javascript" src="script/bearing_rolling_life.js"></script>
 
 	<script type="text/javascript">$(document).bind("mobileinit", function () {$.mobile.ajaxEnabled = false;});</script>
 	<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
@@ -25,16 +25,20 @@
 <body>
 
 
-<!--   	############################
-		#####   RADIAL  PAGE   #####
-		############################ 	-->
+<!--   	##########################
+		#####   LIFE  PAGE   #####
+		########################## 	-->
 
-<div data-role="page" id="radial_page">
+<div data-role="page" id="life_page">
 
 	<script>
-		LoadNavPanel("#radial_page");	
+		LoadNavPanel("#life_page");	
+		$(document).on('change', "#variable", function(){changeVariable(this.value);});
+		$(document).on('change', "#ring, #Type, #reliability", function(){change(this.id, this.value);});
+
 		$(".calculated_values").prop("readonly",true);
 	</script>
+
 
 
 <!--	#####   PANEL   #####		-->
@@ -58,44 +62,51 @@
 	<div role="main" class="ui-content">
 
 
-<div data-role="controlgroup" data-type="horizontal">
-			<select name="calculationMethod" id="calculationMethod" data-mini="true">
+		<div data-role="controlgroup" data-type="horizontal">
+			<select name="variable" id="variable" data-mini="true">
 				<option value="Calculate_null" disabled>Calculate for:</option>
 				<option value="operating_hours">Operating Hours</option>
 				<option value="dyn_load">Dynamic Load</option>
 				<option value="rpm">Rotations Per Min</option>
 			</select>
-			<script>//$("#chain_size").change(function(){getXml();}); </script>
 
-		<label for="type">Bearing Type:</label>
-		<select name="type" id="type" data-mini="true">
-			<option value="type_null" disabled>Bearing Type:</option>
-			<option value="Ball">Ball Bearing</option>
-			<option value="Roller">Roller Bearing</option>
-		</select> 
+			<label for="Type">Bearing Type:</label>
+			<select name="Type" id="Type" data-mini="true">
+				<option value="type_null" disabled>Bearing Type:</option>
+				<option value="ball">Ball Bearing</option>
+				<option value="roller">Roller Bearing</option>
+			</select> 
 
-</div>
+		</div>
 
-			<label for="C10">Dyn. Load Rating:</label>
-			<input class="user_values" type="number" data-clear-btn="true" name="C10" id="C10" value="7050" maxlength="7" min="0" />
+		<label for="dyn_load">Dyn. Load Rating:</label>
+		<input class="user_values" type="number" data-clear-btn="true" name="dyn_load" id="dyn_load" value="7050" maxlength="7" min="0" />
 
-			<label for="Cx">C<sub>x</sub>Rated Hours:</label>
-			<input class="user_values" type="number" data-clear-btn="true" name="Cx" id="Cx" value="1000000" maxlength="10" min="0" />
+		<div class="ui-grid-b">
+			<div class="ui-block-a">
 
-			<label for="rpm">RPM:</label>
-			<input class="user_values" type="number" data-clear-btn="true" name="rpm" id="rpm" value="250" maxlength="7" min="0"/>
+				<label for="rad_load">Radial (lbf):</label>
+				<input class="user_values" type="number" data-clear-btn="true" name="rad_load" id="rad_load" value="300" maxlength="7" min="0" />
+			</div>
+			<div class="ui-block-b">
+				<label for="thr_load">Thrust (lbf):</label>
+				<input class="user_values" type="number" data-clear-btn="true" name="thr_load" id="thr_load" value="50" maxlength="7" min="0" />
+			</div>
 
-			<label for="rad_load">Radial Load:</label>
-			<input class="user_values" type="number" data-clear-btn="true" name="rad_load" id="rad_load" value="300" maxlength="7" min="0" />
+			<div class="ui-block-c">
+				<label for="equ_load">Equiv. (lbf):</label>
+				<input class="calculated_values" type="number" name="equ_load" id="equ_load" value="50" maxlength="7" min="0" readonly />
+			</div>
+		</div>
 
-			<label for="thr_load">Thrust Load:</label>
-			<input class="user_values" type="number" data-clear-btn="true" name="thr_load" id="thr_load" value="50" maxlength="7" min="0" />
+		<label for="Cx">C<sub>x</sub>Rated Hours:</label>
+		<input class="user_values" type="number" data-clear-btn="true" name="Cx" id="Cx" value="1000000" maxlength="10" min="0" />
 
-			<label for="equ_load">Equiv. Load:</label>
-			<input class="calculated_values" type="number" name="equ_load" id="equ_load" value="50" maxlength="7" min="0" readonly />
+		<label for="rpm">RPM:</label>
+		<input class="user_values" type="number" data-clear-btn="true" name="rpm" id="rpm" value="250" maxlength="7" min="0"/>
 
-			<label for="hours">Operating Hours:</label>
-			<input class="calculated_values" type="number" data-clear-btn="true" name="hours" id="hours" value="5469" maxlength="12" min="0" />
+		<label for="hours">Operating Hours:</label>
+		<input class="calculated_values" type="number" data-clear-btn="true" name="hours" id="hours" value="5469" maxlength="12" min="0" />
 
 
 		<div data-role="collapsible-set" data-theme="a">
@@ -103,36 +114,35 @@
 				<h3>Advanced</h3>
 
 			<div data-role="controlgroup" data-type="horizontal">
-				<label for="rotationValue">Rotating Ring:</label>
-					<select name="rotationValue" id="rotationValue" data-mini="true">
+				<label for="ring">Rotating Ring:</label>
+					<select name="ring" id="ring" data-mini="true">
 						<option value="rot_null" disabled>Rotation:</option>
 						<option value="1">Inner Ring Rotates</option>
 						<option value="1.2">Outer Ring Rotates</option>
 					</select> 
 
-					<label class="label" for="reliabilityValue" class="select">Reliability:</label>
-					<select name="reliabilityValue" id="reliabilityValue" data-mini="true">
-						<option value="reli_null" disabled>Reliability:</option>
-						<option value="90">90%</option>
-						<option value="91">91%</option>
-						<option value="92">92%</option>
-						<option value="93">93%</option>
-						<option value="94">94%</option>
-						<option value="95">95%</option>
-						<option value="96">96%</option>					
-						<option value="97">97%</option>
-						<option value="98">98%</option>
-						<option value="99">99%</option>
-					</select>
-					<script>//$("#chain_size").change(function(){getXml();}); </script>
-</div>
+			<label class="label" for="reliability" class="select">Reliability:</label>
+			<select name="reliability" id="reliability" data-mini="true">
+				<option value="reli_null" disabled>Reliability:</option>
+				<option value="90">90%</option>
+				<option value="91">91%</option>
+				<option value="92">92%</option>
+				<option value="93">93%</option>
+				<option value="94">94%</option>
+				<option value="95">95%</option>
+				<option value="96">96%</option>					
+				<option value="97">97%</option>
+				<option value="98">98%</option>
+				<option value="99">99%</option>
+			</select>
+			</div>
 
 			<label for="applicationFactor">Application Factor:</label>
 			<input class="user_values" type="number"  id="applicationFactor" name="applicationFactor" value="1.0" step="0.1" min="1.0" max="3.0" data-inline="true"/>
 
 				<label for="conditionFactor">Operating Conditions Factor:</label>
 				<input class="user_values" type="number"  id="conditionFactor" name="conditionFactor" value="1.0" step="0.1" min="0.0" max="2.0"/>
-
+	
 			</div> <!-- collapsible -->
 
 		</div> <!-- collapsible set -->
