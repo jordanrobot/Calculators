@@ -30,12 +30,28 @@ function changeVariable (value) {
 	} //switch
 } //function changeVariable
 
-function checke() {
+function getEquivalent() {
+	b.C0		=	$("#static_load").val() * 1;
 	b.radial 	=	$("#rad_load").val() * 1;
 	b.thrust 	=	$("#thr_load").val() * 1;
-	b.e			= 	b.thrust/b.radial;
+	b.e			= 	b.thrust/b.C0;
 
-	if (e == ) {}
+	getFactors();
+
+	b.equivalent = (x * b.ring * b.radial) + (y * b.thrust) ;
+
+	$("equ_load").val(Round(b.equivalent, 2));
+}
+
+function getFactors() {
+	if ((b.radial / (b.ring * b.thrust)) =< e ) {
+		var x = 1;
+		var y = 1;
+	} else {
+
+
+	}
+
 
 }
 
