@@ -9,10 +9,10 @@ function init() {
 	// get initial motion values
 	// calculate Time
 
-	mo.speed  = $("#speed").val()*1;
-	mo.accel = $("#accel").val()*1;
-	mo.decel = $("#decel").val()*1;
-	mo.distance  = $("#distance").val()*1;
+	mo.speed	= $("#speed").val()		* 1;
+	mo.accel 	= $("#accel").val()		* 1;
+	mo.decel	= $("#decel").val()		* 1;
+	mo.distance	= $("#distance").val()	* 1;
 
 	mo.timeA = mo.speed / mo.accel;
 	mo.timeD = mo.speed / mo.decel;
@@ -23,8 +23,8 @@ function init() {
 
 	mo.timeS = mo.distanceS / mo.speed;
 
-	$("#dist_a").val(mo.distanceA);
-	$("#dist_d").val(mo.distanceD);
+	$("#dist_a").val(Round(mo.distanceA, 2));
+	$("#dist_d").val(Round(mo.distanceD, 2));
 
 	$("#time").val(Round(mo.timeA + mo.timeD + mo.timeS, 2));
 
@@ -50,11 +50,11 @@ function change_accel_distance() {
 
 	console.debug("change_accel_distance()");
 
-	mo.speed  = $("#speed").val()*1;
-	mo.distance  = $("#distance").val()*1;
+	mo.speed  	 = $("#speed").val()	*	1;
+	mo.distance  = $("#distance").val()	*	1;
 
-	mo.distanceA = $("#dist_a").val();
-	mo.distanceD = $("#dist_d").val();
+	mo.distanceA = $("#dist_a").val()	*	1;
+	mo.distanceD = $("#dist_d").val()	*	1;
 	mo.distanceS = mo.distance - (mo.distanceA + mo.distanceD);
 
 	mo.accel = (mo.speed * mo.speed) / (2 * mo.distanceA);
@@ -67,7 +67,7 @@ function change_accel_distance() {
 	$('#accel').val(Round(mo.accel, 2));
 	$('#decel').val(Round(mo.decel, 2));
 
-	$("#time").val(Round(mo.timeA + mo.timeD + mo.timeS, 2));
+	$("#time").val(Round(mo.timeS + mo.timeA + mo.timeD, 2));
 
 	calc_forces();
 }
@@ -89,7 +89,7 @@ function change_time() {
 
 	mo.timeA = mo.speed / mo.accel;
 	mo.timeD = mo.speed / mo.decel;
-	mo.timeS = mo.time - (mo.timeA + mo.timeD)
+	mo.timeS = mo.time - (mo.timeA + mo.timeD);
 
 	if (mo.timeS > (mo.timeA + mo.timeD)) {
 
