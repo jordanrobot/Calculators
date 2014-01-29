@@ -1,3 +1,11 @@
+###2014-Jan-29
+---
+
+* [Motions](http://www.scenic-shop.com/Calculators/motions.html)
+    * Added calculator
+    * Added formula page
+
+
 ###2014-Jan-21
 ---
 

@@ -15,6 +15,7 @@
 * [Frustum Flatten](frustum.md)
 * [HP Force/Speed](hp_force_speed.md)
 * [Linepull Winch](winch_linepull.md)
+* [Motions](motions.md)
 * [Piston Force & Speed](piston_force_speed.md)
 * [Pulley Calcs](pulleys.md)
 * [Resultant Force over a Pulley](resultant_force.md)
