@@ -30,6 +30,14 @@ function changeVariable (value) {
 	} //switch
 } //function changeVariable
 
+function checke() {
+	b.radial 	=	$("#rad_load").val() * 1;
+	b.thrust 	=	$("#thr_load").val() * 1;
+	b.e			= 	b.thrust/b.radial;
+
+	if (e == ) {}
+
+}
 
 function change (id, value) {
 	b[id] = (parseFloat(value)? parseFloat(value) : value);
