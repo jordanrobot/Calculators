@@ -137,34 +137,53 @@
 			<input class="user_values" type="number" id="safety" value="3" min="1" />
 	
 
-			<div class="ui-grid-a">
+			<div class="ui-grid-b">
 		
 				<div class="ui-block-a">
-					<label for="shearAllow">Allowable Shear (psi):</label>
-					<input class="calculated_values" type="number" id="shearAllow" readonly />
 				</div>
 				<div class="ui-block-b">
-					<label for="compressionAllow">Allowable Compression (psi):</label>
+					<label>Shear &sigma; (psi):</label>
+				</div>
+				<div class="ui-block-c">
+					<label>Compression &sigma; (psi):</label>
+				</div>
+			</div>
+
+
+			<div class="ui-grid-b">
+
+				<div class="ui-block-b">
+					<label>Allowable:</label>
+				</div>
+				<div class="ui-block-b">
+					<input class="calculated_values" type="number" id="shearAllow" readonly />
+				</div>
+				<div class="ui-block-c">
 					<input class="calculated_values" type="number" id="compressionAllow" readonly />
 				</div>
 			</div>
 	
-			<div class="ui-grid-a">
-		
+			<div class="ui-grid-b">
+
 				<div class="ui-block-a">
-					<label for="shearActual">Actual Shear (psi):</label>
+					<label>Actual:</label>
+				</div>
+		
+				<div class="ui-block-b">
 					<input class="calculated_values" type="number" id="shearActual" readonly />
 				</div>
-				<div class="ui-block-b">
-					<label for="compressionActual">Actual Compression (psi):</label>
+				<div class="ui-block-c">
 					<input class="calculated_values" type="number" id="compressionActual" readonly />
 				</div>
 			</div>
 	
-			<div class="ui-grid-a">
-	
+			<div class="ui-grid-b">
+
 				<div class="ui-block-a">
-					<label for="shearTest">Shear Test:</label>
+					<label>Test:</label>
+				</div>
+
+				<div class="ui-block-b">
 					<select id="shearTest" data-role="slider" data-mini="true" readonly>
 						<option value="fail">Fail</option>
 						<option value="pass">Pass</option>
@@ -172,8 +191,7 @@
 				</div>
 	
 		
-				<div class="ui-block-b">
-					<label for="compressionTest">Compression Test:</label>
+				<div class="ui-block-c">
 					<select id="compressionTest" data-role="slider" data-mini="true" readonly>
 						<option value="fail">Fail</option>
 						<option value="pass">Pass</option>
