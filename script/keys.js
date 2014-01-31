@@ -10,7 +10,7 @@ function keyCalc() {
 	key.l = $("#length").val()	* 1;
 	key.torque = $("#torque").val()	* 1;
 	key.safety = $("#safety").val()	* 1;
-	key.yeild =  $("#F_y").val()	* 1;
+	key.yield =  $("#yield").val()	* 1;
 
 	getAreas();
 
@@ -21,10 +21,10 @@ function keyCalc() {
 	key.shearActual = (2 * key.torque) / (key.diameter * key.w * key.l);
 	$("#shearActual").val(Round(key.shearActual, 0));
 
-	key.compressionAllow = key.yeild / key.safety;
+	key.compressionAllow = key.yield / key.safety;
 	$("#compressionAllow").val(Round(key.compressionAllow, 0));
 
-	key.shearAllow = (0.5 * key.yeild) / key.safety;
+	key.shearAllow = (0.5 * key.yield) / key.safety;
 	$("#shearAllow").val(Round(key.shearAllow, 0));
 
 
@@ -64,6 +64,48 @@ function getAreas() {
 	$("#shearArea").val(Round(key.shearArea, 4));
 }
 
+function getYield (id, value) {
+
+	switch(value) {
+
+		case "C1018":
+			setYield(53000);
+			break;
+
+		case "C1020":
+			setYield(51000);
+			break;
+
+		case "C1045":
+			setYield(71000);
+			break;
+
+		case "C1090":
+			setYield(78300);
+			break;
+
+		case "A36":
+			setYield(36000);
+			break;
+
+		case "316":
+			setYield(30000);
+			break;
+
+	} //switch
+}
+
+function setMaterial() {
+
+	$("#material").val("custom").selectmenu('refresh');
+
+}
+
+function setYield(i) {
+
+	$("#yield").val(i);
+
+}
 
 function getShaftSize (id, value) {
 

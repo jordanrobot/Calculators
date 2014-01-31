@@ -39,8 +39,10 @@
 	<script>
 		LoadNavPanel("#key_page");	
 		$(document).on('pageshow', '#key_page', function(){keyCalc();});
-
 		$(document).on('change','#diameter', function(){getShaftSize(this.id, this.value); keyCalc();});
+		$(document).on('change','#material', function(){getYield(this.id, this.value); keyCalc();});
+		$(document).on('change','#yield', function(){setMaterial(); keyCalc();});
+
 		$(document).on('change','#height, #width, #length, #F_y, #safety, #torque', function(){keyCalc();});
 //		$(document).on('change','#p_max, #v_max, #pv_max', function(){changeMaterial();});
 
@@ -117,18 +119,17 @@
 				<option value="custom">Custom</option>
 				<option value="steel_null" disabled>Steels:</option>
 				<option value="C1018">C1018</option>
-				<option value="C1020">C1020</option>
+				<option value="C1020">C1020</option>				
 				<option value="C1045">C1045</option>
-				<option value="1090">1090 Spring Steel</option>
+				<option value="A36">A36</option>
+				<option value="C1090">C1090 Spring Steel</option>
 				<option value="steel_null" disabled>Stainless steels:</option>
-				<option value="18-8">18-8</option>
 				<option value="316">316</option>
-				<option value="316">416</option>
 			</select> 
 		</div>
 
-			<label for="F_y">Key Yeild Strength (psi):</label>
-			<input class="user_values" type="number" id="F_y" value="34000" min="0" />
+			<label for="yield">Key Yield Strength (psi):</label>
+			<input class="user_values" type="number" id="yield" value="34000" min="0" />
 
 			<label for="torque">Torque (in-lbf):</label>
 			<input class="user_values" type="number" id="torque" value="100" min="0" />
@@ -142,10 +143,10 @@
 				<div class="ui-block-a">
 				</div>
 				<div class="ui-block-b">
-					<label>Shear &sigma; (psi):</label>
+					<label>Shear &sigma;:</label>
 				</div>
 				<div class="ui-block-c">
-					<label>Compression &sigma; (psi):</label>
+					<label>Compression &sigma;:</label>
 				</div>
 			</div>
 
@@ -153,7 +154,7 @@
 			<div class="ui-grid-b">
 
 				<div class="ui-block-b">
-					<label>Allowable:</label>
+					<label>Allowable (psi):</label>
 				</div>
 				<div class="ui-block-b">
 					<input class="calculated_values" type="number" id="shearAllow" readonly />
@@ -166,7 +167,7 @@
 			<div class="ui-grid-b">
 
 				<div class="ui-block-a">
-					<label>Actual:</label>
+					<label>Actual (psi):</label>
 				</div>
 		
 				<div class="ui-block-b">
@@ -180,7 +181,7 @@
 			<div class="ui-grid-b">
 
 				<div class="ui-block-a">
-					<label>Test:</label>
+					<label>Pass/Fail:</label>
 				</div>
 
 				<div class="ui-block-b">
