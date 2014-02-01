@@ -1,7 +1,5 @@
 var key = [];
 
-
-
 function keyCalc() {
 
 	key.diameter = $("#diameter").val() * 1;
@@ -107,59 +105,153 @@ function setYield(i) {
 
 }
 
-function getShaftSize (id, value) {
+function setShape (id, value) {
+	key[id] = value;
+}
 
-	key[id] = (parseFloat(value)? parseFloat(value) : value);
+function getShaftSize () {
 
-	switch(true) {
+	key.shape = $("#shape").val();
 
-		case ((key[id] > 0.25) && (key[id] <= 0.5)):
-		setKeySize(0.125, 0.125);
-		break;
+	if (key.shape == "square") {
+		switch(true) {
+	
+			case ((key.diameter > 0.3125) && (key.diameter <= 0.4375)):
+			setKeySize(0.09375, 0.09375);
+			break;
+	
+			case ((key.diameter > 0.4375) && (key.diameter <= 0.5625)):
+			setKeySize(0.125, 0.125);
+			break;
+	
+			case ((key.diameter > 0.5625) && (key.diameter <= 0.875)):
+			setKeySize(0.1875, 0.1875);
+			break;
+	
+			case ((key.diameter > 0.875) && (key.diameter <= 1.25)):
+			setKeySize(0.25, 0.25);
+			break;
+	
+			case ((key.diameter > 1.25) && (key.diameter <= 1.375)):
+			setKeySize(0.3125, 0.3125);
+			break;
+	
+			case ((key.diameter > 1.375) && (key.diameter <= 1.75)):
+			setKeySize(0.375, 0.375);
+			break;
+	
+			case ((key.diameter > 1.75) && (key.diameter <= 2.25)):
+			setKeySize(0.5, 0.5);
+			break;
+	
+			case ((key.diameter > 2.25) && (key.diameter <= 2.75)):
+			setKeySize(0.625, 0.625);
+			break;
+	
+			case ((key.diameter > 2.75) && (key.diameter <= 3.25)):
+			setKeySize(0.75, 0.75);
+			break;
+	
+			case ((key.diameter > 3.25) && (key.diameter <= 3.75)):
+			setKeySize(0.875, 0.875);
+			break;
+	
+			case ((key.diameter > 3.75) && (key.diameter <= 4.5)):
+			setKeySize(1, 1);
+			break;
+	
+			case ((key.diameter > 4.5) && (key.diameter <= 5.5)):
+			setKeySize(1.25, 1.25);
+			break;
+	
+			case ((key.diameter > 5.5) && (key.diameter <= 6.5)):
+			setKeySize(1.5, 1.5);
+			break;
+		
+			case ((key.diameter > 5.5) && (key.diameter <= 6.5)):
+			setKeySize(1.5, 1.5);
+			break;
 
-		case ((key[id] > 0.5) && (key[id] <= 0.75)):
-		setKeySize(0.1875, 0.1875);
-		break;
+			case ((key.diameter > 6.5) && (key.diameter <= 7.5)):
+			setKeySize(1.75, 1.75);
+			break;
 
-		case ((key[id] > 0.75) && (key[id] <= 1)):
-		setKeySize(0.25, 0.25);
-		break;
+			case ((key.diameter > 7.5) && (key.diameter <= 9)):
+			setKeySize(2, 2);
+			break;
 
-		case ((key[id] > 1) && (key[id] <= 1.25)):
-		setKeySize(0.3125, 0.3125);
-		break;
+			case ((key.diameter > 9) && (key.diameter <= 11)):
+			setKeySize(2.5, 2.5);
+			break;
 
-		case ((key[id] > 1.25) && (key[id] <= 1.5)):
-		setKeySize(0.375, 0.375);
-		break;
+		} //switch
 
-		case ((key[id] > 1.5) && (key[id] <= 1.75)):
-		setKeySize(0.4375, 0.4375);
-		break;
+	} else if (key.shape == "rectangular") {
+		switch(true) {
+	
+			case ((key.diameter > 0.3125) && (key.diameter <= 0.4375)):
+			setKeySize(0.09375, 0.09375);
+			break;
+	
+			case ((key.diameter > 0.4375) && (key.diameter <= 0.5625)):
+			setKeySize(0.09375, 0.125);
+			break;
+	
+			case ((key.diameter > 0.5625) && (key.diameter <= 0.875)):
+			setKeySize(0.125, 0.1875);
+			break;
+	
+			case ((key.diameter > 0.875) && (key.diameter <= 1.25)):
+			setKeySize(0.1875, 0.25);
+			break;
+	
+			case ((key.diameter > 1.25) && (key.diameter <= 1.375)):
+			setKeySize(0.25, 0.3125);
+			break;
+	
+			case ((key.diameter > 1.375) && (key.diameter <= 1.75)):
+			setKeySize(0.25, 0.375);
+			break;
+	
+			case ((key.diameter > 1.75) && (key.diameter <= 2.25)):
+			setKeySize(0.375, 0.5);
+			break;
+	
+			case ((key.diameter > 2.25) && (key.diameter <= 2.75)):
+			setKeySize(0.4375, 0.625);
+			break;
+	
+			case ((key.diameter > 2.75) && (key.diameter <= 3.25)):
+			setKeySize(0.5, 0.75);
+			break;
+	
+			case ((key.diameter > 3.25) && (key.diameter <= 3.75)):
+			setKeySize(0.625, 0.875);
+			break;
+	
+			case ((key.diameter > 3.75) && (key.diameter <= 4.5)):
+			setKeySize(0.75, 1);
+			break;
+	
+			case ((key.diameter > 4.5) && (key.diameter <= 5.5)):
+			setKeySize(0.875, 1.25);
+			break;
+	
+			case ((key.diameter > 5.5) && (key.diameter <= 6.5)):
+			setKeySize(1, 1.5);
+			break;
+	
+			case ((key.diameter > 6.5) && (key.diameter <= 7.5)):
+			setKeySize(1.5, 1.75);
+			break;
 
-		case ((key[id] > 1.75) && (key[id] <= 2)):
-		setKeySize(0.5, 0.5);
-		break;
+			case ((key.diameter > 7.5) && (key.diameter <= 9)):
+			setKeySize(1.5, 2);
+			break;
 
-		case ((key[id] > 2) && (key[id] <= 2.25)):
-		setKeySize(0.5625, 0.5625);
-		break;
-
-		case ((key[id] > 2.25) && (key[id] <= 2.5)):
-		setKeySize(0.625, 0.625);
-		break;
-
-		case ((key[id] > 2.5) && (key[id] <= 3)):
-		setKeySize(0.75, 0.75);
-		break;
-
-		case ((key[id] > 3) && (key[id] <= 3.5)):
-		setKeySize(0.875, 0.875);
-		break;
-
-		case ((key[id] > 3.5) && (key[id] <= 4)):
-		setKeySize(1, 1);
-		break;
-
-	} //switch
+			case ((key.diameter > 9) && (key.diameter <= 11)):
+			setKeySize(1.75, 2.5);
+			break;
+		} //switch
+	};
 } //function changeVariable
