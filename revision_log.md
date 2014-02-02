@@ -1,9 +1,15 @@
+###2014-Feb-01
+---
+
+* [Parallel Keys](http://www.scenic-shop.com/Calculators/keys.html)
+    * Added calculator, formula page, and image
+
+
 ###2014-Jan-29
 ---
 
 * [Motions](http://www.scenic-shop.com/Calculators/motions.html)
-    * Added calculator
-    * Added formula page
+    * Added calculator and formula page
 
 
 ###2014-Jan-21
