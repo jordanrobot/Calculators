@@ -33,8 +33,14 @@
     	<script>
 			LoadNavPanel("#shockload_page");
 
-			$(document).on('pageshow', '#shockload_page', function () {getShock();});
-			$(document).on('change', '.user_values', function(){getShock();});
+		$(document).on('pageshow', '#shockload_page', function(){
+			$("#wiretype, #rope_diameter, #rope_length, #rope_load, #rope_stretch, #per_elongation, #wiretype, #energy_absorbsion, #rope_diameter_L, #rope_length_L, #rope_stretch_L, #per_elongation_L, #energy_absorbsion_L, #rope_load_L").hide('fast');
+			$("#wiretype").parent().hide();
+			getShock();
+		});
+
+			$(document).on('change', '.user_values, #wiretype', function(){getShock();});
+			$(document).on('change', '#calcKind', function(){changeKind(); getShock();});
 			$(".calculated_values").prop("readonly",true);
 		</script>
 
@@ -47,20 +53,71 @@
 			<h1>Shockload Force</h1>
 		</div><!-- /header -->
 		
+		<div data-role="controlgroup">
+
+			<select name="calcKind" id="calcKind" data-mini="true">
+				<option value="Calculate_null" disabled>Calculate For:</option>
+				<option value="distance">Distance</option>
+				<option value="gac">Wire Rope</option>
+				<option value="elongationpercentage">Percent of Elongation</option>
+				<option value="working_energy">Green Working Energy Absorption</option>
+				</select>
+		</div>
+
 
  		<div role="main" class="ui-content">
 	
 			<label for="weight">Weight, lbm:</label>
-			<input class="user_values" type="number" data-clear-btn="true" name="weight" id="weight" value="200" min="1" />
+			<input class="user_values" type="number" data-clear-btn="true" id="weight" value="200" min="1" />
 			
-			<label for="fall">Fall Distance, in, ft:</label>
-			<input class="user_values" type="number" data-clear-btn="true" name="fall" id="fall" value="6" min="0" />
-	
-			<label for="stop">Stop Distance, in, ft:</label>
-			<input class="user_values" type="number" data-clear-btn="true" name="stop" id="stop" value="1" min="0" />
-			
+		<div class="ui-grid-a">
+			<div class="ui-block-a">
+				<label for="fall">Fall Distance, ft:</label>
+				<input class="user_values" type="number" data-clear-btn="true" id="fall" value="6" min="0" />
+			</div>
+			<div class="ui-block-b">
+				<label for="stop" id="stop_L">Stop Distance, in:</label>
+				<input class="user_values" type="number" id="stop" value="1" min="0" />
+			</div>
+		</div>
+
 			<label for="shock">Shockload, lbf:</label>
 			<input class="calculated_values" name="shock" id="shock" readonly />
+
+			<div data-role="controlgroup">
+				<select id="wiretype" data-mini="true">
+					<option value="Calculate_null" disabled>Wire Rope Type:</option>
+					<option value="0.471">7x7 GAC</option>
+					<option value="0.472">7x19 GAC</option>
+					<option value="0.416">6x19W with fiber core</option>
+					<option value="0.482">6x19W with IWRC</option>
+					<option value="0.419">6x36WS with fiber core</option>
+					<option value="0.485">6x36WS with IWRC</option>
+					<option value="0.366">8x19W with fiber core</option>
+					<option value="0.497">8x19W with IWRC</option>
+				</select>
+			</div>
+
+				<label for="rope_diameter" id="rope_diameter_L">Rope Diameter, in:</label>
+				<input class="user_values" type="number" id="rope_diameter" value="0.25" step="0.0625" />
+
+				<label for="rope_length" id="rope_length_L">Rope Length, ft:</label>
+				<input class="user_values" type="number" id="rope_length" value="100" />
+
+
+		<div class="ui-grid-a">
+			<div class="ui-block-a">
+				<label for="per_elongation"id="per_elongation_L">Elongation, %:</label>
+				<input class="user_values" type="number" id="per_elongation" value="1.5" />
+			</div>
+			<div class="ui-block-b">
+				<label for="rope_load" id="rope_load_L">at Rope Load, lbf:</label>
+				<input class="user_values" type="number" id="rope_load" value="750" />
+			</div>
+		</div>
+
+				<label for="energy_absorbsion" id="energy_absorbsion_L">Energy Absorbsion, ft/lbs per lb of rope:</label>
+				<input class="user_values" type="number" id="energy_absorbsion" value="291" />
 	
 		</div><!-- /content -->
 	
