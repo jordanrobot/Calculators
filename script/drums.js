@@ -17,18 +17,27 @@ function getMaxPayout() {
 
 }
 
+var yo = [];
 function getYoyoPayout() {
-	d = $('#yo_cable').val();
 
-	inner_wrap_diam = parseFloat($('#yo_spd').val()) + parseFloat(($('#yo_i_wraps').val()) * 2 * d);
-	outer_wrap_diam = parseFloat($('#yo_od').val())  - parseFloat(($('#yo_o_wraps').val()) * 2 * d);
+	get(yo, "cableD");
+	get(yo, "treadD");
+	get(yo, "od");
+	get(yo, "innerWraps");
+	get(yo, "outerWraps");
 
-	yoyo_payout = (AreaOfaCircle(outer_wrap_diam/2) - AreaOfaCircle(inner_wrap_diam/2)) / d;
+	yo.innerWrapD = yo.treadD + (yo.innerWraps * 2 * yo.cableD);
+	yo.outerWrapD = yo.od  - (yo.outerWraps * 2 * yo.cableD);
+	yo.payout = (AreaOfaCircle(yo.outerWrapD) - AreaOfaCircle(yo.innerWrapD)) / ( 12 * yo.cableD );
 
-	$('#yo_payout').val(Round(yoyo_payout, 2));
+	$('#payout').val(Round(yo.payout, 2));
 
-	$('#yo_u_wraps').val(Round((outer_wrap_diam - inner_wrap_diam)/(2 * d), 2));
+	$('#usableWraps').val(Round((yo.outerWrapD - yo.innerWrapD)/(2 * yo.cableD), 2));
 
+}
+
+function get(key, id) {
+	key[id] = (parseFloat($("#" + id).val())? parseFloat($("#" + id).val()) : $("#" + id).val());
 }
 
 

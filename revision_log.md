@@ -1,3 +1,10 @@
+###2014-Feb-06
+---
+
+* [Yoyo Payout](http://www.scenic-shop.com/Calculators/drums_yoyopayout.html)
+    * Fixed a calculation error.  Sorry!
+    * Refactored code.
+
 ###2014-Feb-01
 ---
 
