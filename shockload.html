@@ -34,7 +34,7 @@
 			LoadNavPanel("#shockload_page");
 
 		$(document).on('pageshow', '#shockload_page', function(){
-			$("#wiretype, #rope_diameter, #rope_length, #rope_load, #rope_stretch, #per_elongation, #wiretype, #energy_absorbsion, #rope_diameter_L, #rope_length_L, #rope_stretch_L, #per_elongation_L, #energy_absorbsion_L, #rope_load_L").hide('fast');
+			$("#wiretype, #rope_diameter, #rope_length, #rope_load, #rope_stretch, #per_elongation, #wiretype, #energy_absorbsion, #rope_diameter_L, #rope_length_L, #rope_stretch_L, #per_elongation_L, #energy_absorbsion_L, #rope_load_L, #rope_weight, #rope_weight_L").hide('fast');
 			$("#wiretype").parent().hide();
 			getShock();
 		});
@@ -60,8 +60,8 @@
 				<option value="distance">Distance</option>
 				<option value="gac">Wire Rope</option>
 				<option value="elongationpercentage">Percent of Elongation</option>
-				<option value="working_energy">Green Working Energy Absorption</option>
-				</select>
+			<!--	<option value="working_energy">Green Working Energy Absorption</option> -->
+			</select>
 		</div>
 
 
@@ -72,7 +72,7 @@
 			
 		<div class="ui-grid-a">
 			<div class="ui-block-a">
-				<label for="fall">Fall Distance, ft:</label>
+				<label for="fall">Fall Distance, in:</label>
 				<input class="user_values" type="number" data-clear-btn="true" id="fall" value="6" min="0" />
 			</div>
 			<div class="ui-block-b">
@@ -87,14 +87,14 @@
 			<div data-role="controlgroup">
 				<select id="wiretype" data-mini="true">
 					<option value="Calculate_null" disabled>Wire Rope Type:</option>
-					<option value="0.471">7x7 GAC</option>
 					<option value="0.472">7x19 GAC</option>
-					<option value="0.416">6x19W with fiber core</option>
-					<option value="0.482">6x19W with IWRC</option>
-					<option value="0.419">6x36WS with fiber core</option>
-					<option value="0.485">6x36WS with IWRC</option>
-					<option value="0.366">8x19W with fiber core</option>
-					<option value="0.497">8x19W with IWRC</option>
+					<option value="0.471">7x7 GAC</option>
+					<option value="0.416">6x19W, fiber core</option>
+					<option value="0.482">6x19W, IWRC</option>
+					<option value="0.419">6x36WS, fiber core</option>
+					<option value="0.485">6x36WS, IWRC</option>
+					<option value="0.366">8x19W, fiber core</option>
+					<option value="0.497">8x19W, IWRC</option>
 				</select>
 			</div>
 
@@ -116,9 +116,17 @@
 			</div>
 		</div>
 
+<!--		<div class="ui-grid-a">
+			<div class="ui-block-a">
 				<label for="energy_absorbsion" id="energy_absorbsion_L">Energy Absorbsion, ft/lbs per lb of rope:</label>
 				<input class="user_values" type="number" id="energy_absorbsion" value="291" />
-	
+			</div>
+			<div class="ui-block-b">
+				<label for="rope_weight" id="rope_weight_L">Rope weight, lb/ft:</label>
+				<input class="user_values" type="number" id="rope_weight" value="0.13" />
+			</div>
+		</div>
+-->
 		</div><!-- /content -->
 	
 

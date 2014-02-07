@@ -18,10 +18,9 @@ function getShock() {
 			elongationShock();
 			break;
 
-		case "working_energy":
-			energyShock();
-			break;
-
+//		case "working_energy":
+//			energyShock();
+//			break;
 
 	} //switch
 
@@ -43,7 +42,7 @@ function distanceShock() {
 
 	} else {
 	
-		shock.force	= shock.weight * (1 + ((shock.fall * 12) / shock.stop));
+		shock.force	= shock.weight * (1 + ((shock.fall) / shock.stop));
 		$("#shock").val(Round(shock.force, 1));
 	}
 
@@ -77,7 +76,7 @@ function elongationShock () {
 
 	a = (0.005 * shock.per_elongation * shock.rope_length) / shock.rope_load;
 	b = -2 * a * shock.weight;
-	c = -shock.weight * shock.fall;
+	c = -shock.weight * shock.fall / 12;
 
 	shock.force = ( -b + (Math.sqrt((b * b) - (4 * a * c)))) / (4 * a);
 
@@ -86,18 +85,21 @@ function elongationShock () {
 } // elongationShock
 
 
-function energyShock () {
+//function energyShock () {
 	
-	get("weight");
-	get("fall");
-	get("stop");
-	get("rope_length");
-	get("energy_absorbsion");
+//	get("weight");
+//	get("fall");
+//	get("stop");
+//	get("rope_length");
+//	get("energy_absorbsion");
+//	get("rope_weight");
+
+//	shock.moment = shock.weight * shock.fall;
+//	shock.enegry_capacity = shock.rope_length * shock.energy_absorbsion * shock.rope_weight;
 
 
 
-
-} // energyShock
+//} // energyShock
 
 function changeKind() {
 
@@ -106,7 +108,7 @@ function changeKind() {
 	switch(shock.calcKind) {
 
 		case "distance":
-			$("#rope_diameter, #rope_length, #per_elongation, #wiretype, #energy_absorbsion, #rope_diameter_L, #rope_length_L, #per_elongation_L, #energy_absorbsion_L, #rope_load, #rope_load_L").hide('slow');
+			$("#rope_diameter, #rope_length, #per_elongation, #wiretype, #energy_absorbsion, #rope_diameter_L, #rope_length_L, #per_elongation_L, #energy_absorbsion_L, #rope_load, #rope_load_L, #rope_weight, #rope_weight_L").hide('slow');
 			$("#wiretype").parent().hide("slow");
 			setGreen("#stop");
 			$("#stop, #stop_L").show("slow");
@@ -115,23 +117,23 @@ function changeKind() {
 		case "gac":
 			$("#rope_diameter, #rope_length, #wiretype, #rope_diameter_L, #rope_length_L, #rope_stretch_L").show('slow');
 			$("#wiretype").parent().show("slow");
-			$("#energy_absorbsion, #energy_absorbsion_L, #per_elongation, #per_elongation_L, #rope_load, #rope_load_L, #stop, #stop_L").hide("slow");
+			$("#energy_absorbsion, #energy_absorbsion_L, #per_elongation, #per_elongation_L, #rope_load, #rope_load_L, #stop, #stop_L, #rope_weight, #rope_weight_L").hide("slow");
 			setRed("#stop");
 			break;
 
 		case "elongationpercentage":
 			$("#rope_length, #rope_length_L, #per_elongation, #per_elongation_L, #rope_load, #rope_load_L").show('slow');
-			$("#energy_absorbsion, #energy_absorbsion_L, #rope_diameter_L, #rope_diameter, #stop, #stop_L").hide("slow");
+			$("#energy_absorbsion, #energy_absorbsion_L, #rope_diameter_L, #rope_diameter, #stop, #stop_L, #rope_weight, #rope_weight_L").hide("slow");
 			$("#wiretype").parent().hide("slow");
 			setRed("#stop");
 			break;
 
-		case "working_energy":
-			$("#rope_length, #energy_absorbsion, #energy_absorbsion_L, #wiretype, #rope_length_L").show('slow');
-			$("#per_elongation, #per_elongation_L, #rope_diameter_L, #rope_diameter, #rope_load, #rope_load_L, #stop, #stop_L").hide("slow");
-			$("#wiretype").parent().hide("slow");
-			setRed("#stop");
-			break;
+//		case "working_energy":
+//			$("#rope_length, #energy_absorbsion, #energy_absorbsion_L, #wiretype, #rope_length_L, #rope_weight, #rope_weight_L").show('slow');
+//			$("#per_elongation, #per_elongation_L, #rope_diameter_L, #rope_diameter, #rope_load, #rope_load_L, #stop, #stop_L").hide("slow");
+//			$("#wiretype").parent().hide("slow");
+//			setRed("#stop");
+//			break;
 
 	} //switch
 } //changeKing
