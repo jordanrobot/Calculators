@@ -1,6 +1,13 @@
 ###2014-Feb-06
 ---
 
+* [Shockload Forces](http://www.scenic-shop.com/Calculators/shockload.html)
+    * Added new calculation cases:
+        * Wire rope shockloads
+        * Rope shockloads (by percent elongation)
+    * Falling distance units were changed to inches
+    * Revised formulas page with new calculation methods
+
 * [Yoyo Payout](http://www.scenic-shop.com/Calculators/drums_yoyopayout.html)
     * Fixed a calculation error.  Sorry!
     * Refactored code.
