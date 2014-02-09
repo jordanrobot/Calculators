@@ -66,25 +66,25 @@
  	<div role="main" class="ui-content">
 
 		<label for="len_poisson">Poisson's Ratio:</label>
-		<input class="user_values" type="number" data-clear-btn="true" name="len_poisson" id="len_poisson" value="0.29" min="0" />
+		<input class="user_values" type="number" data-clear-btn="true" name="len_poisson" id="len_poisson" value="0.29" step="0.01" min="0" />
 
 		<label for="len_e">E (psi):</label>
-		<input class="user_values" type="number" data-clear-btn="true" name="len_e" id="len_e" value="29000000" min="0" />
+		<input class="user_values" type="number" data-clear-btn="true" name="len_e" id="len_e" value="29000000" step="1000000" min="0" />
 
 		<label for="len_thick">Drum Thickness (in):</label>
-		<input class="user_values" type="number" data-clear-btn="true" name="len_thick" id="len_thick" value="0.2085" min="0" />
+		<input class="user_values" type="number" data-clear-btn="true" name="len_thick" id="len_thick" value="0.2085" step="0.01" min="0" />
 
 		<label for="len_id">Drum ID (in):</label>
-		<input class="user_values" type="number" data-clear-btn="true" name="len_id" id="len_id" value="10.02" min="0" />
+		<input class="user_values" type="number" data-clear-btn="true" name="len_id" id="len_id" value="10" step="0.25" min="0" />
 
 		<label for="len_ds">Design Factor:</label>
 		<input class="user_values" type="number" data-clear-btn="true" name="len_ds" id="len_ds" value="8" min="0" />
 
 		<label for="len_f">Tension (lbf):</label>
-		<input class="user_values" type="number" data-clear-btn="true" name="len_f" id="len_f" value="525" min="0" />
+		<input class="user_values" type="number" data-clear-btn="true" name="len_f" id="len_f" value="525" step="25" min="0" />
 
 		<label for="len_cable">Cable D (in):</label>
-		<input class="user_values" type="number" data-clear-btn="true" name="len_cable" id="len_cable" value="0.1825" min="0" />
+		<input class="user_values" type="number" data-clear-btn="true" name="len_cable" id="len_cable" value="0.1825" step="0.0625" min="0" />
 
 		<label for="len_length">Max Length (in):</label>
 		<input class="calculated_values" type="number" name="len_length" id="len_length" readonly />

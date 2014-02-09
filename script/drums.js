@@ -37,7 +37,8 @@ function getYoyoPayout() {
 }
 
 function get(key, id) {
-	key[id] = (parseFloat($("#" + id).val())? parseFloat($("#" + id).val()) : $("#" + id).val());
+	var i = $("#" + id).val();
+	key[id] = (parseFloat(i) ? parseFloat(i) : i);
 }
 
 
