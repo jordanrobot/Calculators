@@ -38,8 +38,7 @@
 		$(document).on('pageinit', '#life_page', function () {calcBearing();});
 
 		$(document).on('change', "#variable", function(){changeVariable(this.value);});
-		$(document).on('change', "#ring, #Type, #reliability", function(){change(this.id, this.value);});
-
+		$(document).on('change', "#ring, #type, #reliability, #applicationFactor", function(){calcBearing();});
 		$(document).on('change', ".user_values, .calculated_values", function(){calcBearing();});
 
 		$(".calculated_values").prop("readonly",true);
@@ -85,22 +84,22 @@
 		</div>
 
 		<label for="c"><i>C</i> Dynamic Rating, lbf:</label>
-		<input class="user_values" type="number" data-clear-btn="true" id="c" value="7050" min="1" />
+		<input class="user_values" type="number" data-clear-btn="true" id="c" value="7050" min="1" step="100"/>
 
 		<label for="c0"><i>C<sub>0</sub></i> Static Rating, lbf:</label>
-		<input class="user_values" type="number" data-clear-btn="true" id="c0" value="10000" min="1" />
+		<input class="user_values" type="number" data-clear-btn="true" id="c0" value="10000" min="1"  step="100"/>
 
 		<label for="load">Bearing Load, lbf:</label>
-		<input class="user_values" type="number" id="load" value="5000" min="1" />
+		<input class="user_values" type="number" id="load" value="5000" min="1"  step="25"/>
 
 		<label for="s0"><i>S<sub>0</sub></i> Factor:</label>
-		<input class="calculated_values" type="number" data-clear-btn="true" id="s0" min="0" />
+		<input class="calculated_values" type="number" data-clear-btn="true" id="s0" min="0" step="0.25" />
 
 		<label for="cx"><i>C<sub>x</sub></i> Rated Hours:</label>
 		<input class="user_values" type="number" data-clear-btn="true" id="cx" value="1000000" min="0" />
 
 		<label for="rpm">RPM:</label>
-		<input class="user_values" type="number" data-clear-btn="true" id="rpm" min="0"/>
+		<input class="user_values" type="number" data-clear-btn="true" id="rpm" value="250" min="0"/>
 
 		<div class="ui-grid-a">
 			<div class="ui-block-a">
@@ -128,16 +127,12 @@
 			<label class="label" for="reliability" class="select">Reliability:</label>
 			<select id="reliability" data-mini="true">
 				<option value="reli_null" disabled>Reliability:</option>
-				<option value="90">90%</option>
-				<option value="91">91%</option>
-				<option value="92">92%</option>
-				<option value="93">93%</option>
-				<option value="94">94%</option>
-				<option value="95">95%</option>
-				<option value="96">96%</option>					
-				<option value="97">97%</option>
-				<option value="98">98%</option>
-				<option value="99">99%</option>
+				<option value="1">90%</option>
+				<option value="0.62">95%</option>
+				<option value="0.53">96%</option>					
+				<option value="0.44">97%</option>
+				<option value="0.33">98%</option>
+				<option value="0.21">99%</option>
 			</select>
 			</div>
 
