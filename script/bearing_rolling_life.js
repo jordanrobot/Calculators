@@ -1,10 +1,10 @@
-var b = [];
+var b = {};
 
 function changeVariable (value) {
 
 	switch(value) {
 
-		case "lifetime":
+	case "lifetime":
 		console.debug("calculate for " + value);
 		setGreen("#c"); 
 		setGreen("#c0");
@@ -12,9 +12,9 @@ function changeVariable (value) {
 		setRed("#s0");
 		setGreen("#rpm");
 		setRed("#hours");
-		break;
+	break;
 
-		case "bearingRating":
+	case "bearingRating":
 		console.debug("calculate for " + value);
 		setRed("#c"); 
 		setRed("#c0");
@@ -22,9 +22,9 @@ function changeVariable (value) {
 		setGreen("#s0");
 		setGreen("#rpm");
 		setGreen("#hours");
-		break;
+	break;
 
-		case "load":
+	case "load":
 		console.debug("calculate for " + value);
 		setGreen("#c");
 		setGreen("#c0");
@@ -32,9 +32,9 @@ function changeVariable (value) {
 		setRed("#load");
 		setGreen("#rpm");
 		setGreen("#hours");
-		break;
+	break;
 
-		case "rpm":
+	case "rpm":
 		console.debug("calculate for " + value);
 		setGreen("#c");
 		setGreen("#c0");
@@ -42,7 +42,9 @@ function changeVariable (value) {
 		setRed("#s0");
 		setRed("#rpm");
 		setGreen("#hours");
-		break;
+	break;
+	default:
+	break;
 
 	} //switch
 
@@ -75,7 +77,7 @@ function calcBearing() {
 
 	switch(b.variable) {
 
-		case "lifetime":
+	case "lifetime":
 
 		//S0 factor
 		$("#s0").val(Round(b.c0/b.load, 2));
@@ -89,52 +91,56 @@ function calcBearing() {
 
 		$("#hours").val( Round(b.revs / (b.rpm * 60),0));
 
+	break;
 
-		break;
-
-		case "bearingRating":
+	case "bearingRating":
 
 		//c0
 		$("#c0").val(Round(b.s0*b.load, 0));
-		//c
+
+		//revolutions
 		b.revs = b.hours * 60 * b.rpm;
 		$("#revs").val(Round(b.revs, 0));
 
+		//c
 		b.c = (b.load * b.ring) * Math.pow((b.revs / (b.cx * b.reliability * b.conditionFactor * b.applicationFactor)), (1/b.type));
 		$("#c").val(Round(b.c, 0));
-		//revolutions
 
-		break;
+	break;
 
-		case "load":
+	case "load":
 		//S0 factor
 		$("#s0").val(Round(b.c0/b.load, 2));
-
+	
 		//load
-
+	
 		b.revs = b.hours * 60 * b.rpm;
 		$("#revs").val(Round(b.revs, 0));
-
+	
 		b.load = b.c / (b.ring * Math.pow((b.revs / (b.cx * b.reliability * b.conditionFactor * b.applicationFactor)), (1/b.type)));
 		$("#load").val(Round(b.load, 0));
 
+	break;
 
-		//revolutions
-
-		break;
-
-		case "rpm":
+	case "rpm":
 
 		//S0 factor
 		$("#s0").val(Round(b.load/b.c0, 2));
+	
+		//solve for revs
+		b.revs = Math.pow(b.c/(b.load * b.ring), b.type) * b.cx * b.reliability * b.conditionFactor * b.applicationFactor;
+		$("#revs").val(Round(b.revs, 0)) ;
+	
+		//solve for rpm
+		b.rpm = b.revs / (b.hours * 60);
+		$("#rpm").val(Round(b.rpm, 0));
 
-		//rpm
+	break;
 
-		//revolutions
+	default:
+	break;
 
-		break;
-
-	} //switch
+	} // switch
 
 
 }
