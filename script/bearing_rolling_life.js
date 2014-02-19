@@ -22,42 +22,26 @@ function changeVariable (value) {
 
 	case "lifetime":
 		console.debug("calculate for " + value);
-		setGreen("#c"); 
-		setGreen("#c0");
-		setGreen("#load");
-		setRed("#s0");
-		setGreen("#rpm");
-		setRed("#hours");
+		setGreen("#c, #c0, #load, #rpm"); 
+		setRed("#s0, #hours");
 	break;
 
 	case "bearingRating":
 		console.debug("calculate for " + value);
-		setRed("#c"); 
-		setRed("#c0");
-		setGreen("#load");
-		setGreen("#s0");
-		setGreen("#rpm");
-		setGreen("#hours");
+		setRed("#c, #c0"); 
+		setGreen("#load, #s0, #rpm, #hours");
 	break;
 
 	case "load":
 		console.debug("calculate for " + value);
-		setGreen("#c");
-		setGreen("#c0");
-		setRed("#s0");
-		setRed("#load");
-		setGreen("#rpm");
-		setGreen("#hours");
+		setGreen("#c, #c0, #rpm, #hours");
+		setRed("#s0, #load");
 	break;
 
 	case "rpm":
 		console.debug("calculate for " + value);
-		setGreen("#c");
-		setGreen("#c0");
-		setGreen("#load");
-		setRed("#s0");
-		setRed("#rpm");
-		setGreen("#hours");
+		setGreen("#c, #c0, #load, #hours");
+		setRed("#s0, #rpm");
 	break;
 	default:
 	break;
