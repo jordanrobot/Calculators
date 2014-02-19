@@ -1,3 +1,10 @@
+###2014-Feb-18
+---
+
+* [Drum: Max Unbraced Length](http://www.scenic-shop.com/Calculators/drums_unbraced_length.html)
+    * Added realistic step values to input fields (e.g. "thickness" changes by 0.01" everytime the user uses an arrow key or scrolls the mouse while the field is active).
+* Backend: reworked how this site's code is revisioned and synced to the web-server -- the goals are increased consistency, rigor, and a possible whole-sale release of the source-code at a later date.
+
 ###2014-Feb-06
 ---
 
