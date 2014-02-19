@@ -1,4 +1,20 @@
-var b = {};
+var b = {
+	"variable": 			"",
+	"type": 				"",
+	"c": 					"",
+	"c0": 					"",
+	"load": 				"",
+	"s0": 					"",
+	"cx": 					"",
+	"rpm": 					"",
+	"hours": 				"",
+	"revs": 				"",
+	"ring": 				"",
+	"reliability": 			"",
+	"applicationFactor": 	"",
+	"conditionFactor": 		"",
+	"reliability": 			""
+};
 
 function changeVariable (value) {
 
@@ -58,22 +74,9 @@ function get(key, id) {
 
 function calcBearing() {
 
-	get(b, "variable");
-	get(b, "type");
-	get(b, "c");
-	get(b, "c0");
-	get(b, "load");
-	get(b, "s0");
-	get(b, "cx");
-	get(b, "rpm");
-	get(b, "hours");
-	get(b, "revs");
-	get(b, "ring");
-	get(b, "reliability");
-	get(b, "applicationFactor");
-	get(b, "conditionFactor");
-	get(b, "reliability");
-
+	for (i in b) {
+		get(b, i);
+	}
 
 	switch(b.variable) {
 
@@ -141,6 +144,4 @@ function calcBearing() {
 	break;
 
 	} // switch
-
-
 }
