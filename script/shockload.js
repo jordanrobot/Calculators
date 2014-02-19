@@ -1,4 +1,16 @@
-var shock = []
+var shock = {
+	"calcKind": 		"",
+	"weight": 			"",
+	"fall": 			"",
+	"stop": 			"",
+	"err":				"false",
+	"rope_diameter":	"",
+	"rope_length":		"",
+	"wiretype":			"",
+	"rope_load":		"",
+	"per_elongation":	"",
+	"force":			""
+};
 
 function getShock() {
 	
@@ -8,15 +20,15 @@ function getShock() {
 
 		case "distance":
 			distanceShock();
-			break;
+		break;
 
 		case "gac":
 			gacShock();
-			break;
+		break;
 
 		case "elongationpercentage":
 			elongationShock();
-			break;
+		break;
 
 //		case "working_energy":
 //			energyShock();
@@ -28,22 +40,20 @@ function getShock() {
 
 function distanceShock() {
 	
-	shock.err = false;
-	get(shock, "weight");
-	get(shock, "fall");
-	get(shock, "stop");
+	get(shock);
 	
 	if ((shock.fall <= 0) || (shock.stop <= 0) || (shock.weight <= 0)) {
 		shock.err = true;
 	}
 	
-	if (shock.err == true) {
-		$("#shock").val(0);
+	if (shock.err === true) {
+		shock.force = 0;
+		$("#force").val(shock.force);
 
 	} else {
 	
 		shock.force	= shock.weight * (1 + ((shock.fall) / shock.stop));
-		$("#shock").val(Round(shock.force, 1));
+		$("#force").val(Round(shock.force, 1));
 	}
 
 } //distanceShock
@@ -51,28 +61,17 @@ function distanceShock() {
 
 function gacShock () {
 	
-	get(shock, "weight");
-	get(shock, "fall");
-	get(shock, "stop");
-	get(shock, "rope_diameter");
-	get(shock, "rope_length");
-	get(shock, "wiretype");
+	get(shock);
 
-	a = 1 + ((2 * shock.fall * (shock.rope_diameter * shock.rope_diameter * shock.wiretype) * 15000000) / (shock.weight * shock.rope_length * 12));
-	shock.force = shock.weight * (1 + Math.sqrt(a));
+	shock.force = shock.weight * (1 + Math.sqrt(1 + ((2 * shock.fall * (shock.rope_diameter * shock.rope_diameter * shock.wiretype) * 15000000) / (shock.weight * shock.rope_length * 12))));
 
-	$("#shock").val(Round(shock.force, 1));
+	$("#force").val(Round(shock.force, 1));
 }
 
 
 function elongationShock () {
 	
-	get(shock, "weight");
-	get(shock, "fall");
-	get(shock, "stop");
-	get(shock, "rope_length");
-	get(shock, "rope_load");
-	get(shock, "per_elongation");
+	get(shock);
 
 	a = (0.005 * shock.per_elongation * shock.rope_length) / shock.rope_load;
 	b = -2 * a * shock.weight;
@@ -80,26 +79,10 @@ function elongationShock () {
 
 	shock.force = ( -b + (Math.sqrt((b * b) - (4 * a * c)))) / (4 * a);
 
-	$("#shock").val(Round(shock.force, 1));
+	$("#force").val(Round(shock.force, 1));
 
 } // elongationShock
 
-
-//function energyShock () {
-	
-//	get("weight");
-//	get("fall");
-//	get("stop");
-//	get("rope_length");
-//	get("energy_absorbsion");
-//	get("rope_weight");
-
-//	shock.moment = shock.weight * shock.fall;
-//	shock.enegry_capacity = shock.rope_length * shock.energy_absorbsion * shock.rope_weight;
-
-
-
-//} // energyShock
 
 function changeKind() {
 
@@ -137,10 +120,4 @@ function changeKind() {
 
 	} //switch
 } //changeKing
-
-
-//function get(id) {
-//	var i = $("#" + id).val()
-//	shock[id] = (parseFloat(i)? parseFloat(i) : i);
-//}
 
