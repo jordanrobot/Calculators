@@ -1,65 +1,86 @@
-var key = [];
+var key = {
+	"diameter": 			"",
+	"h": 					"",
+	"w": 					"",
+	"l": 					"",
+	"torque": 				"",
+	"safety": 				"",
+	"yield": 				"",
+	"compressionArea": 		"",
+	"compressionActual":	"",
+	"compressionAllow": 	"",
+	"compressionTest": 		"",
+	"shearArea": 			"",
+	"shearActual": 			"",
+	"shearAllow": 			"",
+	"shearTest": 			"",
+	"material":				""
+};
+
+//var key = [];
 
 function keyCalc() {
 
-	key.diameter = $("#diameter").val() * 1;
-	key.h = $("#height").val()	* 1;
-	key.w = $("#width").val() 	* 1;
-	key.l = $("#length").val()	* 1;
-	key.torque = $("#torque").val()	* 1;
-	key.safety = $("#safety").val()	* 1;
-	key.yield =  $("#yield").val()	* 1;
+//	key.diameter = $("#diameter").val() * 1;
+//	key.h = $("#height").val()	* 1;
+//	key.w = $("#width").val() 	* 1;
+//	key.l = $("#length").val()	* 1;
+//	key.torque = $("#torque").val()	* 1;
+//	key.safety = $("#safety").val()	* 1;
+//	key.yield =  $("#yield").val()	* 1;
 
-	getAreas();
+	get(key);
 
-
-	key.compressionActual = (4 * key.torque) / (key.diameter * key.l * key.h);
-	$("#compressionActual").val(Round(key.compressionActual, 0));
-
-	key.shearActual = (2 * key.torque) / (key.diameter * key.w * key.l);
-	$("#shearActual").val(Round(key.shearActual, 0));
-
-	key.compressionAllow = key.yield / key.safety;
-	$("#compressionAllow").val(Round(key.compressionAllow, 0));
-
-	key.shearAllow = (0.5 * key.yield) / key.safety;
-	$("#shearAllow").val(Round(key.shearAllow, 0));
-
-
-	if (key.compressionAllow > key.compressionActual) {
-		$("#compressionTest").val("pass");
-	} else {
-		$("#compressionTest").val("fail");
-	}
-	$("#compressionTest").slider("refresh");
-
-	if (key.shearAllow > key.shearActual) {
-		$("#shearTest").val("pass");
-	} else {
-		$("#shearTest").val("fail");
-	}
-	$("#shearTest").slider("refresh");
-
-}
-
-
-function setKeySize (h, w) {
-
-	$("#height").val(h);
-	$("#width").val(w);
-}
-
-function getAreas() {
-
-	key.h = $("#height").val()	* 1;
-	key.w = $("#width").val() 	* 1;
-	key.l = $("#length").val()	* 1;
+	// get key areas
+	key.h = $("#h").val()	* 1;
+	key.w = $("#w").val() 	* 1;
+	key.l = $("#l").val()	* 1;
 
 	key.compressionArea =	(key.h * key.l) / 2;
 	key.shearArea =	key.w * key.l;
 
 	$("#compressionArea").val(Round(key.compressionArea, 4));
 	$("#shearArea").val(Round(key.shearArea, 4));
+
+
+	//calculate compression
+	key.compressionActual = (4 * key.torque) / (key.diameter * key.l * key.h);
+	$("#compressionActual").val(Round(key.compressionActual, 0));
+
+	key.compressionAllow = key.yield / key.safety;
+	$("#compressionAllow").val(Round(key.compressionAllow, 0));
+
+	if (key.compressionAllow > key.compressionActual) {
+		$("#compressionTest").val("pass");
+	} else {
+		$("#compressionTest").val("fail");
+	}
+	
+	$("#compressionTest").slider("refresh");
+
+	//calcualte shear
+	key.shearActual = (2 * key.torque) / (key.diameter * key.w * key.l);
+	$("#shearActual").val(Round(key.shearActual, 0));
+
+	key.shearAllow = (0.5 * key.yield) / key.safety;
+	$("#shearAllow").val(Round(key.shearAllow, 0));
+
+	if (key.shearAllow > key.shearActual) {
+		$("#shearTest").val("pass");
+	} else {
+		$("#shearTest").val("fail");
+	}
+
+	$("#shearTest").slider("refresh");
+
+}
+
+function setKeySize (h, w) {
+
+	key.h = h;
+	key.w = w;
+	$("#h").val(h);
+	$("#w").val(w);
 }
 
 function getYield (id, value) {
@@ -94,15 +115,11 @@ function getYield (id, value) {
 }
 
 function setMaterial() {
-
 	$("#material").val("custom").selectmenu('refresh');
-
 }
 
 function setYield(i) {
-
 	$("#yield").val(i);
-
 }
 
 function setShape (id, value) {
