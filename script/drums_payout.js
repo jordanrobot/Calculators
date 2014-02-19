@@ -1,18 +1,28 @@
+var p = {
+	"lead": 		"",
+	"pitch": 		"",
+	"width": 		"",
+	"safety_wraps": "",
+	"lines":		"",
+	"active_wraps":	"",
+	"payout":		"",
+	"grooves":		""
+};
+
+
 function getMaxPayout() {
 
-	groove_lead = $('#pay_lead').val();
-	pitch_diam = $('#pay_pitch_diam').val();
-	width = $('#pay_length').val();
-	safety_wraps = $('#pay_safety_wraps').val();
-	lines = $('#pay_lines').val();
+	get(p);
 
-	// get total number of wraps
-	active_wraps = (width / groove_lead) - (safety_wraps * lines) - (lines * 0.5) - 1;
+	// calculate total number of wraps
+	p.active_wraps = (p.width / p.lead) - (p.safety_wraps * p.lines) - (p.lines * 0.5) - 1;
 
-	payout = ((active_wraps * CircumfrenceOfaCircle(pitch_diam)) / lines);
+	// calculate payout in ft
+	p.payout = ((p.active_wraps * p.pitch * Math.PI) / p.lines) / 12;
+	$('#payout').val(Round(p.payout, 2));
 
-	$('#pay_dist').val(Round(payout / 12, 2));
-
-	$('#pay_grooves').val(Round((width / groove_lead), 2));
+	// calculate total number of grooves
+	p.grooves = (p.width / p.lead);
+	$('#grooves').val(Round(p.grooves, 2));
 
 }
