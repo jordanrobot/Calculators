@@ -51,10 +51,6 @@ function changeVariable (value) {
 	calcBearing();
 } //function changeVariable
 
-//function get(key, id) {
-//	var i = $("#" + id).val()
-//	key[id] = (parseFloat(i)? parseFloat(i) : i);
-//}
 
 function calcBearing() {
 
