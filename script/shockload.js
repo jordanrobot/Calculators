@@ -30,6 +30,8 @@ function getShock() {
 			elongationShock();
 		break;
 
+		default:
+		break;
 //		case "working_energy":
 //			energyShock();
 //			break;
@@ -117,6 +119,9 @@ function changeKind() {
 //			$("#wiretype").parent().hide("slow");
 //			setRed("#stop");
 //			break;
+
+		default:
+		break;
 
 	} //switch
 } //changeKing
