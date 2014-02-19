@@ -5,21 +5,18 @@ function changeVariable () {
 	switch(variable) {
 
 		case "Dd_ratio":
-		setGreen("#cable_d"); 
-		setGreen("#pulley_d");
-		setRed("#Dd_ratio");
+			setGreen("#cable_d, #pulley_d"); 
+			setRed("#Dd_ratio");
 		break;
 
 		case "cable":
-		setRed("#cable_d");
-		setGreen("#pulley_d");
-		setGreen("#Dd_ratio");
+			setRed("#cable_d");
+			setGreen("#pulley_d, #Dd_ratio");
 		break;
 
 		case "pulley":
-		setGreen("#cable_d"); 
-		setRed("#pulley_d");
-		setGreen("#Dd_ratio");
+			setGreen("#cable_d, #Dd_ratio"); 
+			setRed("#pulley_d");
 		break;
 
 	} //switch

@@ -36,10 +36,11 @@ function getYoyoPayout() {
 
 }
 
-function get(key, id) {
-	var i = $("#" + id).val();
-	key[id] = (parseFloat(i) ? parseFloat(i) : i);
-}
+//function get(key, id) {
+//	var i = $("#" + id).val();
+//	key[id] = (parseFloat(i) ? parseFloat(i) : i);
+//}
+
 
 
 function getMaxDrumLength() {

@@ -32,11 +32,11 @@ function CircumfrenceOfaCircle(diameter) {
     return (diameter * Math.PI);
     }
 
-function sinDegrees(num) {return Math.sin(num/180*Math.PI);};
-function tanDegrees(num) {return Math.tan(num/180*Math.PI);};
-function cosDegrees(num) {return Math.cos(num/180*Math.PI);};
+function sinDegrees(num) {return Math.sin(num/180*Math.PI);}
+function tanDegrees(num) {return Math.tan(num/180*Math.PI);}
+function cosDegrees(num) {return Math.cos(num/180*Math.PI);}
 
-function atanDegrees(num) {return Math.atan(num/180*Math.PI);};
+function atanDegrees(num) {return Math.atan(num/180*Math.PI);}
 
 function LoadNavPanel(i) {
     $(document).on('pageshow', i, function () {
@@ -161,4 +161,11 @@ function redraw_colors(selector){
         $(".user_values").parent().css("background-color", "#c8f1c3"); 
         }
     );
+}
+
+
+
+function get(key, id) {
+    var i = $("#" + id).val()
+    key[id] = (parseFloat(i)? parseFloat(i) : i);
 }
