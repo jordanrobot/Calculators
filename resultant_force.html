@@ -13,14 +13,14 @@
 
 	<link rel="stylesheet" href="css/style.css" />
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
-	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 
 	<script type="text/javascript" src="script/mdj.math.library.js"></script>
 	<script type="text/javascript" src="script/resultant_force.js"></script>
 
 	<script type="text/javascript">$(document).bind("mobileinit", function () {$.mobile.ajaxEnabled = false;});</script>
-	<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
- 	<script src="http://www.scenic-shop.com/mint/?js" type="text/javascript"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+ 	<script type="text/javascript" src="http://www.scenic-shop.com/mint/?js"></script>
 
 </head>
 <body>
@@ -32,7 +32,7 @@
 
 <div data-role="page" id="resultantforce_page">
 
-    <script>
+    <script type="text/javascript">
 		LoadNavPanel("#resultantforce_page");
 
 		$(document).on('pageinit', '#resultantforce_page', function() {getResultantForce()});
@@ -63,13 +63,13 @@
 	<div role="main" class="ui-content">
 	
 			<label for="load">Load (lbf):</label>
-			<input class="user_values" type="number" data-clear-btn="true" name="load" id="load" value="500" min="1" />
+			<input class="user_values" type="number" data-clear-btn="true" id="load" value="500" min="1" />
 			
 			<label for="angle">Included Angle (&deg;):</label>
-			<input class="input_slider" type="range" name="angle" id="angle" value="90" max="179" min="0"  data-highlight="true" data-popup-enabled="true"/>
+			<input class="input_slider" type="range" id="angle" value="90" max="179" min="0"  data-highlight="true" data-popup-enabled="true"/>
 			
-			<label for="r_force">Resultant Force (lbf):</label>
-			<input class="calculated_values" name="r_force" id="r_force" readonly/>
+			<label for="force">Resultant Force (lbf):</label>
+			<input class="calculated_values" id="force" readonly/>
 	
 	</div><!-- /content -->
 

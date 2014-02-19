@@ -1,15 +1,21 @@
-var R = [];
+var r = {
+	"angle": "",
+	"load": "",
+	"force": ""
+};
 
 function getResultantForce() {
 
-	R.angle = $("#angle").val() * 1;
-	R.load = $("#load").val() * 1;
+	get(r);
 
-	if (R.angle === "0") {
-		$("#r_force").val(Round(R.load * 2, 1));
+	if (r.angle === 0) {
+		r.force = r.load * 2;
+	
 	} else {
-		temp = 2 * R.load * Math.cos(degtorad(R.angle/2));
-	temp 
-		$("#r_force").val(Round(temp, 1));
+	
+		r.force = 2 * r.load * Math.cos(degtorad(r.angle/2));
+
 	}
+
+	$("#force").val(Round(r.force, 1));
 }
