@@ -58,9 +58,7 @@ function changeVariable (value) {
 
 function calcBearing() {
 
-	for (i in b) {
-		get(b, i);
-	}
+	get(b);
 
 	switch(b.variable) {
 
