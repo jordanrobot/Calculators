@@ -164,8 +164,9 @@ function redraw_colors(selector){
 }
 
 
-
-function get(key, id) {
-    var i = $("#" + id).val()
-    key[id] = (parseFloat(i)? parseFloat(i) : i);
+function get(key) {
+    for (i in key) {
+        var a = $("#" + i).val()
+        key[i] = (parseFloat(a)? parseFloat(a) : a);
+    }
 }
