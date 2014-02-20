@@ -1,49 +1,41 @@
+var f = {
+	"variable": "",
+	"offset": 	"",
+	"distance": "",
+	"angle": 	""
+};
+
 function calculateFleetAngle() {
-	calcKind = $("#calcKind").val();
 
+	get(f);
 
-	if (calcKind == "offset") {
+	switch (f.variable) {
 
-		offset = $("#distance").val() * tanDegrees($('#angle').val());
-		$("#offset").val(Round(offset, 2));
+	case "offset":
+        setRed("#offset");
+        setGreen("#distance, #angle");
 
-	};
+		f.offset = f.distance * tanDegrees(f.angle);
+		$("#offset").val(Round(f.offset, 2));
+	break;
 
-	if (calcKind == "distance") {
+	case "distance":
+		f.distance =  f.offset / tanDegrees(f.angle);
+		$("#distance").val(Round(f.distance, 2));
 
-		distance =  $("#offset").val() / tanDegrees($('#angle').val());
-		$("#distance").val(Round(distance, 2));
+        setRed("#distance");
+        setGreen("#offset, #angle");
+	break;
 
-	};
+	case "angle":
+        setRed("#angle");
+        setGreen("#offset, #distance");
 
-	if (calcKind == "angle") {
+		f.angle = Math.atan(f.offset / f.distance)*180/Math.PI;
+		$("#angle").val(Round(f.angle, 2));
+	break;
 
-		angle = Math.atan($('#offset').val() / $("#distance").val())*180/Math.PI;
-		$("#angle").val(Round(angle, 2));
-
-	};
-
-}
-
-function changeKind() {
-
-	calcKind = $("#calcKind").val();
-
-	if (calcKind == "offset") {
-        $("#offset").parent().css("background-color", "#fcccd5"); //calculated
-        $("#distance").parent().css("background-color", "#c8f1c3"); //user
-        $("#angle").parent().css("background-color", "#c8f1c3"); //user
-	};
-
-	if (calcKind == "distance") {
-        $("#offset").parent().css("background-color", "#c8f1c3"); //user
-        $("#distance").parent().css("background-color", "#fcccd5"); //calculated
-        $("#angle").parent().css("background-color", "#c8f1c3"); //user		
-	};
-
-	if (calcKind == "angle") {
-        $("#offset").parent().css("background-color", "#c8f1c3"); //user
-        $("#distance").parent().css("background-color", "#c8f1c3"); //user
-        $("#angle").parent().css("background-color", "#fcccd5"); //calculated
-	};
+	default:
+	break;
+	}
 }
