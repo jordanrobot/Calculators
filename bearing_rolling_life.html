@@ -36,10 +36,7 @@
 		LoadNavPanel("#life_page");	
 
 		$(document).on('pageinit', '#life_page', function () {calcBearing();});
-
-		$(document).on('change', "#variable", function(){changeVariable(this.value);});
-		$(document).on('change', "#ring, #type, #reliability, #applicationFactor", function(){calcBearing();});
-		$(document).on('change', ".user_values, .calculated_values", function(){calcBearing();});
+		$(document).on('change', ".user_values, .calculated_values, #ring, #type, #reliability, #applicationFactor, #variable", function(){calcBearing();});
 
 		$(".calculated_values").prop("readonly",true);
 	</script>
@@ -153,7 +150,7 @@
 
 		<div data-role="footer" data-position="fixed" data-theme="b">
 			<div data-role="controlgroup" data-type="horizontal" align="center">
-				<a href="formulas/mdwiki.html#!bearing_rolling_life.md" data-role="button" id="formula" data-icon="gear" disabled style=color:#b2b2b2;>Formulas</a>
+				<a href="formulas/mdwiki.html#!bearing_rolling_life.md" data-role="button" id="formula" data-icon="gear">Formulas</a>
 				<a href="#diagram" data-role="button" id="bearing_diagram" data-rel="dialog" data-icon="info" disabled style=color:#b2b2b2;>Diagram</a>
 				<a href="disclaimer.html" data-role="button" data-rel="dialog">Disclaimer</a>
 			</div>

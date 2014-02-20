@@ -16,41 +16,6 @@ var b = {
 	"reliability": 			""
 };
 
-function changeVariable (value) {
-
-	switch(value) {
-
-	case "lifetime":
-		console.debug("calculate for " + value);
-		setGreen("#c, #c0, #load, #rpm"); 
-		setRed("#s0, #hours");
-	break;
-
-	case "bearingRating":
-		console.debug("calculate for " + value);
-		setRed("#c, #c0"); 
-		setGreen("#load, #s0, #rpm, #hours");
-	break;
-
-	case "load":
-		console.debug("calculate for " + value);
-		setGreen("#c, #c0, #rpm, #hours");
-		setRed("#s0, #load");
-	break;
-
-	case "rpm":
-		console.debug("calculate for " + value);
-		setGreen("#c, #c0, #load, #hours");
-		setRed("#s0, #rpm");
-	break;
-	default:
-	break;
-
-	} //switch
-
-	calcBearing();
-} //function changeVariable
-
 
 function calcBearing() {
 
@@ -59,6 +24,10 @@ function calcBearing() {
 	switch(b.variable) {
 
 	case "lifetime":
+
+		console.debug("calculate for " + b.variable);
+		setGreen("#c, #c0, #load, #rpm"); 
+		setRed("#s0, #hours");
 
 		//S0 factor
 		$("#s0").val(Round(b.c0/b.load, 2));
@@ -76,6 +45,10 @@ function calcBearing() {
 
 	case "bearingRating":
 
+		console.debug("calculate for " + b.variable);
+		setRed("#c, #c0"); 
+		setGreen("#load, #s0, #rpm, #hours");
+
 		//c0
 		$("#c0").val(Round(b.s0*b.load, 0));
 
@@ -90,6 +63,11 @@ function calcBearing() {
 	break;
 
 	case "load":
+
+		console.debug("calculate for " + b.variable);
+		setGreen("#c, #c0, #rpm, #hours");
+		setRed("#s0, #load");
+
 		//S0 factor
 		$("#s0").val(Round(b.c0/b.load, 2));
 	
@@ -104,6 +82,10 @@ function calcBearing() {
 	break;
 
 	case "rpm":
+
+		console.debug("calculate for " + b.variable);
+		setGreen("#c, #c0, #load, #hours");
+		setRed("#s0, #rpm");
 
 		//S0 factor
 		$("#s0").val(Round(b.load/b.c0, 2));
