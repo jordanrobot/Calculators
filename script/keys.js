@@ -20,13 +20,10 @@ var key = {
 
 function keyCalc() {
 
+	console.log("keyCalc");
 	get(key);
 
-	// get key areas
-	key.h = $("#h").val()	* 1;
-	key.w = $("#w").val() 	* 1;
-	key.l = $("#l").val()	* 1;
-
+	// areas
 	key.compressionArea =	(key.h * key.l) / 2;
 	key.shearArea =	key.w * key.l;
 
@@ -34,7 +31,7 @@ function keyCalc() {
 	$("#shearArea").val(Round(key.shearArea, 4));
 
 
-	//calculate compression
+	// calculate compression
 	key.compressionActual = (4 * key.torque) / (key.diameter * key.l * key.h);
 	$("#compressionActual").val(Round(key.compressionActual, 0));
 
@@ -49,7 +46,7 @@ function keyCalc() {
 	
 	$("#compressionTest").slider("refresh");
 
-	//calcualte shear
+	// calcualte shear
 	key.shearActual = (2 * key.torque) / (key.diameter * key.w * key.l);
 	$("#shearActual").val(Round(key.shearActual, 0));
 
@@ -68,13 +65,16 @@ function keyCalc() {
 
 function setKeySize (h, w) {
 
+	console.log("setKeySize");
 	key.h = h;
 	key.w = w;
-	$("#h").val(h);
-	$("#w").val(w);
+	$("#h").val(key.h);
+	$("#w").val(key.w);
 }
 
 function getYield (id, value) {
+
+	console.log("getYield");
 
 	switch(value) {
 
@@ -109,19 +109,28 @@ function getYield (id, value) {
 }
 
 function setMaterial() {
+	console.log("setMaterial");
+
 	$("#material").val("custom").selectmenu('refresh');
 }
 
 function setYield(i) {
+	console.log("setYield");
+
 	$("#yield").val(i);
 }
 
 function setShape (id, value) {
+	console.log("setShape");
+
 	key[id] = value;
 }
 
-function getShaftSize () {
+function getShaftSize() {
 
+	console.log("getShaftSize");
+
+	get(key);
 	key.shape = $("#shape").val();
 
 	if (key.shape == "square") {
