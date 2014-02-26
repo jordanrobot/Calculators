@@ -88,7 +88,7 @@ function calcBearing() {
 		setRed("#s0, #rpm");
 
 		//S0 factor
-		$("#s0").val(Round(b.load/b.c0, 2));
+		$("#s0").val(Round(b.c0/b.load, 2));
 	
 		//solve for revs
 		b.revs = Math.pow(b.c/(b.load * b.ring), b.type) * b.cx * b.reliability * b.conditionFactor * b.applicationFactor;

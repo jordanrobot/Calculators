@@ -6,6 +6,7 @@
 
 * [ANSI Roller Chain](chain_ansi.md)
 * [Bearings: Plain Radial PV calculator](bearing_plainPV.md)
+* [Bearings: Roller Lifetime](bearing_rolling_life.md)
 * [Capstan Holding Force](capstan_holding_force.md)
 * [D:d Ratio](D-to-d.md)
 * [Drums: Helical Payout](drums_helicalpayout.md)

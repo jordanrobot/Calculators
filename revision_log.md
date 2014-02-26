@@ -1,6 +1,8 @@
 ###2014-Feb-25
 ---
 
+* [Roller Bearing Lifetime](http://www.scenic-shop.com/Calculators/bearing_rolling_life.html)
+    * Added calculator and formula page
 * Updated Jquery Mobile to version 1.4.1
 * Refactored calculation methods to utilize more maintainable javascript for the following:
     * Linepull Winch Calcs
