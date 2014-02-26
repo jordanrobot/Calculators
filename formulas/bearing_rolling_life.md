@@ -1,143 +1,150 @@
 [gimmick: math]()
 
-Bearings: Plain PV
+Rolling Bearing Life
 ===
 
 Notes & Use
 ---
 
-Calculates design values (velocity, force, and combined) of plain bearings when the following are true:
+Calculates design values related to lifetime for rolling element bearings when the following is true:
 
-* For radial (journal) applications
-    * the bearing rotates around a shaft,
-    * the rotational motion is continuous (as opposed to an ocillating),
-    * the load is applied perpidicular to the axis of rotation (radial).
-* For thrust applications:
-    * the load rotates upon the bearing, around a fixed center point,
-    * the thrust bearing's bearing surface is circular or annular,
-    * the rotational motion is continuous,
-    * the load is applied parallel to the axis of rotation,
-    * the load is uniform across the surface area of the bearing.
+* The bearing operation is *not* characterized as an occilating motion; the spinning object tends to make full rotations at a roughly constant speed.
+* The RPM shall be approximated as an average RPM over the lifetime of the bearing.
+*  The radial and thrust loads have been converted to an equivalent load as per the bearing manufacturer's reccomendations.
 
-This calculator does *not* address any issues beyond P, V, and PV calculations, such as:
+This calculator does not calculate for:
 
-* Effects of friction,
-* Additional heat and energy-dispersal concerns,
-* Dimensional changes due to heat deformation,
-* Tribology/lubrication concerns,
-    * including cleanliness and suitability of lubricants 
-* Wear factors
-* Operating Temperatures
-* Lifetime calculations
-* Shock-load and impact factors
+* Equivalent load
+* Tapered roller bearings.
 
 
-Radial Figure
+Terms
 ---
 
-![](../image/Bearing_plainPV.jpg)
+C = Basic dynamic load rating, *pounds force* or *Newtons*
 
-Radial Terms
+C<sub>0</sub> = Basic static load rating, *pounds force* or *Newtons*
+
+L = Load on bearing, *pounds force* or *Newtons*
+
+S<sub>0</sub> = Safety factor for static loads, *unitless*
+
+C<sub>x</sub> = Rated lifetime hours, *revolutions*
+
+n = Average *rotations per minute* of bearing at load *L*.
+
+r = *Revolutions*
+
+h = Operating *hours*
+
+x = bearing type factor, from table:
+
+|Type|factor|
+|------|------|
+|Ball Bearing|3|
+|Roller Bearing|(10 / 3)|
+
+a<sub>1</sub> = Rotation factor, from table:
+
+|Rotating member|factor|
+|------|------|
+|Inner Ring|1|
+|Outer Ring|1.2|
+
+a<sub>2</sub> = Reliability factor, from table:
+
+|Reliability|factor|
+|------|------|
+|90%|1|
+|95%|0.62|
+|96%|0.53|
+|97%|0.44|
+|98%|0.33|
+|99%|0.21|
+
+a<sub>3</sub> = Application factor, generally 1.0.
+
+* a<sub>3</sub> = 1.0 under ideal lubrication condition, when rolling element and track surface are completely isolated by oil film and surface failure can be ignored.
+* a<sub>3</sub> &lt; 1 for poor lubrication conditions (such as low viscocity, minimal or dirty lubrication),  extremely slow speeds, shock loading, vibration, or extreme temperatures.  Value should not fall below *0.5*.
+* a<sub>3</sub> &gt; 1 for supremely excellent conditions.
+
+Equations:
 ---
 
-L = load on bearing, *pounds force*
+####Calculate for "Lifetime":
 
-n = Shaft speed, *rotations per minute*
-
-d = Diameter of shaft (ID of bearing), *inches*
-
-w = Bearing width, *inches*
-
-P = Pressure on bearing, *psi*
-
-V = velocity of bearing surface, *feet per minute*
-
-PV = Pressure &times; Velocity
-
-Radial Equations
 ---
 
-$$ P_{actual} =
-    \frac {L} {w d}
+Safety factor:
+$$ S&#x005F;{0} = \frac { C&#x005F;{0} } {L} $$
+
+Revolutions:
+$$ r = \left( \frac {C}{ L \, a&#x005F;{1}} \right)^x
+    \, C&#x005F;{x} \, a&#x005F;{2} \, a&#x005F;{3}
 $$
 
-$$ V_{actual} =
-    \frac {n  d  \pi} {12}
+Hours:
+$$ h = \frac {r}{60 \, n} $$
+
+
+####Calculate for "Bearing Rating":
+
+---
+
+Basic static load:
+$$ C&#x005F;{0} = S&#x005F;{0} \, L $$
+
+Revolutions:
+$$ r = 60 \, h \, n $$
+
+Basic dynamic load:
+
+$$ C = L \, a&#x005F;{1} 
+            \left(
+                \frac
+                    {r}
+                    {C&#x005F;{x} \, a&#x005F;{2} \, a&#x005F;{3}}
+            \right)^ \frac{1}{x}
 $$
 
-Thrust Figure
+####Calculate for "Load":
+
 ---
 
-![](../image/Bearing_plainPV_thrust.jpg)
+Safety factor:
+$$ S&#x005F;{0} = \frac { C&#x005F;{0} } {L} $$
 
+Revolutions:
+$$ r = 60 \,h \, n $$
 
-Thrust Terms
----
-
-L = load on bearing, *pounds force*
-
-n = Rotation speed, *rotations per minute*
-
-d = Inner diameter of bearing's surface area, *inches*
-
-D = Outer diameter of bearing's surface area, *inches*
-
-P = Pressure on bearing, *psi*
-
-V = velocity of bearing surface, *feet per minute*
-
-PV = Pressure &times; Velocity
-
-
-Thrust Equation
----
-
-$$ P_{actual} =
-    \frac {4L} {\pi (D^2 - d^2)}
+Load:
+$$ L = \frac {C}
+    { a&#x005F;{1} \,
+        \left( \frac
+            {r}
+            {C&#x005F;{x} \, a&#x005F;{2} \, a&#x005F;{3}}
+        \right)^ \frac{1}{x}
+}
 $$
 
-$$ V_{actual} =
-    \frac {n  \left( \frac{D - d}{4} \right)  \pi} {12}
+#### Calculate for "RPM":
+
+---
+
+Safety factor:
+$$ S&#x005F;{0} = \frac { C&#x005F;{0} } {L} $$
+
+Revolutions:
+$$ r = \left( \frac {C} {L \, a&#x005F;{1}}\right)^x \,
+    C&#x005F;{x} \, a&#x005F;{2} \, a&#x005F;{3}
 $$
 
+RPM:
+$$ n = \frac{r}{60 \, h} $$
 
-Pass/Fail Test
----
-P<sub>actual</sub>, V<sub>actual</sub>, and PV<sub>actual</sub> are compared to the respective allowable values:
-
-* Pass = actual < allowable
-* Fail = actual &ge; allowable
-
-Material P, V, and PV values
----
-
-The design values provided by the drop-down material box are culled from various sources, notably [Mcmaster-Carr](http://www.mcmaster.com) and [Wikipedia](https://en.wikipedia.org/wiki/Journal_bearings). A full table of those values is as follows:
-
-|Material|P|V|PV|
-|------|------|------|------|
-||*psi*|*fpm*|*psi&times;fpm*|
-|SAE 841|2,000|1,200|50,000|
-|Graphite SAE 841|1,600|1,000|40,000|
-|SAE 660|4,000|750|75,000|
-|SAE 841|2,000|1,200|50,000|
-|SAE 863|4,000|225|35,000|
-|Nylon|400|360|3,000|
-|Nylon MDS #1|2,000|393|3,400|
-|UHMWPE|1,000|100|2,000|
-|Acetal|1,000|1,000|2,700|
-|Ptfe|500|100|1,000|
-|Ptfe (glass filled)|1,000|400|11,000|
-|Rulon 641|1,000|400|10,000|
-|Rulon J|750|400|7,500|
-|Rulon LR|1,000|400|10,000|
-|Peek (blend 1)|8,500|400|3,500|
-|Peek (blend 2)|21,750|295|37,700|
-|Vespel|4,900|3,000|30,0000|
 
 Sources
 ---
 
-* Robert L. Mott, *[Machine Elements in Mechanical Design](http://www.amazon.com/Machine-Elements-Mechanical-Design-Edition/dp/0130618853/ref=sr_1_1?ie=UTF8&qid=1388274723&sr=8-1&keywords=mechanical+elements+in+machine+design)*, 4th ed. pp. 669, 2003.
-* [Dupont Vespel Design Guide](http://www2.dupont.com/Vespel/en_US/assets/downloads/vespel_gen/E61500.pdf)
-* [Mcmaster-Carr](http://www.mcmaster.com)
-* [Wikipedia](https://en.wikipedia.org/wiki/Journal_bearings)
+* Robert L. Mott, *[Machine Elements in Mechanical Design](http://www.amazon.com/Machine-Elements-Mechanical-Design-Edition/dp/0130618853/ref=sr_1_1?ie=UTF8&qid=1388274723&sr=8-1&keywords=mechanical+elements+in+machine+design)*, 4th ed. pp. 606-616, 2003.
+* Nose Seiko Co., *[Bearing Life and Load Rating](http://www.nose-seiko.co.jp/en/image/pdf/e01.pdf)*
