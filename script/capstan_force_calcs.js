@@ -1,20 +1,26 @@
+var c = {
+	"calcKind": 		"",
+	"load": 			"",
+	"friction": 			"",
+	"wraps": 			"",
+	"hold":				"false"
+};
+
 function calculateHold() {
-	calcKind = $("#calcKind").val();
 
-	if (calcKind == "hold") {
+	get(c);
 
-	hold_val = $("#load").val() * Math.pow(Math.E, -$("#friction").val() * $("#wraps").val() * 2 * Math.PI);
-	$("#hold").val(Round(hold_val, 2));
+	if (c.calcKind === "hold") {
+		// calculate the required hoad based on the lold
+		c.hold = c.load * Math.pow(Math.E, -c.friction * c.wraps * 2 * Math.PI);
+		$("#hold").val(Round(c.hold, 2));
+	}
 
-	};
-
-	if (calcKind == "load") {
-
-	load_val = $("#hold").val() * Math.pow(Math.E, $("#friction").val() * $("#wraps").val() * 2 * Math.PI);
-	$("#load").val(Round(load_val, 2));
-
-	};
-
+	if (c.calcKind === "load") {
+		// calculate the allowable load based on the hold
+		c.load = c.hold * Math.pow(Math.E, c.friction * c.wraps * 2 * Math.PI);
+		$("#load").val(Round(c.load, 1));
+	}
 }
 
 function changeKind(value) {
@@ -22,11 +28,10 @@ function changeKind(value) {
 	if (value == "hold") {
 		setRed("#hold");
 		setGreen("#load");
-	};
+	}
 
 	if (value == "load") {
 		setGreen("#hold");
 		setRed("#load"); 
-	};
-
+	}
 }

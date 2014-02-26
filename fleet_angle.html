@@ -11,15 +11,15 @@
 	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../apple-touch-icon-120x120.png">
 	<meta content="width=device-width, minimum-scale=1, maximum-scale=1" name="viewport">
 	<link rel="stylesheet" href="css/style.css" />
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
-	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 
 	<script type="text/javascript" src="script/mdj.math.library.js"></script>
 	<script type="text/javascript" src="script/fleet_angle.js"></script>
 
 	<script type="text/javascript">$(document).bind("mobileinit", function () {$.mobile.ajaxEnabled = false;});</script>
-	<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
- 	<script src="http://www.scenic-shop.com/mint/?js" type="text/javascript"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.js"></script>
+ 	<script type="text/javascript" src="http://www.scenic-shop.com/mint/?js"></script>
 
 </head>
 <body>
@@ -30,7 +30,7 @@
 
 <div data-role="page" id="fleet_page">
 
-	<script>
+	<script type="text/javascript">
 
 		LoadNavPanel("#fleet_page");
 		$(document).on('pageinit', '#fleet_page', function() {
@@ -39,11 +39,8 @@
 			}
 		);
 
-		$(document).on('change', '#angle, #offset, #distance', function() {calculateFleetAngle()});	
-		$(document).on('change', '#calcKind', function() {
-			changeKind();
-			calculateFleetAngle();
-		});
+		$(document).on('change', '#angle, #offset, #distance, #variable', function() {calculateFleetAngle();});
+
 	</script>
 
 
@@ -68,7 +65,7 @@
  	<div role="main" class="ui-content">
 
 		<div data-role="controlgroup">
-			<select name="calcKind" id="calcKind" data-mini="true">
+			<select id="variable" data-mini="true">
 				<option value="Calculate_null" disabled>Calculate for:</option>
 				<option value="distance" >Distance</option>
 				<option value="offset">Offset</option>
@@ -78,13 +75,13 @@
 
 		<div data-role="fieldcontain">
 			<label for="angle">Angle (deg):</label>
-			<input class="user_values" type="number" name="angle" id="angle" value="3" min="0" step="0.5" max="179" />
+			<input class="user_values" type="number" id="angle" value="3" min="0" step="0.5" max="179" />
 
 			<label for="offset">Offset:</label>
-			<input class="user_values" type="number" name="offset" id="offset" value="2" />
+			<input class="user_values" type="number" id="offset" value="2" />
 
 			<label for="distance">Distance:</label>
-			<input class="calculated_values" type="number" name="distance" id="distance" value="48" min="0" />
+			<input class="calculated_values" type="number" id="distance" value="48" min="0" />
 
 		</div><!-- /fieldcontain --> 
 

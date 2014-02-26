@@ -12,14 +12,14 @@
 	<meta content="width=device-width, minimum-scale=1, maximum-scale=1" name="viewport">
 
 	<link rel="stylesheet" href="css/style.css" />
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
-	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript" src="script/mdj.math.library.js"></script>
 	<script type="text/javascript" src="script/winch_linepull.js"></script>
 
 	<script type="text/javascript">$(document).bind("mobileinit", function () {$.mobile.ajaxEnabled = false;});</script>
-	<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
- 	<script src="http://www.scenic-shop.com/mint/?js" type="text/javascript"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.js"></script>
+ 	<script type="text/javascript" src="http://www.scenic-shop.com/mint/?js"></script>
 
 </head>
 <body>
@@ -31,7 +31,7 @@
 
 <div data-role="page" id="winch">
 
-	<script>
+	<script type="text/javascript">
 		LoadNavPanel("#winch");
 		
 		$(document).on('pageshow', '#winch', function () {Calculate_imp();});
@@ -62,25 +62,25 @@
 
 	<div class="ui-field-contain">
 		<label for="hp">HP:</label>
-		<input class="user_values" type="number" data-clear-btn="true" name="hp" id="hp" value="5" min="0" maxlength="4" />
+		<input class="user_values" type="number" data-clear-btn="true" id="hp" value="5" min="0" step="0.5" />
 	
 		<label for="rpm">RPM:</label>
-		<input class="user_values" type="number" data-clear-btn="true" name="rpm" id="rpm" value="2700" min="0" maxlength="4" />
+		<input class="user_values" type="number" data-clear-btn="true" id="rpm" value="2700" min="0" step="100" />
 	
 		<label for="drum">Drum Dia (in):</label>
-		<input class="user_values" type="number" data-clear-btn="true" name="drum" id="drum" value="11" min="0" maxlength="4" />
+		<input class="user_values" type="number" data-clear-btn="true" id="drum" value="11" min="0" step="0.25" />
 	
 		<label for="efficiency">Efficiency (%):</label>
-		<input type="range" name="efficiency" id="efficiency" value="79" min="1" max="100" step="1" data-highlight="true"/>
+		<input type="range" id="efficiency" value="79" min="1" max="100" step="1" data-highlight="true"/>
 				</br>
 		<label for="ratio">Ratio:</label>
-		<input type="range" name="ratio" id="ratio" value="33" min="1" max="900" step="0.1" data-highlight="true" />
+		<input type="range" id="ratio" value="33" min="1" max="900" step="0.1" data-highlight="true" />
 		
 		<label for="speed">Speed (ft/s):</label>
-		<input class="user_values" type="number" data-clear-btn="true" id="speed" name="speed" />
+		<input class="user_values" type="number" data-clear-btn="true" id="speed" />
 	
 		<label for="force">Force (lbs):</label>
-		<input class="user_values" type="number" data-clear-btn="true" id="force" name="force" />
+		<input class="user_values" type="number" data-clear-btn="true" id="force" />
 	</div>
 	</div>	 <!-- Content -->
 
@@ -96,22 +96,6 @@
 	</div>  <!-- Footer -->
 
 </div>	 <!-- Page -->
-
-
-<!--	#####   DIAGRAM   #####		-->
-
-<div data-role="page" id="diagram" data-dialog="true">
-	<div data-role="header" data-position="fixed" data-theme="b">
-		<h1>Linepull Winch Diagram</h1>
-	</div><!-- /header -->
-    
-    <div data-role="content">
-		<!-- <h1> <img class="centered" src="image/winch_linepull.jpg" alt="Diagram" /> </h1> -->
-    </div>
-  
-</div><!-- Page -->
-
-
 
 </body>
 </html>

@@ -1,59 +1,54 @@
-function changeVariable () {
+var d = {
+	"cable": 	"",
+	"tread": "",
+	"ratio": "",
+	"variable": "",
+	"pitch":	"",
+	"strength":	""
+};
 
-	var variable = $("#variable").val();
-
-	switch(variable) {
-
-		case "Dd_ratio":
-		setGreen("#cable_d"); 
-		setGreen("#pulley_d");
-		setRed("#Dd_ratio");
-		break;
-
-		case "cable":
-		setRed("#cable_d");
-		setGreen("#pulley_d");
-		setGreen("#Dd_ratio");
-		break;
-
-		case "pulley":
-		setGreen("#cable_d"); 
-		setRed("#pulley_d");
-		setGreen("#Dd_ratio");
-		break;
-
-	} //switch
-
-} //function changeVariable
 
 function calculateDd () {
-	cable_d = $("#cable_d").val() * 1;
-	pulley_d = $("#pulley_d").val() * 1;
-	pulley_Dd = $("#Dd_ratio").val() * 1;
-	variable = $("#variable").val();
 
-	switch(variable) {
+	get(d);
 
-		case "Dd_ratio":
-		$("#Dd_ratio").val(Round((pulley_d + cable_d) / cable_d, 1));
-		break;
+	switch(d.variable) {
 
-		case "cable":
-		$("#cable_d").val(Round((pulley_d + cable_d) / pulley_Dd, 3));
-		break;
+	case "ratio":
+		setGreen("#cable, #tread"); 
+		setRed("#ratio");
 
-		case "pulley":
-		$("#pulley_d").val(Round((cable_d * pulley_Dd) - cable_d, 2));
-		break;
+		d.ratio = (d.tread + d.cable) / d.cable;
+		$("#ratio").val(Round(d.ratio, 1));
+	break;
+
+	case "cable":
+		setRed("#cable");
+		setGreen("#tread, #ratio");
+
+		d.cable = (d.tread + d.cable) / d.pulley_Dd;
+		$("#cable").val(Round(d.cable, 3));
+	break;
+
+	case "tread":
+		setGreen("#cable, #ratio"); 
+		setRed("#tread");
+
+		d.tread = (d.cable * d.ratio) - d.cable;
+		$("#tread").val(Round(d.tread, 2));
+	break;
+
+	default:
+	break;
 
 	} //switch
 
-	$("#pitch_d").val(Round(($("#pulley_d").val() * 1) + cable_d, 3));
+	// pitch diameter
+	d.pitch = (d.tread * 1) + d.cable;
+	$("#pitch").val(Round(d.pitch, 3));
 
-	cable_d = 	$("#cable_d").val() 	* 1;
-	pulley_d = 	$("#pulley_d").val()	* 1;
-	strength = 1 - (0.5 / Math.sqrt((pulley_d + cable_d) / cable_d));
+	d.strength = (1 - (0.5 / Math.sqrt((d.tread + d.cable) / d.cable))) * 100;
 
-	$("#strength").val(Round(strength * 100, 0));
+	$("#strength").val(Round(d.strength, 0));
 
 } // function calculateDd

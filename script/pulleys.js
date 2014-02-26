@@ -1,68 +1,63 @@
-function changeVariable () {
+var p = {
+	"cable": "",
+	"tread": "",
+	"ratio": "",
+	"pitch": "",
+	"variable": "",
+	"load": "",
+	"bore": "",
+	"bore_p": "",
+	"tread_p": "",
+	"boreWidth": "",
+	"wrap_deg": "",
+	"resultant": ""
+};
 
-	var variable = $("#variable").val();
-
-	switch(variable) {
-
-		case "Dd_ratio":
-		setGreen("#cable_d"); 
-		setGreen("#pulley_d");
-		setRed("#Dd_ratio");
-		break;
-
-		case "cable":
-		setRed("#cable_d");
-		setGreen("#pulley_d");
-		setGreen("#Dd_ratio");
-		break;
-
-		case "pulley":
-		setGreen("#cable_d"); 
-		setRed("#pulley_d");
-		setGreen("#Dd_ratio");
-		break;
-
-	} //switch
-
-} //function changeVariable
 
 function calculateDd () {
-	cable_d = $("#cable_d").val() * 1;
-	pulley_d = $("#pulley_d").val() * 1;
-	pulley_Dd = $("#Dd_ratio").val() * 1;
-	variable = $("#variable").val();
+	get(p);
 
-	switch(variable) {
+	switch(p.variable) {
 
-		case "Dd_ratio":
-		$("#Dd_ratio").val(Round((pulley_d + cable_d) / cable_d, 1));
-		break;
+	case "ratio":
+		setGreen("#cable, #tread"); 
+		setRed("#ratio");
+		p.ratio = (p.tread + p.cable) / p.cable;
+		$("#ratio").val(Round(p.ratio, 1));
+	break;
 
-		case "cable":
-		$("#cable_d").val(Round((pulley_d + cable_d) / pulley_Dd, 3));
-		break;
+	case "cable":
+		setRed("#cable");
+		setGreen("#tread, #ratio");
+		p.cable = (p.tread + p.cable) / p.ratio;
+		$("#cable").val(Round(p.cable, 3));
+	break;
 
-		case "pulley":
-		$("#pulley_d").val(Round((cable_d * pulley_Dd) - cable_d, 2));
-		break;
+	case "pulley":
+		setGreen("#cable, #ratio"); 
+		setRed("#tread");
+		p.tread = (p.cable * p.ratio) - p.cable;
+		$("#tread").val(Round(p.tread, 2));
+	break;
+
+	default:
+	break;
 
 	} //switch
 
-	$("#pitch_d").val(Round(($("#pulley_d").val() * 1) + cable_d, 3));
+	// Pitch Diameter
+	p.pitch = p.tread + p.cable;
+	$("#pitch").val(Round(p.pitch, 3));
 
-	cable_d = 	$("#cable_d").val() 	* 1;
-	pulley_d = 	$("#pulley_d").val()	* 1;
-	load	=	$("#load").val()		* 1;
-	bore	=	$("#bore_d").val()		* 1;
-	width	=	$("#bore_width").val()	* 1;
-	wrap_deg	=	$("#wrap_deg").val()* 1;
+	// Calculate resultant force
+	p.resultant = 2 * Math.cos(degtorad((180 - p.wrap_deg) / 2));
 
-	resultant = 2 * Math.cos(degtorad((180 - wrap_deg) / 2));
+	// Tread pressure
+	p.tread_p = (p.resultant * p.load) / (p.cable * p.tread);
+	$("#tread_p").val(Round(p.tread_p, 0));
 
-	tread_p = (resultant * load) / (cable_d * pulley_d);
-	$("#tread_p").val(Round(tread_p, 0));
-
-	bore_p = (resultant * load) / (bore * width);
-	$("#bore_p").val(Round(bore_p, 0));
+	// Bore pressure
+	p.bore_p = (p.resultant * p.load) / (p.bore * p.boreWidth);
+	$("#bore_p").val(Round(p.bore_p, 0));
 
 } // function calculateDd
