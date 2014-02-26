@@ -12,7 +12,6 @@ var b = {
 	"ring": 				"",
 	"reliability": 			"",
 	"applicationFactor": 	"",
-	"conditionFactor": 		"",
 	"reliability": 			""
 };
 
@@ -34,7 +33,7 @@ function calcBearing() {
 
 		//revolutions
 
-		b.revs = Math.pow(b.c/(b.load * b.ring), b.type) * b.cx * b.reliability * b.conditionFactor * b.applicationFactor;
+		b.revs = Math.pow(b.c/(b.load * b.ring), b.type) * b.cx * b.reliability * b.applicationFactor;
 		$("#revs").val(Round(b.revs, 0)) ;
 
 		//hours
@@ -57,7 +56,7 @@ function calcBearing() {
 		$("#revs").val(Round(b.revs, 0));
 
 		//c
-		b.c = (b.load * b.ring) * Math.pow((b.revs / (b.cx * b.reliability * b.conditionFactor * b.applicationFactor)), (1/b.type));
+		b.c = (b.load * b.ring) * Math.pow((b.revs / (b.cx * b.reliability * b.applicationFactor)), (1/b.type));
 		$("#c").val(Round(b.c, 0));
 
 	break;
@@ -76,7 +75,7 @@ function calcBearing() {
 		b.revs = b.hours * 60 * b.rpm;
 		$("#revs").val(Round(b.revs, 0));
 	
-		b.load = b.c / (b.ring * Math.pow((b.revs / (b.cx * b.reliability * b.conditionFactor * b.applicationFactor)), (1/b.type)));
+		b.load = b.c / (b.ring * Math.pow((b.revs / (b.cx * b.reliability * b.applicationFactor)), (1/b.type)));
 		$("#load").val(Round(b.load, 0));
 
 	break;
@@ -91,7 +90,7 @@ function calcBearing() {
 		$("#s0").val(Round(b.c0/b.load, 2));
 	
 		//solve for revs
-		b.revs = Math.pow(b.c/(b.load * b.ring), b.type) * b.cx * b.reliability * b.conditionFactor * b.applicationFactor;
+		b.revs = Math.pow(b.c/(b.load * b.ring), b.type) * b.cx * b.reliability * b.applicationFactor;
 		$("#revs").val(Round(b.revs, 0)) ;
 	
 		//solve for rpm
