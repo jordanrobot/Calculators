@@ -1,3 +1,25 @@
+###2014-Feb-25
+---
+
+* Updated Jquery Mobile to version 1.4.1
+* Refactored calculation methods to utilize more maintainable javascript for the following:
+    * Linepull Winch Calcs
+    * Parallel Keys
+    * Pulley Pressures
+    * Helical Payout
+    * Yoyo Payout
+    * Max Unbraced Length
+    * Resultant Force over a pulley
+    * Capstan Holding Force
+    * Shock-load Forces
+    * Fleet Angle
+    * D:d ratio
+* [Yoyo Payout](http://www.scenic-shop.com/Calculators/drums_yoyopayout.html)
+    - Added some columns to the formatting
+* [Parallel Keys](http://www.scenic-shop.com/Calculators/keys.html)
+    * Fixed a bug where a new shaft size would not reliably update the standard key sizes.
+
+
 ###2014-Feb-18
 ---
 
