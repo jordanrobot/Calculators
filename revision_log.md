@@ -1,3 +1,9 @@
+###2014-June-02
+---
+
+* Updated Jquery Mobile for all pages to version 1.4.2
+
+
 ###2014-Feb-25
 ---
 
