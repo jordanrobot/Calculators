@@ -78,19 +78,41 @@
 		<label for="dist_a">Accel Distance (ft):</label>
 		<input class="user_values" type="number" name="dist_a" id="dist_a" min="0" data-clear-btn="true"/>
 
-		<label for="dist_d">Decel. Distance (ft):</label>
-		<input class="user_values" type="number" name="dist_d" id="dist_d" min="0" data-clear-btn="true"/>
+		<label for="time_a">Accel. time (s):</label>
+		<input class="user_values" type="number" name="time_a" id="time_a" min="0" data-clear-btn="true"/>
 	</div>
 
 	<div class="ui-block-b">
 		<label for="accel">Accel. (ft/s*s):</label>
 		<input class="user_values" type="number"  id="accel" name="accel" min="0" value="4" data-clear-btn="true"/>
 
-		<label for="decel">Decel. (ft/s*s):</label>
-		<input class="user_values" type="number"  id="decel" name="decel" min="0" value="4" data-clear-btn="true"/>
+		<label for="gforce_a">Accel. g-force:</label>
+		<input class="user_values" type="number" name="gforce_a" id="gforce_a" min="0" data-clear-btn="true"/>
 
 	</div>
 </div>
+
+<div class="ui-grid-a">
+	<div class="ui-block-a">
+
+		<label for="dist_d">Decel. Distance (ft):</label>
+		<input class="user_values" type="number" name="dist_d" id="dist_d" min="0" data-clear-btn="true"/>
+
+		<label for="time_d">Decel. time (s):</label>
+		<input class="user_values" type="number" name="time_d" id="time_d" min="0" data-clear-btn="true"/>
+	</div>
+
+	<div class="ui-block-b">
+
+		<label for="decel">Decel. (ft/s*s):</label>
+		<input class="user_values" type="number"  id="decel" name="decel" min="0" value="4" data-clear-btn="true"/>
+
+
+		<label for="gforce_d">Decel. g-force:</label>
+		<input class="user_values" type="number" name="gforce_d" id="gforce_d" min="0" data-clear-btn="true"/>
+	</div>
+</div>	
+
 
 		<div data-role="collapsible" data-collapsed="true" data-theme="b">
 			<h3>Forces</h3>
