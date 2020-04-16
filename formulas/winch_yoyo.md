@@ -12,10 +12,12 @@ Calculates a simple winch arragement in which there exists:
 * A reduction stage
 * A yoyo (or pilewind) drum.
 
-The behavior of this system is such that at any time during the machine's operation, the linepull velocity and force are changing depending on the diameter of the drum.  E.g. as the motor drives at a constant speed, the drum pulls in cable.  This has the following effect:
+The behavior of this system is such that at any time during the machine's operation, the linepull velocity and force are changing depending on the diameter of the drum.  E.g. as the motor drives at a constant speed, the drum pulls in cable.  As the machine takes up cable, the effective diameter of the drum increases, with the following effects:
 
-* The line speed will increase as the drum is piling-on the line, increasing the drum's effective diameter,
-* The force exibited on the line will decrease, as the diameter (radius) increases but the torque remains the same.
+* The line speed will increase when turned a consistent rpm, and
+* The force exibited on the line will decrease.
+
+Conversly, the opposite effects will occur as the machine lets out cable.
 
 As such, the values provided in the Force and Speed input boxes represent the two extreme states of the drum's diameter.  It is important to note that while in use, the force and velocity will vacilate between those values depending on the drum's current diameter.
 

@@ -9,7 +9,7 @@ Notes & Use
 Calculates the payout (in feet), and total number of wraps for a yoyo drum, with the following considerations...
 
 * the yoyo drum must have a single line per groove,
-* the calculation is a simplified method that divides the area of the usuable wraps by the cable diameter.  This method is not exact, but is more than adequate for the purposes of stage machines. 
+* the calculation is a simplified method that divides the area of the usuable wraps by the cable diameter.  This method is not exact, but is more than adequate for the purposes of stage machines; it estimates the area of the cable pack, and divides that quantity by the cable diameter.  This method does not take into account any cable elongation.
 
 Figure
 ---
