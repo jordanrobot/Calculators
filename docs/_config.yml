@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   A simple test site to test out github pages.
 twitter_username: username
 github_username: jordanrobot
-minimal_mistakes_skin: light
+minimal_mistakes_skin: contrast
 search: true
 
 # Build settings
