@@ -3,7 +3,7 @@ var gac = [];
 function getXml() {
    $.ajax({
      type: "GET",
-     url: "http://www.scenic-shop.com/Calculators/xml/gac_specs.xml",
+     url: "https://www.scenic-shop.com/Calculators/xml/gac_specs.xml",
      dataType: "xml",
      success: parseXml
    });

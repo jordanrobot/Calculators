@@ -26,4 +26,4 @@
 
 [gimmick:theme (inverse: false)](yeti)
 
-<script src="http://www.scenic-shop.com/mint/?js" type="text/javascript"></script>
+<script src="https://www.scenic-shop.com/mint/?js" type="text/javascript"></script>
