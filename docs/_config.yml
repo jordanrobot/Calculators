@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: jordanrobot test site
+title: Calculators
 email:
 description: >- # this means to ignore newlines until "baseurl:"
   A simple test site to test out github pages.
@@ -57,7 +57,7 @@ plugins:
 
 author:
   name   : "Matthew D. Jordan"
-  avatar : "/assets/images/bio-photo.jpg"
+  avatar : ""
   bio    : "Senior Technical and Mechanical Designer"
   links:
     - label: "Website"
