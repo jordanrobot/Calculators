@@ -1,3 +1,8 @@
+---
+layout: default
+title: Parallel Shaft Keys
+nav_order:
+---
 [gimmick: math]()
 
 Parallel Keys

@@ -1,4 +1,7 @@
 ---
+layout: default
+title: Bearing Rolling Life
+nav_order: 2
 ---
 [gimmick: math]()
 

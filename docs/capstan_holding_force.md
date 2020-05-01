@@ -1,3 +1,8 @@
+---
+layout: default
+title: Capstan Holding Forces
+nav_order: 3
+---
 [gimmick: math]()
 
 Capstan Holding Forces

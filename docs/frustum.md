@@ -1,3 +1,8 @@
+---
+layout: default
+title: Frustum
+nav_order:
+---
 [gimmick: math]()
 
 Conical Frustum Flattener

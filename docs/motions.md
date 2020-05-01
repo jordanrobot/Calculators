@@ -1,3 +1,8 @@
+---
+layout: default
+title: Motions
+nav_order:
+---
 [gimmick: math]()
 
 Motions

@@ -1,3 +1,9 @@
+---
+layout: default
+title: Payout of Helical Drums
+nav_order: 6
+---
+
 [gimmick: math]()
 
 Payout of Helical Drums

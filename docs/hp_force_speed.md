@@ -1,3 +1,8 @@
+---
+layout: default
+title: HP Force/Speed
+nav_order:
+---
 [gimmick: math]()
 
 HP Force/Speed Calculator

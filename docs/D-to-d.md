@@ -1,3 +1,8 @@
+---
+layout: default
+title: D:d Ratio
+nav_order: 5
+---
 [gimmick: math]()
 
 D:d Ratio

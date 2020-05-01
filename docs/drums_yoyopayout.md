@@ -1,3 +1,8 @@
+---
+layout: default
+title: Payout of YoYo Drums
+nav_order: 8
+---
 [gimmick: math]()
 
 Payout of YoYo Drums

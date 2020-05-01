@@ -1,4 +1,7 @@
 ---
+layout: default
+title: Plain Bearing PV
+nav_order: 1
 ---
 [gimmick: math]()
 

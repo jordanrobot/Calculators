@@ -1,3 +1,8 @@
+---
+layout: default
+title: Piston Force & Speed
+nav_order:
+---
 [gimmick: math]()
 
 Piston Force & Speed

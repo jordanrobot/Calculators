@@ -1,3 +1,8 @@
+---
+layout: default
+title: Pullies
+nav_order:
+---
 [gimmick: math]()
 
 Pulley Pressures

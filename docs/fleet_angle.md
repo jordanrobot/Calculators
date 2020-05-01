@@ -1,3 +1,8 @@
+---
+layout: default
+title: Fleet Angle
+nav_order:
+---
 [gimmick: math]()
 
 Fleet Angle

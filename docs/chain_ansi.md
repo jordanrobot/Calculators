@@ -1,3 +1,8 @@
+---
+layout: default
+title: ANSI Chain Calcs
+nav_order: 4
+---
 [gimmick: math]()
 
 ANSI Chain Calcs

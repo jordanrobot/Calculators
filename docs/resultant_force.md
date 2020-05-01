@@ -1,3 +1,8 @@
+---
+layout: default
+title: Resultant Force
+nav_order:
+---
 [gimmick: math]()
 
 Resultant Force

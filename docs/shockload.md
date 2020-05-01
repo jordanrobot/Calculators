@@ -1,3 +1,8 @@
+---
+layout: default
+title: Shockload
+nav_order:
+---
 [gimmick: math]()
 
 Shockload Force

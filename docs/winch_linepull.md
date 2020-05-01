@@ -1,3 +1,8 @@
+---
+layout: default
+title: Winch Linepull
+nav_order:
+---
 [gimmick: math]()
 
 Linepull Winch Calcs

@@ -1,3 +1,8 @@
+---
+layout: default
+title: Yoyo Winch Calcs
+nav_order:
+---
 [gimmick: math]()
 
 Yoyo Winch Calcs

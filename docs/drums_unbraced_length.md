@@ -1,3 +1,8 @@
+---
+layout: default
+title: Length of Unbraced Drums
+nav_order: 7
+---
 [gimmick: math]()
 
 Max Unbraced Drum Length
