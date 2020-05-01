@@ -1,4 +1,9 @@
-# Formulas
+---
+layout: default
+title: Fleet Angle
+nav_exclude: true
+---
+# Formulae List
 
 [Calculator Index](http:\\www.scenic-shop.com\Calculators)
 
@@ -25,5 +30,3 @@
 * [Yoyo Winch](winch_yoyo.md)
 
 [gimmick:theme (inverse: false)](yeti)
-
-<script src="https://www.scenic-shop.com/mint/?js" type="text/javascript"></script>
