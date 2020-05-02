@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Length of Unbraced Drums
-nav_order: 7
+nav_order: 
 ---
 [gimmick: math]()
 

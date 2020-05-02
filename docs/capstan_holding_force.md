@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Capstan Holding Forces
-nav_order: 3
+nav_order: 
 ---
 [gimmick: math]()
 

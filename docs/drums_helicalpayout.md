@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Payout of Helical Drums
-nav_order: 6
+title: Helical Drum Cable Payout
+nav_order: 
 ---
 
 [gimmick: math]()

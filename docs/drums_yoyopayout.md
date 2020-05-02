@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Payout of YoYo Drums
-nav_order: 8
+title: Yoyo Drum Cable Payout
+nav_order: 
 ---
 [gimmick: math]()
 

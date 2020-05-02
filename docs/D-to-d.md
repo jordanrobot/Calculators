@@ -1,7 +1,7 @@
 ---
 layout: default
-title: D:d Ratio
-nav_order: 5
+title: "D:d Ratio"
+nav_order: 
 ---
 [gimmick: math]()
 
