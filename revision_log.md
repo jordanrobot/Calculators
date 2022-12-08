@@ -78,7 +78,7 @@
     * Renamed the "Power Range" slider's label.
 * [Yoyo Winch Calcs](https://www.scenic-shop.com/Calculators/winch_yoyo.html)
     * Added calculator
-    * Added [formula](http://scenic-shop.com/Calculators/docs/mdwiki.html#!winch_yoyo.md) page
+    * Added [formula](http://www.scenic-shop.com/Calculators/docs/mdwiki.html#!winch_yoyo.md) page
 
 ###2014-Jan-20
 ---
@@ -209,7 +209,7 @@
 
 `In Progress`
 
-* Added a [Plain Bearing: Radial PV](https://www.scenic-shop.com/Calculators/bearing_plainPV_radial.html) calculator, with diagram, and a link to the formulas and explanation page [Formulas](http://scenic-shop.com/Calculators/docs/mdwiki.html#!bearing_plainPV_radial.md)
+* Added a [Plain Bearing: Radial PV](https://www.scenic-shop.com/Calculators/bearing_plainPV_radial.html) calculator, with diagram, and a link to the formulas and explanation page [Formulas](http://www.scenic-shop.com/Calculators/docs/mdwiki.html#!bearing_plainPV_radial.md)
 
 
 ###2013-Dec-16
