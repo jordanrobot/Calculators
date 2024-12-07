@@ -1,6 +1,6 @@
 # Revision Log
 
-[Calculator Index](https:\\www.scenic-shop.com\Calculators)
+[Calculator Index](https:\\calculators.scenic-shop.com\)
 
 [gimmick: math]()
 
